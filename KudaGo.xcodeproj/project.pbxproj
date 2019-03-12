@@ -7,21 +7,41 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F50D9906221AA1EC008ED3A6 /* RoundedShadow.swift in Sources */ = {isa = PBXBuildFile; fileRef = F50D9905221AA1EC008ED3A6 /* RoundedShadow.swift */; };
+		F50D990A221AEFBA008ED3A6 /* DropShadowEffect.swift in Sources */ = {isa = PBXBuildFile; fileRef = F50D9909221AEFBA008ED3A6 /* DropShadowEffect.swift */; };
 		F544FADD2219C60D00A04184 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F544FADC2219C60D00A04184 /* AppDelegate.swift */; };
 		F544FADF2219C60D00A04184 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F544FADE2219C60D00A04184 /* ViewController.swift */; };
 		F544FAE22219C60D00A04184 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F544FAE02219C60D00A04184 /* Main.storyboard */; };
 		F544FAE42219C60E00A04184 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F544FAE32219C60E00A04184 /* Assets.xcassets */; };
 		F544FAE72219C60E00A04184 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F544FAE52219C60E00A04184 /* LaunchScreen.storyboard */; };
+		F544FAEF2219C91D00A04184 /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F544FAEE2219C91D00A04184 /* TableViewCell.swift */; };
+		F544FAF12219CA3100A04184 /* File.swift in Sources */ = {isa = PBXBuildFile; fileRef = F544FAF02219CA3100A04184 /* File.swift */; };
+		F58B20F9222D9C810032D137 /* ParseType.swift in Sources */ = {isa = PBXBuildFile; fileRef = F58B20F8222D9C810032D137 /* ParseType.swift */; };
+		F59397F3222B2CFE00853B0E /* Events.swift in Sources */ = {isa = PBXBuildFile; fileRef = F59397F2222B2CFE00853B0E /* Events.swift */; };
+		F59397F6222D28BE00853B0E /* Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = F59397F5222D28BE00853B0E /* Result.swift */; };
+		F5D3FC3522295D0300E7A119 /* EventsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5D3FC3422295D0300E7A119 /* EventsService.swift */; };
+		F5D46D01221F5C90002A5634 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5D46D00221F5C90002A5634 /* DetailViewController.swift */; };
+		F5F7EC5B222DA0A700A5686F /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F5F7EC5A222DA0A700A5686F /* Default-568h@2x.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		F544FAD92219C60D00A04184 /* tableView11.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = tableView11.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		F50D9905221AA1EC008ED3A6 /* RoundedShadow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedShadow.swift; sourceTree = "<group>"; };
+		F50D9909221AEFBA008ED3A6 /* DropShadowEffect.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DropShadowEffect.swift; sourceTree = "<group>"; };
+		F544FAD92219C60D00A04184 /* KudaGo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KudaGo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F544FADC2219C60D00A04184 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F544FADE2219C60D00A04184 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		F544FAE12219C60D00A04184 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		F544FAE32219C60E00A04184 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F544FAE62219C60E00A04184 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F544FAE82219C60E00A04184 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F544FAEE2219C91D00A04184 /* TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCell.swift; sourceTree = "<group>"; };
+		F544FAF02219CA3100A04184 /* File.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = File.swift; sourceTree = "<group>"; };
+		F58B20F8222D9C810032D137 /* ParseType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParseType.swift; sourceTree = "<group>"; };
+		F59397F2222B2CFE00853B0E /* Events.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Events.swift; sourceTree = "<group>"; };
+		F59397F5222D28BE00853B0E /* Result.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Result.swift; sourceTree = "<group>"; };
+		F5D3FC3422295D0300E7A119 /* EventsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventsService.swift; sourceTree = "<group>"; };
+		F5D46D00221F5C90002A5634 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
+		F5F7EC5A222DA0A700A5686F /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -35,10 +55,20 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		F50D990E221AFB90008ED3A6 /* New Group */ = {
+			isa = PBXGroup;
+			children = (
+				F50D9909221AEFBA008ED3A6 /* DropShadowEffect.swift */,
+			);
+			path = "New Group";
+			sourceTree = "<group>";
+		};
 		F544FAD02219C60D00A04184 = {
 			isa = PBXGroup;
 			children = (
-				F544FADB2219C60D00A04184 /* tableView11 */,
+				F5F7EC5A222DA0A700A5686F /* Default-568h@2x.png */,
+				F50D9905221AA1EC008ED3A6 /* RoundedShadow.swift */,
+				F544FADB2219C60D00A04184 /* KudaGo */,
 				F544FADA2219C60D00A04184 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -46,30 +76,62 @@
 		F544FADA2219C60D00A04184 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				F544FAD92219C60D00A04184 /* tableView11.app */,
+				F544FAD92219C60D00A04184 /* KudaGo.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		F544FADB2219C60D00A04184 /* tableView11 */ = {
+		F544FADB2219C60D00A04184 /* KudaGo */ = {
 			isa = PBXGroup;
 			children = (
 				F544FADC2219C60D00A04184 /* AppDelegate.swift */,
-				F544FADE2219C60D00A04184 /* ViewController.swift */,
+				F5D3FC3322295CAC00E7A119 /* EventViewController */,
+				F5D46D00221F5C90002A5634 /* DetailViewController.swift */,
+				F544FAF02219CA3100A04184 /* File.swift */,
 				F544FAE02219C60D00A04184 /* Main.storyboard */,
+				F5D3FC3622295D1500E7A119 /* EventService */,
+				F50D990E221AFB90008ED3A6 /* New Group */,
 				F544FAE32219C60E00A04184 /* Assets.xcassets */,
 				F544FAE52219C60E00A04184 /* LaunchScreen.storyboard */,
 				F544FAE82219C60E00A04184 /* Info.plist */,
 			);
-			path = tableView11;
+			path = KudaGo;
+			sourceTree = "<group>";
+		};
+		F59397F4222B2D0B00853B0E /* clas */ = {
+			isa = PBXGroup;
+			children = (
+				F59397F2222B2CFE00853B0E /* Events.swift */,
+				F59397F5222D28BE00853B0E /* Result.swift */,
+			);
+			path = clas;
+			sourceTree = "<group>";
+		};
+		F5D3FC3322295CAC00E7A119 /* EventViewController */ = {
+			isa = PBXGroup;
+			children = (
+				F544FADE2219C60D00A04184 /* ViewController.swift */,
+				F544FAEE2219C91D00A04184 /* TableViewCell.swift */,
+			);
+			path = EventViewController;
+			sourceTree = "<group>";
+		};
+		F5D3FC3622295D1500E7A119 /* EventService */ = {
+			isa = PBXGroup;
+			children = (
+				F59397F4222B2D0B00853B0E /* clas */,
+				F5D3FC3422295D0300E7A119 /* EventsService.swift */,
+				F58B20F8222D9C810032D137 /* ParseType.swift */,
+			);
+			path = EventService;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		F544FAD82219C60D00A04184 /* tableView11 */ = {
+		F544FAD82219C60D00A04184 /* KudaGo */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = F544FAEB2219C60E00A04184 /* Build configuration list for PBXNativeTarget "tableView11" */;
+			buildConfigurationList = F544FAEB2219C60E00A04184 /* Build configuration list for PBXNativeTarget "KudaGo" */;
 			buildPhases = (
 				F544FAD52219C60D00A04184 /* Sources */,
 				F544FAD62219C60D00A04184 /* Frameworks */,
@@ -79,9 +141,9 @@
 			);
 			dependencies = (
 			);
-			name = tableView11;
+			name = KudaGo;
 			productName = tableView11;
-			productReference = F544FAD92219C60D00A04184 /* tableView11.app */;
+			productReference = F544FAD92219C60D00A04184 /* KudaGo.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -99,7 +161,7 @@
 					};
 				};
 			};
-			buildConfigurationList = F544FAD42219C60D00A04184 /* Build configuration list for PBXProject "tableView11" */;
+			buildConfigurationList = F544FAD42219C60D00A04184 /* Build configuration list for PBXProject "KudaGo" */;
 			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -112,7 +174,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				F544FAD82219C60D00A04184 /* tableView11 */,
+				F544FAD82219C60D00A04184 /* KudaGo */,
 			);
 		};
 /* End PBXProject section */
@@ -123,6 +185,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F544FAE72219C60E00A04184 /* LaunchScreen.storyboard in Resources */,
+				F5F7EC5B222DA0A700A5686F /* Default-568h@2x.png in Resources */,
 				F544FAE42219C60E00A04184 /* Assets.xcassets in Resources */,
 				F544FAE22219C60D00A04184 /* Main.storyboard in Resources */,
 			);
@@ -135,8 +198,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F50D9906221AA1EC008ED3A6 /* RoundedShadow.swift in Sources */,
+				F50D990A221AEFBA008ED3A6 /* DropShadowEffect.swift in Sources */,
+				F5D3FC3522295D0300E7A119 /* EventsService.swift in Sources */,
+				F59397F3222B2CFE00853B0E /* Events.swift in Sources */,
+				F544FAEF2219C91D00A04184 /* TableViewCell.swift in Sources */,
+				F544FAF12219CA3100A04184 /* File.swift in Sources */,
+				F58B20F9222D9C810032D137 /* ParseType.swift in Sources */,
 				F544FADF2219C60D00A04184 /* ViewController.swift in Sources */,
 				F544FADD2219C60D00A04184 /* AppDelegate.swift in Sources */,
+				F5D46D01221F5C90002A5634 /* DetailViewController.swift in Sources */,
+				F59397F6222D28BE00853B0E /* Result.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -284,12 +356,12 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = K9RH9LFWB6;
-				INFOPLIST_FILE = tableView11/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/KudaGo/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = Vlad01.tableView11;
+				PRODUCT_BUNDLE_IDENTIFIER = Vlad01.KudaGo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -302,12 +374,12 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = K9RH9LFWB6;
-				INFOPLIST_FILE = tableView11/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/KudaGo/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = Vlad01.tableView11;
+				PRODUCT_BUNDLE_IDENTIFIER = Vlad01.KudaGo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -317,7 +389,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		F544FAD42219C60D00A04184 /* Build configuration list for PBXProject "tableView11" */ = {
+		F544FAD42219C60D00A04184 /* Build configuration list for PBXProject "KudaGo" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				F544FAE92219C60E00A04184 /* Debug */,
@@ -326,7 +398,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		F544FAEB2219C60E00A04184 /* Build configuration list for PBXNativeTarget "tableView11" */ = {
+		F544FAEB2219C60E00A04184 /* Build configuration list for PBXNativeTarget "KudaGo" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				F544FAEC2219C60E00A04184 /* Debug */,
