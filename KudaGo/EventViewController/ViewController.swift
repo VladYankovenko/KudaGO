@@ -54,9 +54,7 @@ extension ViewController: UITableViewDataSource  {
         let list = eventService.listOfFields[indexPath.row]
         
         cell?.titleLabel.text = list.title.uppercased()//все заглавные
-        let descriptionClear = String(list.description.dropFirst(3))
-        
-        cell?.descriptionLabel.text = descriptionClear
+        cell?.descriptionLabel.text = list.description
         if list.price == ""{
             cell?.priceLabel.text = "Бесплатно"
         }else{

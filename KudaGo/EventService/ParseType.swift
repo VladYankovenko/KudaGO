@@ -28,7 +28,7 @@ enum ParseType: URLPoint {
         switch self {
         case .events:
            // return "events"
-           return "events/?fields=id,dates,title,short_title,slug,place,description,price,is_free"
+           return "events/?fields=id,dates,title,short_title,slug,place,description,price,is_free&text_format=text"
         case .cities:
             return "locations/?lang=ru"
         }
