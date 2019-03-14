@@ -8,7 +8,7 @@
 
 import UIKit
 
-//var ev: [String] = ["HELLO","HH","HHH","HHHHH"]
+
 var events = [Eve]()
 var results = [Result]()
 var event11 = [Events]()
@@ -51,7 +51,7 @@ class ViewController: UIViewController, UITableViewDelegate {
         //loadEvents()
         
         
-       // print(eventService.listOfFields[1])
+       
         
     }
     
