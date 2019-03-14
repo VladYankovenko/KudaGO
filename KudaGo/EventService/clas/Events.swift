@@ -12,12 +12,3 @@ import Foundation
 struct Events: Decodable {
     let results: [Result]
 }
-
-/*struct Events: Decodable {
-    let results: [Result]
-    /*let id: Int
-    let title: String
-    let slug: String*/
-    
-}
-*/

@@ -24,8 +24,6 @@ class TableViewCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
-        
-      // shadodAdd()
         setupShadow()
         viewRounded.layer.masksToBounds = true
         
@@ -38,18 +36,6 @@ class TableViewCell: UITableViewCell {
         
 
         // Configure the view for the selected state
-    }
-    
-    
-    //УДАЛИТЬ НЕ НУЖНА
-    func shadodAdd() {
-        shadowView.layer.cornerRadius = 30
-        shadowView.layer.shadowColor = UIColor.black.cgColor
-        shadowView.layer.shadowOffset = CGSize(width: 0, height: 0)
-        shadowView.layer.shadowOpacity = 0.1
-        shadowView.layer.shadowRadius = 20
-        shadowView.layer.shadowPath = UIBezierPath(rect: shadowView.bounds).cgPath
-        shadowView.layer.shouldRasterize = true
     }
     
     private func setupShadow() {

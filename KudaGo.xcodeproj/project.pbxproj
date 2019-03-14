@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		F50D9906221AA1EC008ED3A6 /* RoundedShadow.swift in Sources */ = {isa = PBXBuildFile; fileRef = F50D9905221AA1EC008ED3A6 /* RoundedShadow.swift */; };
 		F50D990A221AEFBA008ED3A6 /* DropShadowEffect.swift in Sources */ = {isa = PBXBuildFile; fileRef = F50D9909221AEFBA008ED3A6 /* DropShadowEffect.swift */; };
 		F544FADD2219C60D00A04184 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F544FADC2219C60D00A04184 /* AppDelegate.swift */; };
 		F544FADF2219C60D00A04184 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F544FADE2219C60D00A04184 /* ViewController.swift */; };
@@ -15,7 +14,6 @@
 		F544FAE42219C60E00A04184 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F544FAE32219C60E00A04184 /* Assets.xcassets */; };
 		F544FAE72219C60E00A04184 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F544FAE52219C60E00A04184 /* LaunchScreen.storyboard */; };
 		F544FAEF2219C91D00A04184 /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F544FAEE2219C91D00A04184 /* TableViewCell.swift */; };
-		F544FAF12219CA3100A04184 /* File.swift in Sources */ = {isa = PBXBuildFile; fileRef = F544FAF02219CA3100A04184 /* File.swift */; };
 		F58B20F9222D9C810032D137 /* ParseType.swift in Sources */ = {isa = PBXBuildFile; fileRef = F58B20F8222D9C810032D137 /* ParseType.swift */; };
 		F59397F3222B2CFE00853B0E /* Events.swift in Sources */ = {isa = PBXBuildFile; fileRef = F59397F2222B2CFE00853B0E /* Events.swift */; };
 		F59397F6222D28BE00853B0E /* Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = F59397F5222D28BE00853B0E /* Result.swift */; };
@@ -25,7 +23,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		F50D9905221AA1EC008ED3A6 /* RoundedShadow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedShadow.swift; sourceTree = "<group>"; };
 		F50D9909221AEFBA008ED3A6 /* DropShadowEffect.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DropShadowEffect.swift; sourceTree = "<group>"; };
 		F544FAD92219C60D00A04184 /* KudaGo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KudaGo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F544FADC2219C60D00A04184 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -35,7 +32,6 @@
 		F544FAE62219C60E00A04184 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F544FAE82219C60E00A04184 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F544FAEE2219C91D00A04184 /* TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCell.swift; sourceTree = "<group>"; };
-		F544FAF02219CA3100A04184 /* File.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = File.swift; sourceTree = "<group>"; };
 		F58B20F8222D9C810032D137 /* ParseType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParseType.swift; sourceTree = "<group>"; };
 		F59397F2222B2CFE00853B0E /* Events.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Events.swift; sourceTree = "<group>"; };
 		F59397F5222D28BE00853B0E /* Result.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Result.swift; sourceTree = "<group>"; };
@@ -67,7 +63,6 @@
 			isa = PBXGroup;
 			children = (
 				F5F7EC5A222DA0A700A5686F /* Default-568h@2x.png */,
-				F50D9905221AA1EC008ED3A6 /* RoundedShadow.swift */,
 				F544FADB2219C60D00A04184 /* KudaGo */,
 				F544FADA2219C60D00A04184 /* Products */,
 			);
@@ -87,7 +82,6 @@
 				F544FADC2219C60D00A04184 /* AppDelegate.swift */,
 				F5D3FC3322295CAC00E7A119 /* EventViewController */,
 				F5D46D00221F5C90002A5634 /* DetailViewController.swift */,
-				F544FAF02219CA3100A04184 /* File.swift */,
 				F544FAE02219C60D00A04184 /* Main.storyboard */,
 				F5D3FC3622295D1500E7A119 /* EventService */,
 				F50D990E221AFB90008ED3A6 /* New Group */,
@@ -198,12 +192,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F50D9906221AA1EC008ED3A6 /* RoundedShadow.swift in Sources */,
 				F50D990A221AEFBA008ED3A6 /* DropShadowEffect.swift in Sources */,
 				F5D3FC3522295D0300E7A119 /* EventsService.swift in Sources */,
 				F59397F3222B2CFE00853B0E /* Events.swift in Sources */,
 				F544FAEF2219C91D00A04184 /* TableViewCell.swift in Sources */,
-				F544FAF12219CA3100A04184 /* File.swift in Sources */,
 				F58B20F9222D9C810032D137 /* ParseType.swift in Sources */,
 				F544FADF2219C60D00A04184 /* ViewController.swift in Sources */,
 				F544FADD2219C60D00A04184 /* AppDelegate.swift in Sources */,

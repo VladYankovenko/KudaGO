@@ -41,38 +41,6 @@ class EventsService {
     
     private lazy var session: URLSession = URLSession.shared
     
-   /* func loadEvents(completionHandler: @escaping (Data?, URLResponse?, Error?) -> Void) {
-        guard  let url = URL(string: "https://kudago.com/public-api/v1.4/events/")  else {
-            return
-        }
-        let task = session.dataTask(with: url) { (data, response, error) in
-            //print(data)
-            do{
-                guard let data = data else{
-                    return
-                }
-                guard let dictionary = try JSONSerialization.jsonObject(with: data, options: .allowFragments) as?[String: Any] else{
-                    return
-                }
-                let resultDictionary = dictionary["results"]
-                guard let results = try? JSONSerialization.data(withJSONObject: resultDictionary, options: JSONSerialization.WritingOptions.prettyPrinted) else {
-                    return
-                }
-                let events = try JSONDecoder().decode(Events.self, from: data)
-                //print(dictionary)
-                self.parseEvents(array: events)
-                
-                
-                //print("#########",eventJSON)
-                
-               // print(events!)
-            }catch{
-                print(error)
-            }
-        }
-        task.resume()
-    }
- */
     
     func loadEvents(completion: @escaping() -> ()) {
         
