@@ -17,7 +17,7 @@ protocol URLPoint {
 
 enum ParseType: URLPoint {
     
-    case events
+    case events(currentDate: Double)
     case cities
     
     var baseURL: URL {
@@ -26,14 +26,15 @@ enum ParseType: URLPoint {
     
     var path: String {
         switch self {
-        case .events:
+        case .events(let currentDate):
            // return "events"
-           return "events/?fields=id,dates,title,short_title,slug,place,description,price,is_free&text_format=text"
+           return "events/?location=msk&fields=id,title,dates,place,short_title,slug,description,price,is_free,place&expand=place&actual_since=\(currentDate)&text_format=text&order_by=-publication_date"
+            
         case .cities:
             return "locations/?lang=ru"
         }
     }
-    
+    //actual_since=\(currentDate)&
     
     var request: URLRequest {
         let url = URL(string: path, relativeTo: baseURL)

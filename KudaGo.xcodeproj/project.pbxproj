@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		592BF8A3223BD95C00DA4C82 /* Place.swift in Sources */ = {isa = PBXBuildFile; fileRef = 592BF8A2223BD95C00DA4C82 /* Place.swift */; };
 		F50D990A221AEFBA008ED3A6 /* DropShadowEffect.swift in Sources */ = {isa = PBXBuildFile; fileRef = F50D9909221AEFBA008ED3A6 /* DropShadowEffect.swift */; };
 		F544FADD2219C60D00A04184 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F544FADC2219C60D00A04184 /* AppDelegate.swift */; };
 		F544FADF2219C60D00A04184 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F544FADE2219C60D00A04184 /* ViewController.swift */; };
@@ -23,6 +24,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		592BF8A2223BD95C00DA4C82 /* Place.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Place.swift; sourceTree = "<group>"; };
 		F50D9909221AEFBA008ED3A6 /* DropShadowEffect.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DropShadowEffect.swift; sourceTree = "<group>"; };
 		F544FAD92219C60D00A04184 /* KudaGo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KudaGo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F544FADC2219C60D00A04184 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -97,6 +99,7 @@
 			children = (
 				F59397F2222B2CFE00853B0E /* Events.swift */,
 				F59397F5222D28BE00853B0E /* Result.swift */,
+				592BF8A2223BD95C00DA4C82 /* Place.swift */,
 			);
 			path = clas;
 			sourceTree = "<group>";
@@ -193,6 +196,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F50D990A221AEFBA008ED3A6 /* DropShadowEffect.swift in Sources */,
+				592BF8A3223BD95C00DA4C82 /* Place.swift in Sources */,
 				F5D3FC3522295D0300E7A119 /* EventsService.swift in Sources */,
 				F59397F3222B2CFE00853B0E /* Events.swift in Sources */,
 				F544FAEF2219C91D00A04184 /* TableViewCell.swift in Sources */,

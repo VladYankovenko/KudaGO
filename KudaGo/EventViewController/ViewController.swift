@@ -21,6 +21,7 @@ class ViewController: UIViewController, UITableViewDelegate {
     
 // MARK: Properties
     private var eventService = EventsService()
+    private let currentDate = Date().timeIntervalSince1970
     
     
     
@@ -30,8 +31,8 @@ class ViewController: UIViewController, UITableViewDelegate {
         tableView.separatorStyle = .none
         navigationController?.navigationBar.barTintColor = UIColor.white
         navigationController?.navigationBar.isHidden = true
-        
-        eventService.loadEvents(){
+        print(currentDate)
+        eventService.loadEvents(currentDate: currentDate){
             self.tableView.reloadData()
         }
     }
@@ -55,6 +56,17 @@ extension ViewController: UITableViewDataSource  {
         
         cell?.titleLabel.text = list.title.uppercased()//все заглавные
         cell?.descriptionLabel.text = list.description
+        
+        if let place = eventService.listOfAddres[indexPath.row].address{
+            cell?.placeLabel.isHidden = false
+            cell?.placeImage.isHidden = false
+            cell?.placeLabel.text = place
+        }else{
+            cell?.placeLabel.isHidden = true
+            cell?.placeImage.isHidden = true
+        }
+        
+       
         if list.price == ""{
             cell?.priceLabel.text = "Бесплатно"
         }else{

@@ -190,6 +190,7 @@
                                             <outlet property="dateLabel" destination="VIY-1a-k6H" id="fcp-6m-Xtx"/>
                                             <outlet property="descriptionLabel" destination="x2Q-af-A7Y" id="NAM-R4-kS8"/>
                                             <outlet property="photoEvent" destination="o6R-Zl-4ls" id="OYU-ht-sR0"/>
+                                            <outlet property="placeImage" destination="uhw-iI-yqj" id="Uf1-Gq-6A2"/>
                                             <outlet property="placeLabel" destination="5xo-hu-tfO" id="8eO-Fa-Tbu"/>
                                             <outlet property="priceLabel" destination="IdS-XH-bcK" id="bJ0-lT-H28"/>
                                             <outlet property="shadowView" destination="e8J-Zz-iXw" id="ATP-lX-khc"/>
@@ -267,9 +268,9 @@
         </scene>
     </scenes>
     <resources>
-        <image name="EventImageTest" width="1400" height="788"/>
+        <image name="EventImageTest" width="700" height="394"/>
         <image name="date" width="18" height="18"/>
-        <image name="logo" width="427" height="175"/>
+        <image name="logo" width="213" height="87"/>
         <image name="place" width="14" height="18"/>
         <image name="₽" width="12" height="14"/>
     </resources>

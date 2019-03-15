@@ -10,6 +10,7 @@ import UIKit
 
 class EventsService {
     var listOfFields = [Result]()
+    var listOfAddres = [Place]()
     
     func jsonTaskWith(request: URLRequest, completionHandler: @escaping (Data?, URLResponse?, Error?) -> Void) {
         
@@ -42,9 +43,9 @@ class EventsService {
     private lazy var session: URLSession = URLSession.shared
     
     
-    func loadEvents(completion: @escaping() -> ()) {
+    func loadEvents(currentDate: Double, completion: @escaping() -> ()) {
         
-        let request = ParseType.events.request
+        let request = ParseType.events(currentDate: currentDate).request
         
         jsonTaskWith(request: request) { (data, request, error) in
             
@@ -70,9 +71,12 @@ class EventsService {
             let slug = eachElement.slug
             let description = eachElement.description
             let price = eachElement.price
-        
-            self.listOfFields.append(Result(id: id,title: title, slug: slug, description: description, price: price ))
-           print(listOfFields)
+            let place =  eachElement.place
+            let address = place?.address
+            
+            self.listOfFields.append(Result(id: id,title: title, slug: slug, description: description, price: price, place: place ))
+            self.listOfAddres.append(Place(address: address))
+          // print(listOfFields)
         }
         
     }
