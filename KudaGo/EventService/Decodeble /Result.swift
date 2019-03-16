@@ -16,18 +16,21 @@ struct Result: Decodable {
     let description: String
     let price: String
     let place: Place?
+    let images: [Images]
+    
     
     enum CodingKeys: String, CodingKey {
-        case id, title, slug, description, price, place
+        case id, title, slug, description, price, place, images
     }
     
     
-    init(id: Int, title: String, slug: String, description: String, price: String, place: Place?) {
+    init(id: Int, title: String, slug: String, description: String, price: String, place: Place?, images: [Images]) {
         self.id = id
         self.title = title
         self.slug = slug
         self.description = description
         self.price = price
         self.place = place
+        self.images = images
     }
 }

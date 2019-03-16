@@ -8,6 +8,7 @@ target 'KudaGo' do
   use_frameworks!
 
   # Pods for KudaGo
-  pod 'Alamofire', '~> 5.0.0-beta.3'
+  #pod 'Alamofire', '~> 5.0.0-beta.3'
+  pod 'AlamofireImage', '~> 3.5'
 
 end

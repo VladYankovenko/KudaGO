@@ -7,10 +7,12 @@
 //
 
 import UIKit
+import Alamofire
 
 class EventsService {
     var listOfFields = [Result]()
     var listOfAddres = [Place]()
+    var listOfImages = [ImageSize]()
     
     func jsonTaskWith(request: URLRequest, completionHandler: @escaping (Data?, URLResponse?, Error?) -> Void) {
         
@@ -72,9 +74,18 @@ class EventsService {
             let description = eachElement.description
             let price = eachElement.price
             let place =  eachElement.place
+            let images = eachElement.images
+            for elements in images{
+                let picture = elements.thumbnails.picture
+                self.listOfImages.append(ImageSize(picture: picture))
+                break
+            }
             let address = place?.address
             
-            self.listOfFields.append(Result(id: id,title: title, slug: slug, description: description, price: price, place: place ))
+            
+            
+            
+            self.listOfFields.append(Result(id: id,title: title, slug: slug, description: description, price: price, place: place, images: images))
             self.listOfAddres.append(Place(address: address))
           // print(listOfFields)
         }

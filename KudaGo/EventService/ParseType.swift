@@ -28,13 +28,13 @@ enum ParseType: URLPoint {
         switch self {
         case .events(let currentDate):
            // return "events"
-           return "events/?location=msk&fields=id,title,dates,place,short_title,slug,description,price,is_free,place&expand=place&actual_since=\(currentDate)&text_format=text&order_by=-publication_date"
+           return "events/?location=msk&fields=id,title,dates,place,short_title,slug,description,price,images,place&expand=place,images&actual_since=\(currentDate)&text_format=text&order_by=-publication_date"
             
         case .cities:
             return "locations/?lang=ru"
         }
     }
-    //actual_since=\(currentDate)&
+    
     
     var request: URLRequest {
         let url = URL(string: path, relativeTo: baseURL)

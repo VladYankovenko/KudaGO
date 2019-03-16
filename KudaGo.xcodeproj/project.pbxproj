@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		37795F1DB9A8976463E28B77 /* Pods_KudaGo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A6556EF308911CA187CD8D61 /* Pods_KudaGo.framework */; };
 		592BF8A3223BD95C00DA4C82 /* Place.swift in Sources */ = {isa = PBXBuildFile; fileRef = 592BF8A2223BD95C00DA4C82 /* Place.swift */; };
+		59BF0CEA223D376A00FA752B /* Images.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59BF0CE9223D376A00FA752B /* Images.swift */; };
+		59BF0CEC223D3A1B00FA752B /* ImageSize.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59BF0CEB223D3A1B00FA752B /* ImageSize.swift */; };
 		F50D990A221AEFBA008ED3A6 /* DropShadowEffect.swift in Sources */ = {isa = PBXBuildFile; fileRef = F50D9909221AEFBA008ED3A6 /* DropShadowEffect.swift */; };
 		F544FADD2219C60D00A04184 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F544FADC2219C60D00A04184 /* AppDelegate.swift */; };
 		F544FADF2219C60D00A04184 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F544FADE2219C60D00A04184 /* ViewController.swift */; };
@@ -27,6 +29,8 @@
 /* Begin PBXFileReference section */
 		2AB5709613753143526F4514 /* Pods-KudaGo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KudaGo.debug.xcconfig"; path = "Target Support Files/Pods-KudaGo/Pods-KudaGo.debug.xcconfig"; sourceTree = "<group>"; };
 		592BF8A2223BD95C00DA4C82 /* Place.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Place.swift; sourceTree = "<group>"; };
+		59BF0CE9223D376A00FA752B /* Images.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Images.swift; sourceTree = "<group>"; };
+		59BF0CEB223D3A1B00FA752B /* ImageSize.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageSize.swift; sourceTree = "<group>"; };
 		A6556EF308911CA187CD8D61 /* Pods_KudaGo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_KudaGo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		EAED950D7F11AC747EE79B15 /* Pods-KudaGo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KudaGo.release.xcconfig"; path = "Target Support Files/Pods-KudaGo/Pods-KudaGo.release.xcconfig"; sourceTree = "<group>"; };
 		F50D9909221AEFBA008ED3A6 /* DropShadowEffect.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DropShadowEffect.swift; sourceTree = "<group>"; };
@@ -72,7 +76,6 @@
 				2AB5709613753143526F4514 /* Pods-KudaGo.debug.xcconfig */,
 				EAED950D7F11AC747EE79B15 /* Pods-KudaGo.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -119,14 +122,16 @@
 			path = KudaGo;
 			sourceTree = "<group>";
 		};
-		F59397F4222B2D0B00853B0E /* clas */ = {
+		F59397F4222B2D0B00853B0E /* Decodeble  */ = {
 			isa = PBXGroup;
 			children = (
 				F59397F2222B2CFE00853B0E /* Events.swift */,
 				F59397F5222D28BE00853B0E /* Result.swift */,
+				59BF0CEB223D3A1B00FA752B /* ImageSize.swift */,
+				59BF0CE9223D376A00FA752B /* Images.swift */,
 				592BF8A2223BD95C00DA4C82 /* Place.swift */,
 			);
-			path = clas;
+			path = "Decodeble ";
 			sourceTree = "<group>";
 		};
 		F5D3FC3322295CAC00E7A119 /* EventViewController */ = {
@@ -141,7 +146,7 @@
 		F5D3FC3622295D1500E7A119 /* EventService */ = {
 			isa = PBXGroup;
 			children = (
-				F59397F4222B2D0B00853B0E /* clas */,
+				F59397F4222B2D0B00853B0E /* Decodeble  */,
 				F5D3FC3422295D0300E7A119 /* EventsService.swift */,
 				F58B20F8222D9C810032D137 /* ParseType.swift */,
 			);
@@ -159,7 +164,7 @@
 				F544FAD52219C60D00A04184 /* Sources */,
 				F544FAD62219C60D00A04184 /* Frameworks */,
 				F544FAD72219C60D00A04184 /* Resources */,
-				E3E407D0249EAB4F59DD779F /* [CP] Embed Pods Frameworks */,
+				65220CAAEFF3963F38C43CD3 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -218,6 +223,30 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		65220CAAEFF3963F38C43CD3 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-KudaGo/Pods-KudaGo-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/AlamofireImage/AlamofireImage.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AlamofireImage.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-KudaGo/Pods-KudaGo-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		9EACD7D152105DBDCF01EF58 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -240,28 +269,6 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		E3E407D0249EAB4F59DD779F /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-KudaGo/Pods-KudaGo-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-KudaGo/Pods-KudaGo-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -272,6 +279,8 @@
 				F50D990A221AEFBA008ED3A6 /* DropShadowEffect.swift in Sources */,
 				592BF8A3223BD95C00DA4C82 /* Place.swift in Sources */,
 				F5D3FC3522295D0300E7A119 /* EventsService.swift in Sources */,
+				59BF0CEA223D376A00FA752B /* Images.swift in Sources */,
+				59BF0CEC223D3A1B00FA752B /* ImageSize.swift in Sources */,
 				F59397F3222B2CFE00853B0E /* Events.swift in Sources */,
 				F544FAEF2219C91D00A04184 /* TableViewCell.swift in Sources */,
 				F58B20F9222D9C810032D137 /* ParseType.swift in Sources */,

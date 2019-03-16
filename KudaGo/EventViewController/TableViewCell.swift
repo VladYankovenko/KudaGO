@@ -48,5 +48,6 @@ class TableViewCell: UITableViewCell {
         self.layer.rasterizationScale = UIScreen.main.scale
         
     }
-
 }
+
+

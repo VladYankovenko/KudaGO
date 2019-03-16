@@ -8,6 +8,8 @@
 
 import UIKit
 import Alamofire
+import AlamofireImage
+
 
 var results = [Result]()
 var contentOffset: CGFloat?
@@ -22,7 +24,7 @@ class ViewController: UIViewController, UITableViewDelegate {
 // MARK: Properties
     private var eventService = EventsService()
     private let currentDate = Date().timeIntervalSince1970
-    
+
     
     
 // MARK: EventViewController
@@ -35,6 +37,7 @@ class ViewController: UIViewController, UITableViewDelegate {
         eventService.loadEvents(currentDate: currentDate){
             self.tableView.reloadData()
         }
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -62,6 +65,16 @@ extension ViewController: UITableViewDataSource  {
             cell?.placeLabel.text = place
         }else{
             cell?.placeStack.isHidden = true
+        }
+        
+        let imageURL = eventService.listOfImages[indexPath.row].picture
+        //let imageURL = eventService.listOfFields[indexPath.row].images
+        let url = URL(string: imageURL)
+        
+        Alamofire.request(url!).responseImage { (response) in
+            if let image = response.result.value{
+                cell?.photoEvent.image = image
+            }
         }
         
        
