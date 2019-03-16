@@ -7,7 +7,7 @@
 //
 
 import UIKit
-
+import Alamofire
 
 var results = [Result]()
 var contentOffset: CGFloat?
@@ -58,12 +58,10 @@ extension ViewController: UITableViewDataSource  {
         cell?.descriptionLabel.text = list.description
         
         if let place = eventService.listOfAddres[indexPath.row].address{
-            cell?.placeLabel.isHidden = false
-            cell?.placeImage.isHidden = false
+            cell?.placeStack.isHidden = false
             cell?.placeLabel.text = place
         }else{
-            cell?.placeLabel.isHidden = true
-            cell?.placeImage.isHidden = true
+            cell?.placeStack.isHidden = true
         }
         
        

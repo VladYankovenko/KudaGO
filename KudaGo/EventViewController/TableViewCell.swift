@@ -20,6 +20,7 @@ class TableViewCell: UITableViewCell {
     @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var placeLabel: UILabel!
     @IBOutlet weak var placeImage: UIImageView!
+    @IBOutlet weak var placeStack: UIStackView!
     
     
     override func awakeFromNib() {
