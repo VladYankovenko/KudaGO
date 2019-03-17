@@ -55,7 +55,6 @@ class EventsService {
             do {
                 let eventJSON = try JSONDecoder().decode(Events.self, from: data)
                 self.parseEvents(array: eventJSON)
-                //print("#########",eventJSON)
                 DispatchQueue.main.async {
                     completion()
                 }
@@ -78,17 +77,14 @@ class EventsService {
             for elements in images{
                 let picture = elements.thumbnails.picture
                 self.listOfImages.append(ImageSize(picture: picture))
+                
                 break
             }
+            
             let address = place?.address
-            
-            
-            
             
             self.listOfFields.append(Result(id: id,title: title, slug: slug, description: description, price: price, place: place, images: images))
             self.listOfAddres.append(Place(address: address))
-          // print(listOfFields)
         }
-        
     }
 }

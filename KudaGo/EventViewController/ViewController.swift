@@ -24,6 +24,7 @@ class ViewController: UIViewController, UITableViewDelegate {
 // MARK: Properties
     private var eventService = EventsService()
     private let currentDate = Date().timeIntervalSince1970
+    private let placeHolder = UIImage(named: "placeholder")
 
     
     
@@ -38,6 +39,7 @@ class ViewController: UIViewController, UITableViewDelegate {
             self.tableView.reloadData()
         }
         
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -49,7 +51,6 @@ class ViewController: UIViewController, UITableViewDelegate {
 extension ViewController: UITableViewDataSource  {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // return events.count
         return eventService.listOfFields.count
     }
     
@@ -57,26 +58,21 @@ extension ViewController: UITableViewDataSource  {
         let cell =  tableView.dequeueReusableCell(withIdentifier: "cellID", for: indexPath) as? TableViewCell
         let list = eventService.listOfFields[indexPath.row]
         
-        cell?.titleLabel.text = list.title.uppercased()//все заглавные
+        cell?.titleLabel.text = list.title.uppercased()
         cell?.descriptionLabel.text = list.description
         
         if let place = eventService.listOfAddres[indexPath.row].address{
-            cell?.placeStack.isHidden = false
+            //Добавить исчезновение стека
             cell?.placeLabel.text = place
         }else{
-            cell?.placeStack.isHidden = true
+           // Добавить исчезновение стека
         }
         
         let imageURL = eventService.listOfImages[indexPath.row].picture
-        //let imageURL = eventService.listOfFields[indexPath.row].images
         let url = URL(string: imageURL)
         
-        Alamofire.request(url!).responseImage { (response) in
-            if let image = response.result.value{
-                cell?.photoEvent.image = image
-            }
-        }
-        
+        cell?.photoEvent.af_setImage(withURL: url!, placeholderImage: placeHolder)
+       
        
         if list.price == ""{
             cell?.priceLabel.text = "Бесплатно"

@@ -94,79 +94,40 @@
                                                                     <rect key="frame" x="0.0" y="0.0" width="359" height="160"/>
                                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                                 </imageView>
-                                                                <stackView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" axis="vertical" spacing="14" translatesAutoresizingMaskIntoConstraints="NO" id="Wxm-3u-HJP">
-                                                                    <rect key="frame" x="21" y="268" width="332" height="80"/>
+                                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="place" translatesAutoresizingMaskIntoConstraints="NO" id="uhw-iI-yqj">
+                                                                    <rect key="frame" x="21" y="268" width="14" height="18"/>
                                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                                    <subviews>
-                                                                        <stackView opaque="NO" contentMode="scaleToFill" spacing="13" translatesAutoresizingMaskIntoConstraints="NO" id="9FT-PO-EEE" userLabel="PlaceStack">
-                                                                            <rect key="frame" x="0.0" y="0.0" width="332" height="18"/>
-                                                                            <subviews>
-                                                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="place" translatesAutoresizingMaskIntoConstraints="NO" id="uhw-iI-yqj">
-                                                                                    <rect key="frame" x="0.0" y="0.0" width="14" height="18"/>
-                                                                                    <constraints>
-                                                                                        <constraint firstAttribute="width" constant="14" id="BbM-kF-oY0"/>
-                                                                                        <constraint firstAttribute="height" constant="18" id="nYO-Yx-gq4"/>
-                                                                                    </constraints>
-                                                                                </imageView>
-                                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="м. Площадь Революции" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5xo-hu-tfO" userLabel="Place Label">
-                                                                                    <rect key="frame" x="27" y="0.0" width="305" height="18"/>
-                                                                                    <constraints>
-                                                                                        <constraint firstAttribute="height" constant="17" id="6ML-DM-0v4"/>
-                                                                                        <constraint firstAttribute="width" constant="303" id="mBj-IQ-cHj"/>
-                                                                                    </constraints>
-                                                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                                                    <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                                                    <nil key="highlightedColor"/>
-                                                                                    <size key="shadowOffset" width="0.0" height="0.0"/>
-                                                                                </label>
-                                                                            </subviews>
-                                                                        </stackView>
-                                                                        <stackView opaque="NO" contentMode="scaleToFill" spacing="11" translatesAutoresizingMaskIntoConstraints="NO" id="gdo-bu-ydG">
-                                                                            <rect key="frame" x="0.0" y="32" width="332" height="18"/>
-                                                                            <subviews>
-                                                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="date" translatesAutoresizingMaskIntoConstraints="NO" id="WOF-w4-bAc">
-                                                                                    <rect key="frame" x="0.0" y="0.0" width="18" height="18"/>
-                                                                                    <constraints>
-                                                                                        <constraint firstAttribute="width" constant="18" id="iI0-Nh-LOr"/>
-                                                                                        <constraint firstAttribute="height" constant="18" id="uBo-Zq-q2G"/>
-                                                                                    </constraints>
-                                                                                </imageView>
-                                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="17 Октября" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VIY-1a-k6H" userLabel="DateLable">
-                                                                                    <rect key="frame" x="29" y="0.0" width="303" height="18"/>
-                                                                                    <constraints>
-                                                                                        <constraint firstAttribute="height" constant="17" id="NLk-ma-Qt7"/>
-                                                                                        <constraint firstAttribute="width" constant="303" id="qhB-oO-dHr"/>
-                                                                                    </constraints>
-                                                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                                                    <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                                                    <nil key="highlightedColor"/>
-                                                                                </label>
-                                                                            </subviews>
-                                                                        </stackView>
-                                                                        <stackView opaque="NO" contentMode="scaleToFill" spacing="13" translatesAutoresizingMaskIntoConstraints="NO" id="LCb-Mj-whh">
-                                                                            <rect key="frame" x="0.0" y="64" width="332" height="16"/>
-                                                                            <subviews>
-                                                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="₽" translatesAutoresizingMaskIntoConstraints="NO" id="ahY-6e-i3W">
-                                                                                    <rect key="frame" x="0.0" y="0.0" width="13" height="16"/>
-                                                                                    <constraints>
-                                                                                        <constraint firstAttribute="width" constant="13" id="TtB-AJ-Fyf"/>
-                                                                                        <constraint firstAttribute="height" constant="16" id="qgF-zl-srA"/>
-                                                                                    </constraints>
-                                                                                </imageView>
-                                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Cost" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IdS-XH-bcK" userLabel="PriceLabel">
-                                                                                    <rect key="frame" x="26" y="0.0" width="306" height="16"/>
-                                                                                    <constraints>
-                                                                                        <constraint firstAttribute="height" constant="17" id="ASm-Dn-DNR"/>
-                                                                                        <constraint firstAttribute="width" constant="303" id="FX7-QB-SpJ"/>
-                                                                                    </constraints>
-                                                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                                                    <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                                                    <nil key="highlightedColor"/>
-                                                                                </label>
-                                                                            </subviews>
-                                                                        </stackView>
-                                                                    </subviews>
-                                                                </stackView>
+                                                                </imageView>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="м. Площадь Революции" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5xo-hu-tfO" userLabel="Place Label">
+                                                                    <rect key="frame" x="48" y="268" width="303" height="18"/>
+                                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                                    <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                    <nil key="highlightedColor"/>
+                                                                    <size key="shadowOffset" width="0.0" height="0.0"/>
+                                                                </label>
+                                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="date" translatesAutoresizingMaskIntoConstraints="NO" id="WOF-w4-bAc">
+                                                                    <rect key="frame" x="21" y="300" width="18" height="18"/>
+                                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                                </imageView>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="17 Октября" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VIY-1a-k6H" userLabel="DateLable">
+                                                                    <rect key="frame" x="50" y="300" width="303" height="18"/>
+                                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                                    <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                    <nil key="highlightedColor"/>
+                                                                </label>
+                                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="₽" translatesAutoresizingMaskIntoConstraints="NO" id="ahY-6e-i3W">
+                                                                    <rect key="frame" x="21" y="332" width="13" height="16"/>
+                                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                                </imageView>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Cost" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IdS-XH-bcK" userLabel="PriceLabel">
+                                                                    <rect key="frame" x="47" y="332" width="303" height="16"/>
+                                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                                    <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                    <nil key="highlightedColor"/>
+                                                                </label>
                                                                 <stackView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="PbZ-Bk-xbs">
                                                                     <rect key="frame" x="16" y="176" width="327" height="80.5"/>
                                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -231,7 +192,6 @@
                                             <outlet property="photoEvent" destination="o6R-Zl-4ls" id="OYU-ht-sR0"/>
                                             <outlet property="placeImage" destination="uhw-iI-yqj" id="Uf1-Gq-6A2"/>
                                             <outlet property="placeLabel" destination="5xo-hu-tfO" id="8eO-Fa-Tbu"/>
-                                            <outlet property="placeStack" destination="9FT-PO-EEE" id="jzg-Fc-DqL"/>
                                             <outlet property="priceLabel" destination="IdS-XH-bcK" id="bJ0-lT-H28"/>
                                             <outlet property="shadowView" destination="e8J-Zz-iXw" id="ATP-lX-khc"/>
                                             <outlet property="titleLabel" destination="5ma-bF-clb" id="o1E-mN-kva"/>

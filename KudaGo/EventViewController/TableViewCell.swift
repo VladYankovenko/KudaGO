@@ -23,6 +23,7 @@ class TableViewCell: UITableViewCell {
     @IBOutlet weak var placeStack: UIStackView!
     
     
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
