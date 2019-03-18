@@ -95,21 +95,11 @@ class EventsService {
             
             
             self.listOfDates.append(Dates(start: self.listOfStartDates.first!, end: self.listOfEndDates.last!))
+            self.listOfStartDates.removeAll()
+            self.listOfEndDates.removeAll()
             self.listOfFields.append(Result(id: id,title: title, slug: slug, description: description, price: price, place: place, images: images, dates: dates))
             self.listOfAddres.append(Place(address: address))
             
         }
-//        let date =  Date(timeIntervalSince1970: listOfDates[2].end)
-//        let dateFormatter = DateFormatter()
-//        dateFormatter.dateStyle = .medium
-//        dateFormatter.locale = Locale(identifier: "ru_RU")
-//        dateFormatter.setLocalizedDateFormatFromTemplate("MMMMd")
-//        
-//        
-//
-//        
-//        print("#$%", listOfDates[1].end )
-//        print("###",dateFormatter.string(from: date))
-        
     }
 }
