@@ -17,14 +17,15 @@ struct Result: Decodable {
     let price: String
     let place: Place?
     let images: [Images]
+    let dates: [Dates]
     
     
     enum CodingKeys: String, CodingKey {
-        case id, title, slug, description, price, place, images
+        case id, title, slug, description, price, place, images, dates
     }
     
     
-    init(id: Int, title: String, slug: String, description: String, price: String, place: Place?, images: [Images]) {
+    init(id: Int, title: String, slug: String, description: String, price: String, place: Place?, images: [Images], dates: [Dates]) {
         self.id = id
         self.title = title
         self.slug = slug
@@ -32,5 +33,6 @@ struct Result: Decodable {
         self.price = price
         self.place = place
         self.images = images
+        self.dates = dates
     }
 }

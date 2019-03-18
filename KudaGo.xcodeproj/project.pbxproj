@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		37795F1DB9A8976463E28B77 /* Pods_KudaGo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A6556EF308911CA187CD8D61 /* Pods_KudaGo.framework */; };
 		592BF8A3223BD95C00DA4C82 /* Place.swift in Sources */ = {isa = PBXBuildFile; fileRef = 592BF8A2223BD95C00DA4C82 /* Place.swift */; };
+		5948C2752240180300A7DE99 /* Dates.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5948C2742240180300A7DE99 /* Dates.swift */; };
 		59BF0CEA223D376A00FA752B /* Images.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59BF0CE9223D376A00FA752B /* Images.swift */; };
 		59BF0CEC223D3A1B00FA752B /* ImageSize.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59BF0CEB223D3A1B00FA752B /* ImageSize.swift */; };
 		F50D990A221AEFBA008ED3A6 /* DropShadowEffect.swift in Sources */ = {isa = PBXBuildFile; fileRef = F50D9909221AEFBA008ED3A6 /* DropShadowEffect.swift */; };
@@ -29,6 +30,7 @@
 /* Begin PBXFileReference section */
 		2AB5709613753143526F4514 /* Pods-KudaGo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KudaGo.debug.xcconfig"; path = "Target Support Files/Pods-KudaGo/Pods-KudaGo.debug.xcconfig"; sourceTree = "<group>"; };
 		592BF8A2223BD95C00DA4C82 /* Place.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Place.swift; sourceTree = "<group>"; };
+		5948C2742240180300A7DE99 /* Dates.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dates.swift; sourceTree = "<group>"; };
 		59BF0CE9223D376A00FA752B /* Images.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Images.swift; sourceTree = "<group>"; };
 		59BF0CEB223D3A1B00FA752B /* ImageSize.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageSize.swift; sourceTree = "<group>"; };
 		A6556EF308911CA187CD8D61 /* Pods_KudaGo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_KudaGo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -127,6 +129,7 @@
 			children = (
 				F59397F2222B2CFE00853B0E /* Events.swift */,
 				F59397F5222D28BE00853B0E /* Result.swift */,
+				5948C2742240180300A7DE99 /* Dates.swift */,
 				59BF0CEB223D3A1B00FA752B /* ImageSize.swift */,
 				59BF0CE9223D376A00FA752B /* Images.swift */,
 				592BF8A2223BD95C00DA4C82 /* Place.swift */,
@@ -287,6 +290,7 @@
 				F544FADF2219C60D00A04184 /* ViewController.swift in Sources */,
 				F544FADD2219C60D00A04184 /* AppDelegate.swift in Sources */,
 				F5D46D01221F5C90002A5634 /* DetailViewController.swift in Sources */,
+				5948C2752240180300A7DE99 /* Dates.swift in Sources */,
 				F59397F6222D28BE00853B0E /* Result.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

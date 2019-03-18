@@ -13,6 +13,9 @@ class EventsService {
     var listOfFields = [Result]()
     var listOfAddres = [Place]()
     var listOfImages = [ImageSize]()
+    var listOfStartDates = [Double]()
+    var listOfEndDates = [Double]()
+    var listOfDates = [Dates]()
     
     func jsonTaskWith(request: URLRequest, completionHandler: @escaping (Data?, URLResponse?, Error?) -> Void) {
         
@@ -74,17 +77,39 @@ class EventsService {
             let price = eachElement.price
             let place =  eachElement.place
             let images = eachElement.images
-            for elements in images{
-                let picture = elements.thumbnails.picture
+            let dates = eachElement.dates
+            for eachPic in images{
+                let picture = eachPic.thumbnails.picture
                 self.listOfImages.append(ImageSize(picture: picture))
                 
                 break
             }
+            for eachDate in dates{
+                let startDate = eachDate.start
+                let endDate = eachDate.end
+                self.listOfStartDates.append(startDate)
+                self.listOfEndDates.append(endDate)
+            }
             
             let address = place?.address
             
-            self.listOfFields.append(Result(id: id,title: title, slug: slug, description: description, price: price, place: place, images: images))
+            
+            self.listOfDates.append(Dates(start: self.listOfStartDates.first!, end: self.listOfEndDates.last!))
+            self.listOfFields.append(Result(id: id,title: title, slug: slug, description: description, price: price, place: place, images: images, dates: dates))
             self.listOfAddres.append(Place(address: address))
+            
         }
+//        let date =  Date(timeIntervalSince1970: listOfDates[2].end)
+//        let dateFormatter = DateFormatter()
+//        dateFormatter.dateStyle = .medium
+//        dateFormatter.locale = Locale(identifier: "ru_RU")
+//        dateFormatter.setLocalizedDateFormatFromTemplate("MMMMd")
+//        
+//        
+//
+//        
+//        print("#$%", listOfDates[1].end )
+//        print("###",dateFormatter.string(from: date))
+        
     }
 }
