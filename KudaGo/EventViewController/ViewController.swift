@@ -99,7 +99,7 @@ extension ViewController{
         let startFormatter = dateFormatter.string(from: dateStart)
         let endFormatter = dateFormatter.string(from: dateEnd)
         
-        
+        cell.dateLabel.text = startFormatter
         print(startFormatter, endFormatter)
        
     }
