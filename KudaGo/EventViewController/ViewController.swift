@@ -91,7 +91,6 @@ extension ViewController{
         //загрузка даты
         let dateStart =  Date(timeIntervalSince1970: eventService.listOfDates[indexPath.row].start)
         let dateEnd =  Date(timeIntervalSince1970: eventService.listOfDates[indexPath.row].end)
-       // print(dateStart, dateEnd)
         let dateFormatter = DateFormatter()
         dateFormatter.dateStyle = .medium
         dateFormatter.locale = Locale(identifier: "ru_RU")
@@ -99,8 +98,17 @@ extension ViewController{
         let startFormatter = dateFormatter.string(from: dateStart)
         let endFormatter = dateFormatter.string(from: dateEnd)
         
-        cell.dateLabel.text = startFormatter
-        print(startFormatter, endFormatter)
+        let equalsToDay = Calendar.current.isDate(dateStart, equalTo: dateEnd, toGranularity: .day)
+        let equalsToMonth = Calendar.current.isDate(dateStart, equalTo: dateEnd, toGranularity: .month)
+        
+        if equalsToDay == true{
+            cell.dateLabel.text = startFormatter
+        }else if equalsToMonth == true && equalsToDay == false {
+            let onlyDay = Calendar.current.component(.day, from: dateStart)
+             cell.dateLabel.text = "\(onlyDay) - \(endFormatter)"
+        }else{
+            cell.dateLabel.text = "\(startFormatter) - \(endFormatter)"
+        }
        
     }
 }
