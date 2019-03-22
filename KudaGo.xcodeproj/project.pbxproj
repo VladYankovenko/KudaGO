@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		37795F1DB9A8976463E28B77 /* Pods_KudaGo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A6556EF308911CA187CD8D61 /* Pods_KudaGo.framework */; };
+		5902030A2243BC27007EB07D /* DetailTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 590203092243BC27007EB07D /* DetailTableViewController.swift */; };
+		5902030C2243BF68007EB07D /* DetailTVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5902030B2243BF68007EB07D /* DetailTVCell.swift */; };
 		592BF8A3223BD95C00DA4C82 /* Place.swift in Sources */ = {isa = PBXBuildFile; fileRef = 592BF8A2223BD95C00DA4C82 /* Place.swift */; };
 		5948C2752240180300A7DE99 /* Dates.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5948C2742240180300A7DE99 /* Dates.swift */; };
 		59BF0CEA223D376A00FA752B /* Images.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59BF0CE9223D376A00FA752B /* Images.swift */; };
@@ -23,12 +25,13 @@
 		F59397F3222B2CFE00853B0E /* Events.swift in Sources */ = {isa = PBXBuildFile; fileRef = F59397F2222B2CFE00853B0E /* Events.swift */; };
 		F59397F6222D28BE00853B0E /* Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = F59397F5222D28BE00853B0E /* Result.swift */; };
 		F5D3FC3522295D0300E7A119 /* EventsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5D3FC3422295D0300E7A119 /* EventsService.swift */; };
-		F5D46D01221F5C90002A5634 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5D46D00221F5C90002A5634 /* DetailViewController.swift */; };
 		F5F7EC5B222DA0A700A5686F /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F5F7EC5A222DA0A700A5686F /* Default-568h@2x.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		2AB5709613753143526F4514 /* Pods-KudaGo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KudaGo.debug.xcconfig"; path = "Target Support Files/Pods-KudaGo/Pods-KudaGo.debug.xcconfig"; sourceTree = "<group>"; };
+		590203092243BC27007EB07D /* DetailTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailTableViewController.swift; sourceTree = "<group>"; };
+		5902030B2243BF68007EB07D /* DetailTVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailTVCell.swift; sourceTree = "<group>"; };
 		592BF8A2223BD95C00DA4C82 /* Place.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Place.swift; sourceTree = "<group>"; };
 		5948C2742240180300A7DE99 /* Dates.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dates.swift; sourceTree = "<group>"; };
 		59BF0CE9223D376A00FA752B /* Images.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Images.swift; sourceTree = "<group>"; };
@@ -48,7 +51,6 @@
 		F59397F2222B2CFE00853B0E /* Events.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Events.swift; sourceTree = "<group>"; };
 		F59397F5222D28BE00853B0E /* Result.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Result.swift; sourceTree = "<group>"; };
 		F5D3FC3422295D0300E7A119 /* EventsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventsService.swift; sourceTree = "<group>"; };
-		F5D46D00221F5C90002A5634 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		F5F7EC5A222DA0A700A5686F /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -113,8 +115,9 @@
 			children = (
 				F544FADC2219C60D00A04184 /* AppDelegate.swift */,
 				F5D3FC3322295CAC00E7A119 /* EventViewController */,
-				F5D46D00221F5C90002A5634 /* DetailViewController.swift */,
 				F544FAE02219C60D00A04184 /* Main.storyboard */,
+				590203092243BC27007EB07D /* DetailTableViewController.swift */,
+				5902030B2243BF68007EB07D /* DetailTVCell.swift */,
 				F5D3FC3622295D1500E7A119 /* EventService */,
 				F50D990E221AFB90008ED3A6 /* New Group */,
 				F544FAE32219C60E00A04184 /* Assets.xcassets */,
@@ -279,6 +282,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5902030C2243BF68007EB07D /* DetailTVCell.swift in Sources */,
+				5902030A2243BC27007EB07D /* DetailTableViewController.swift in Sources */,
 				F50D990A221AEFBA008ED3A6 /* DropShadowEffect.swift in Sources */,
 				592BF8A3223BD95C00DA4C82 /* Place.swift in Sources */,
 				F5D3FC3522295D0300E7A119 /* EventsService.swift in Sources */,
@@ -289,7 +294,6 @@
 				F58B20F9222D9C810032D137 /* ParseType.swift in Sources */,
 				F544FADF2219C60D00A04184 /* ViewController.swift in Sources */,
 				F544FADD2219C60D00A04184 /* AppDelegate.swift in Sources */,
-				F5D46D01221F5C90002A5634 /* DetailViewController.swift in Sources */,
 				5948C2752240180300A7DE99 /* Dates.swift in Sources */,
 				F59397F6222D28BE00853B0E /* Result.swift in Sources */,
 			);

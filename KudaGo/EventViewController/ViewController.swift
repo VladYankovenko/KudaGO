@@ -10,9 +10,11 @@ import UIKit
 import Alamofire
 import AlamofireImage
 
-
+private let logoImageView = UIImageView(image: UIImage(named: "big-logo"))
 var results = [Result]()
 var contentOffset: CGFloat?
+var myIndex = 0
+
 
 class ViewController: UIViewController, UITableViewDelegate {
 // MARK: IBOutlets
@@ -42,6 +44,26 @@ class ViewController: UIViewController, UITableViewDelegate {
     override func viewWillAppear(_ animated: Bool) {
     }
     
+   override func prepare(for segue: UIStoryboardSegue , sender: Any?) {
+        if segue.identifier == "ShowDetailTable"{
+            if let indexPath  = tableView.indexPathForSelectedRow {
+            let detailTVController = segue.destination as! DetailTableViewController
+            detailTVController.textDet = eventService.listOfFields[indexPath.row].description
+            }
+        }
+    
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        myIndex = indexPath.row
+         //detailTVController.text = "hello\(indexPath)"
+        
+         performSegue(withIdentifier: "ShowDetailTable", sender: self)
+        
+        
+    }
+    
+
 }
 
 //MARK: UITableViewDataSource
@@ -57,10 +79,20 @@ extension ViewController: UITableViewDataSource  {
         
         return cell!
     }
+    
 }
+
+
+
+
 
 //MARK: extentions ViewController
 extension ViewController{
+    
+    private func setupNavigationBar(){
+        guard let navigationBar = self.navigationController?.navigationBar else { return }
+        navigationBar.addSubview(logoImageView)
+    }
     
     private func loadDataInTable(in cell: TableViewCell, indexPath: IndexPath){
         let list = eventService.listOfFields[indexPath.row]
