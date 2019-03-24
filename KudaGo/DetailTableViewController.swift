@@ -9,15 +9,30 @@
 import UIKit
 
 class DetailTableViewController: UITableViewController{
-var textDet: String?
+    var textDet: String?
+    var textTitle: String?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationController?.navigationBar.isHidden = false
+        setTableOptions()
+        //tbvie
+        
+        let blurEffect = UIBlurEffect(style: .regular)
+        let blurredStatusBar = UIVisualEffectView(effect: blurEffect)
+        blurredStatusBar.translatesAutoresizingMaskIntoConstraints = false
+        view.addSubview(blurredStatusBar)
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        navigationController?.navigationBar.isHidden = true
+        createBackButton()
+        blurStatusBar()
         
     }
 
-    @IBAction func goBack(_ sender: Any) {
-        print("345")
+    @objc func goBack() {
+       
         navigationController?.popViewController(animated: true)
         
     }
@@ -37,17 +52,63 @@ var textDet: String?
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell") as! DetailTVCell
         
-       cell.descLable.text = textDet
+        cell.descLable.text = textDet
+        cell.titleLabel.text = textTitle?.uppercased()
         
         return cell
     }
+    
     
     //MARK: Customize NavBar
     
 //    private func Customization(){
 //        navigationItem.leftBarButtonItem = UIBarButtonItem(image: , target: self, action: <#T##Selector?#>)
 //    }
+    func setTableOptions(){
+        self.tableView.contentInset = UIEdgeInsets(top: -20, left: 0, bottom: 0, right: 0)
+        tableView?.estimatedRowHeight = 231
+        tableView?.rowHeight = UITableView.automaticDimension
+        tableView.delegate = self
+        tableView.dataSource = self
+        tableView.allowsSelection = false
+    }
     
+    func blurStatusBar(){
+        let blurEffect = UIBlurEffect(style: UIBlurEffect.Style.regular)
+        let blurEffectView = UIVisualEffectView(effect: blurEffect)
+        blurEffectView.translatesAutoresizingMaskIntoConstraints = false
+        view.addSubview(blurEffectView)
+        blurEffectView.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
+        blurEffectView.widthAnchor.constraint(equalTo: view.widthAnchor).isActive = true
+        blurEffectView.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
+        blurEffectView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor).isActive = true
+    }
+    
+    func createBackButton(){
+        let backButton = UIButton(frame: CGRect(x: 9, y: 27, width: 48, height: 32))
+        //let backButton = UIButton(type: .custom)
+        backButton.translatesAutoresizingMaskIntoConstraints = false
+        backButton.backgroundColor = .white
+        backButton.setImage(UIImage(named: "back"), for: .normal)
+        backButton.layer.cornerRadius = 16
+        backButton.addTarget(self, action: #selector(goBack), for: UIControl.Event.touchUpInside)
+        backButton.layer.shadowColor = UIColor.black.cgColor
+        backButton.layer.shadowOffset = CGSize(width: 0, height: 0)
+        backButton.layer.masksToBounds = false
+        backButton.layer.shadowRadius = 16
+        backButton.layer.shadowOpacity = 0.1
+        view.addSubview(backButton)
+        if #available(iOS 11.0, *) {
+            backButton.leadingAnchor.constraint(equalTo: tableView.safeAreaLayoutGuide.leadingAnchor, constant: 9).isActive = true
+            backButton.topAnchor.constraint(equalTo: tableView.safeAreaLayoutGuide.topAnchor, constant: 7).isActive = true
+        } else {
+            backButton.leadingAnchor.constraint(equalTo: tableView.layoutMarginsGuide.leadingAnchor, constant: 9).isActive = true
+            backButton.topAnchor.constraint(equalTo: tableView.layoutMarginsGuide.topAnchor, constant: 7).isActive = true
+        }
+        backButton.widthAnchor.constraint(equalToConstant: 48).isActive = true
+        backButton.heightAnchor.constraint(equalToConstant: 32).isActive = true
+       
+    }
 
 
 }

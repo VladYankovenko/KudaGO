@@ -12,6 +12,7 @@ class DetailTVCell: UITableViewCell {
     
     
     @IBOutlet weak var descLable: UILabel!
+    @IBOutlet weak var titleLabel: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()
