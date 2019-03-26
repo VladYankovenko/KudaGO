@@ -12,11 +12,17 @@ class DetailTableViewController: UITableViewController{
     var textDet: String?
     var textTitle: String?
     var textBody: String?
+    var id: Int?
+    let eventServise = EventsService()
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setTableOptions()
+        eventServise.loadDetailImages(id: id!){
+            
+        }
+        
 
     }
     

@@ -16,6 +16,7 @@ class EventsService {
     var listOfStartDates = [Double]()
     var listOfEndDates = [Double]()
     var listOfDates = [Dates]()
+    var listOfDetailsImages = [ImageSize]()
     
     func jsonTaskWith(request: URLRequest, completionHandler: @escaping (Data?, URLResponse?, Error?) -> Void) {
         
@@ -75,8 +76,8 @@ class EventsService {
             
             guard let data = data else { return }
             do {
-                let eventJSON = try JSONDecoder().decode(Events.self, from: data)
-                self.parseEvents(array: eventJSON)
+                let detailsJSON = try JSONDecoder().decode(DetailsImages.self, from: data)
+                self.parseImages(array: detailsJSON)
                 DispatchQueue.main.async {
                     completion()
                 }
@@ -85,19 +86,27 @@ class EventsService {
             }
         }
     }
+    private func parseImages(array: DetailsImages){
+        for eachPic in array.images{
+            let picture = eachPic.thumbnails.picture
+            self.listOfDetailsImages.append(ImageSize(picture: picture))
+            
+        }
+        print(listOfDetailsImages)
+    }
     
     private func parseEvents(array: Events ) {
         
-        for eachElement in array.results {
-            let id = eachElement.id
-            let title = eachElement.title
-            let slug = eachElement.slug
-            let description = eachElement.description
-            let price = eachElement.price
-            let place =  eachElement.place
-            let images = eachElement.images
-            let dates = eachElement.dates
-            let bodyText = eachElement.bodyText
+        for element in array.results {
+            let id = element.id
+            let title = element.title
+            let slug = element.slug
+            let description = element.description
+            let price = element.price
+            let place =  element.place
+            let images = element.images
+            let dates = element.dates
+            let bodyText = element.bodyText
             for eachPic in images{
                 let picture = eachPic.thumbnails.picture
                 self.listOfImages.append(ImageSize(picture: picture))

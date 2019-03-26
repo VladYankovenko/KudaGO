@@ -65,6 +65,7 @@ class ViewController: UIViewController, UITableViewDelegate{
                 detailTVController.textDet = eventService.listOfFields[indexPath.row].description
                 detailTVController.textTitle = eventService.listOfFields[indexPath.row].title
                 detailTVController.textBody = eventService.listOfFields[indexPath.row].bodyText
+                detailTVController.id = eventService.listOfFields[indexPath.row].id
             }
         }
     
@@ -73,6 +74,7 @@ class ViewController: UIViewController, UITableViewDelegate{
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         myIndex = indexPath.row
         performSegue(withIdentifier: "ShowDetailTable", sender: self)
+        
     }
     
     
@@ -100,7 +102,7 @@ class ViewController: UIViewController, UITableViewDelegate{
             //}
             
             self.previousScrollOffset = scrollView.contentOffset.y
-            print("scrolloffset",self.previousScrollOffset)
+            
         }
     }
     func setScrollPosition(_ position: CGFloat) {

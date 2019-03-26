@@ -14,6 +14,7 @@
 		5948C2752240180300A7DE99 /* Dates.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5948C2742240180300A7DE99 /* Dates.swift */; };
 		59BF0CEA223D376A00FA752B /* Images.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59BF0CE9223D376A00FA752B /* Images.swift */; };
 		59BF0CEC223D3A1B00FA752B /* ImageSize.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59BF0CEB223D3A1B00FA752B /* ImageSize.swift */; };
+		59C199FA224AB9FC002A3651 /* DetailsImages.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59C199F9224AB9FC002A3651 /* DetailsImages.swift */; };
 		59EF02E62245A3EA006F60FF /* Loader.xib in Resources */ = {isa = PBXBuildFile; fileRef = 59EF02E52245A3EA006F60FF /* Loader.xib */; };
 		59EF02E92245A4F2006F60FF /* Loader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59EF02E82245A4F2006F60FF /* Loader.swift */; };
 		F50D990A221AEFBA008ED3A6 /* DropShadowEffect.swift in Sources */ = {isa = PBXBuildFile; fileRef = F50D9909221AEFBA008ED3A6 /* DropShadowEffect.swift */; };
@@ -38,6 +39,7 @@
 		5948C2742240180300A7DE99 /* Dates.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dates.swift; sourceTree = "<group>"; };
 		59BF0CE9223D376A00FA752B /* Images.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Images.swift; sourceTree = "<group>"; };
 		59BF0CEB223D3A1B00FA752B /* ImageSize.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageSize.swift; sourceTree = "<group>"; };
+		59C199F9224AB9FC002A3651 /* DetailsImages.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsImages.swift; sourceTree = "<group>"; };
 		59EF02E52245A3EA006F60FF /* Loader.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = Loader.xib; sourceTree = "<group>"; };
 		59EF02E82245A4F2006F60FF /* Loader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Loader.swift; sourceTree = "<group>"; };
 		A6556EF308911CA187CD8D61 /* Pods_KudaGo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_KudaGo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -156,6 +158,7 @@
 				F59397F5222D28BE00853B0E /* Result.swift */,
 				5948C2742240180300A7DE99 /* Dates.swift */,
 				59BF0CEB223D3A1B00FA752B /* ImageSize.swift */,
+				59C199F9224AB9FC002A3651 /* DetailsImages.swift */,
 				59BF0CE9223D376A00FA752B /* Images.swift */,
 				592BF8A2223BD95C00DA4C82 /* Place.swift */,
 			);
@@ -315,6 +318,7 @@
 				F59397F3222B2CFE00853B0E /* Events.swift in Sources */,
 				F544FAEF2219C91D00A04184 /* TableViewCell.swift in Sources */,
 				F58B20F9222D9C810032D137 /* ParseType.swift in Sources */,
+				59C199FA224AB9FC002A3651 /* DetailsImages.swift in Sources */,
 				F544FADF2219C60D00A04184 /* ViewController.swift in Sources */,
 				F544FADD2219C60D00A04184 /* AppDelegate.swift in Sources */,
 				5948C2752240180300A7DE99 /* Dates.swift in Sources */,
