@@ -11,6 +11,7 @@ import UIKit
 class DetailTableViewController: UITableViewController{
     var textDet: String?
     var textTitle: String?
+    var textBody: String?
     
     
     override func viewDidLoad() {
@@ -21,7 +22,6 @@ class DetailTableViewController: UITableViewController{
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
-      // navigationController?.setNavigationBarHidden(true, animated: true)
         createBackButton()
         blurStatusBar()
         
@@ -56,16 +56,12 @@ class DetailTableViewController: UITableViewController{
         
         cell.descLable.text = textDet
         cell.titleLabel.text = textTitle?.uppercased()
+        cell.bodyLable.text = textBody
         
         return cell
     }
     
     
-    //MARK: Customize NavBar
-    
-//    private func Customization(){
-//        navigationItem.leftBarButtonItem = UIBarButtonItem(image: , target: self, action: <#T##Selector?#>)
-//    }
     func setTableOptions(){
         self.tableView.contentInset = UIEdgeInsets(top: -20, left: 0, bottom: 0, right: 0)
         tableView?.estimatedRowHeight = 231
@@ -109,10 +105,7 @@ class DetailTableViewController: UITableViewController{
         }
         backButton.widthAnchor.constraint(equalToConstant: 48).isActive = true
         backButton.heightAnchor.constraint(equalToConstant: 32).isActive = true
-       
     }
-
-
 }
 
 

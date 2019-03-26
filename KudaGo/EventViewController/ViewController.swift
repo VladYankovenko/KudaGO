@@ -64,6 +64,7 @@ class ViewController: UIViewController, UITableViewDelegate{
                 let detailTVController = segue.destination as! DetailTableViewController
                 detailTVController.textDet = eventService.listOfFields[indexPath.row].description
                 detailTVController.textTitle = eventService.listOfFields[indexPath.row].title
+                detailTVController.textBody = eventService.listOfFields[indexPath.row].bodyText
             }
         }
     

@@ -311,6 +311,7 @@
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
+                                    <outlet property="bodyLable" destination="z2P-NT-wBU" id="ozD-rY-sY7"/>
                                     <outlet property="descLable" destination="CY0-p9-JRi" id="qBK-ln-j8m"/>
                                     <outlet property="titleLabel" destination="fqG-Rj-z42" id="aRq-Fe-Ge1"/>
                                 </connections>

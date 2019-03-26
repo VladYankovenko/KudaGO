@@ -18,7 +18,7 @@ protocol URLPoint {
 enum ParseType: URLPoint {
     
     case events(currentDate: Double)
-    case cities
+    case detailImages(id: Int)
     
     var baseURL: URL {
         return URL(string: "https://kudago.com/public-api/v1.4/")!
@@ -28,10 +28,10 @@ enum ParseType: URLPoint {
         switch self {
         case .events(let currentDate):
            // return "events"
-           return "events/?location=msk&fields=id,title,dates,place,short_title,slug,description,price,images,place&expand=place,images&actual_since=\(currentDate)&text_format=text&order_by=-publication_date"
+           return "events/?location=msk&fields=id,title,dates,place,short_title,slug,description,price,images,place,body_text&expand=place,images&actual_since=\(currentDate)&text_format=text&order_by=-publication_date"
             
-        case .cities:
-            return "locations/?lang=ru"
+        case .detailImages(let id):
+            return "events/\(id)/?fields=images&expand=images"
         }
     }
     

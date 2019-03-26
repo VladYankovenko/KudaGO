@@ -67,6 +67,25 @@ class EventsService {
         }
     }
     
+    func loadDetailImages(id: Int, completion: @escaping() -> ()) {
+        
+        let request = ParseType.detailImages(id: id).request
+        
+        jsonTaskWith(request: request) { (data, request, error) in
+            
+            guard let data = data else { return }
+            do {
+                let eventJSON = try JSONDecoder().decode(Events.self, from: data)
+                self.parseEvents(array: eventJSON)
+                DispatchQueue.main.async {
+                    completion()
+                }
+            } catch let jsonErr as NSError {
+                print ("error:", jsonErr)
+            }
+        }
+    }
+    
     private func parseEvents(array: Events ) {
         
         for eachElement in array.results {
@@ -78,6 +97,7 @@ class EventsService {
             let place =  eachElement.place
             let images = eachElement.images
             let dates = eachElement.dates
+            let bodyText = eachElement.bodyText
             for eachPic in images{
                 let picture = eachPic.thumbnails.picture
                 self.listOfImages.append(ImageSize(picture: picture))
@@ -97,9 +117,11 @@ class EventsService {
             self.listOfDates.append(Dates(start: self.listOfStartDates.first!, end: self.listOfEndDates.last!))
             self.listOfStartDates.removeAll()
             self.listOfEndDates.removeAll()
-            self.listOfFields.append(Result(id: id,title: title, slug: slug, description: description, price: price, place: place, images: images, dates: dates))
+            self.listOfFields.append(Result(id: id,title: title, slug: slug, description: description, price: price, place: place, images: images, dates: dates, bodyText: bodyText))
             self.listOfAddres.append(Place(address: address))
             
         }
     }
+    
+    //private func parseImages(arr)
 }
