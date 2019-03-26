@@ -12,28 +12,30 @@ class DetailTableViewController: UITableViewController{
     var textDet: String?
     var textTitle: String?
     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        navigationController?.navigationBar.isHidden = false
         setTableOptions()
-        //tbvie
-        
-        let blurEffect = UIBlurEffect(style: .regular)
-        let blurredStatusBar = UIVisualEffectView(effect: blurEffect)
-        blurredStatusBar.translatesAutoresizingMaskIntoConstraints = false
-        view.addSubview(blurredStatusBar)
+
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        navigationController?.navigationBar.isHidden = true
+        super.viewWillAppear(true)
+      // navigationController?.setNavigationBarHidden(true, animated: true)
         createBackButton()
         blurStatusBar()
         
     }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+       
+        navigationController?.setNavigationBarHidden(false, animated: true)
+    }
 
     @objc func goBack() {
-       
         navigationController?.popViewController(animated: true)
+        
         
     }
     // MARK: - Table view data source
@@ -85,8 +87,8 @@ class DetailTableViewController: UITableViewController{
     }
     
     func createBackButton(){
-        let backButton = UIButton(frame: CGRect(x: 9, y: 27, width: 48, height: 32))
-        //let backButton = UIButton(type: .custom)
+        //let backButton = UIButton(frame: CGRect(x: 9, y: 27, width: 48, height: 32))
+        let backButton = UIButton(type: .custom)
         backButton.translatesAutoresizingMaskIntoConstraints = false
         backButton.backgroundColor = .white
         backButton.setImage(UIImage(named: "back"), for: .normal)
@@ -103,7 +105,7 @@ class DetailTableViewController: UITableViewController{
             backButton.topAnchor.constraint(equalTo: tableView.safeAreaLayoutGuide.topAnchor, constant: 7).isActive = true
         } else {
             backButton.leadingAnchor.constraint(equalTo: tableView.layoutMarginsGuide.leadingAnchor, constant: 9).isActive = true
-            backButton.topAnchor.constraint(equalTo: tableView.layoutMarginsGuide.topAnchor, constant: 7).isActive = true
+            backButton.topAnchor.constraint(equalTo: tableView.layoutMarginsGuide.bottomAnchor, constant: 7).isActive = true
         }
         backButton.widthAnchor.constraint(equalToConstant: 48).isActive = true
         backButton.heightAnchor.constraint(equalToConstant: 32).isActive = true

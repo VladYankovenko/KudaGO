@@ -10,23 +10,29 @@ import UIKit
 import Alamofire
 import AlamofireImage
 
-let logoImageView = UIImageView(image: UIImage(named: "big-logo"))
+
 var results = [Result]()
 var contentOffset: CGFloat?
 var myIndex = 0
 
 
-class ViewController: UIViewController, UITableViewDelegate {
+class ViewController: UIViewController, UITableViewDelegate{
 // MARK: IBOutlets
-    @IBOutlet weak var headerHeightConstraint: NSLayoutConstraint!
+    
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var headerHeightConstraint: NSLayoutConstraint!
     
 // MARK: IBActions
     
 // MARK: Properties
+    let viewController = UIViewController()
     private var eventService = EventsService()
     private let currentDate = Date().timeIntervalSince1970
     private let placeHolder = UIImage(named: "placeholder")
+    private let logoImageView = UIImageView(image: UIImage(named: "big-logo"))
+    private let maxHeaderHeight: CGFloat = 84;
+    private let minHeaderHeight: CGFloat = 0;
+    private var previousScrollOffset: CGFloat = 0;
 
     
     
@@ -35,21 +41,22 @@ class ViewController: UIViewController, UITableViewDelegate {
         super.viewDidLoad()
         setupNavigationBar()
         tableView.separatorStyle = .none
-        
-        
-        //navigationController?.navigationBar.isHidden = true
-        
+       // tableView.refreshControl = UIRefreshControl()
         eventService.loadEvents(currentDate: currentDate){
             self.tableView.reloadData()
         }
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        
     }
     
     override func viewWillDisappear(_ animated: Bool) {
-       // navigationController?.navigationBar.isHidden = true
+        super.viewWillDisappear(animated)
+        navigationController?.setNavigationBarHidden(true, animated: true)
     }
+    
+    
     
     override func prepare(for segue: UIStoryboardSegue , sender: Any?) {
         if segue.identifier == "ShowDetailTable"{
@@ -57,7 +64,6 @@ class ViewController: UIViewController, UITableViewDelegate {
                 let detailTVController = segue.destination as! DetailTableViewController
                 detailTVController.textDet = eventService.listOfFields[indexPath.row].description
                 detailTVController.textTitle = eventService.listOfFields[indexPath.row].title
-                
             }
         }
     
@@ -65,13 +71,81 @@ class ViewController: UIViewController, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         myIndex = indexPath.row
-        //detailTVController.text = "hello\(indexPath)"
-        
         performSegue(withIdentifier: "ShowDetailTable", sender: self)
-        
-        
     }
     
+    
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+       
+        let scrollDiff = scrollView.contentOffset.y - self.previousScrollOffset
+        let absoluteTop: CGFloat = 0;
+        let absoluteBottom: CGFloat = scrollView.contentSize.height - scrollView.frame.size.height;
+        
+        let isScrollingDown = scrollDiff > 0 && scrollView.contentOffset.y > absoluteTop
+        let isScrollingUp = scrollDiff < 0 && scrollView.contentOffset.y < absoluteBottom
+        
+            var newHeight = self.headerHeightConstraint.constant
+            if isScrollingDown {
+                newHeight = max(self.minHeaderHeight, self.headerHeightConstraint.constant - abs(scrollDiff))
+            } else if isScrollingUp {
+                newHeight = min(self.maxHeaderHeight, self.headerHeightConstraint.constant + abs(scrollDiff))
+            }
+            
+            // Header needs to animate
+            if newHeight != self.headerHeightConstraint.constant {
+                self.headerHeightConstraint.constant = newHeight
+               // self.updateHeader()
+                self.setScrollPosition(self.previousScrollOffset)
+            //}
+            
+            self.previousScrollOffset = scrollView.contentOffset.y
+            print("scrolloffset",self.previousScrollOffset)
+        }
+    }
+    func setScrollPosition(_ position: CGFloat) {
+        self.tableView.contentOffset = CGPoint(x: self.tableView.contentOffset.x, y: position)
+    }
+    
+    func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
+        self.scrollViewDidStopScrolling()
+    }
+    
+    func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
+        if !decelerate {
+            self.scrollViewDidStopScrolling()
+        }
+    }
+    
+    func scrollViewDidStopScrolling() {
+        let range = self.maxHeaderHeight - self.minHeaderHeight
+        let midPoint = self.minHeaderHeight + (range / 2)
+        
+        if self.headerHeightConstraint.constant > midPoint {
+            self.expandHeader()
+        } else {
+            self.collapseHeader()
+        }
+    }
+    
+    func collapseHeader() {
+        self.view.layoutIfNeeded()
+        UIView.animate(withDuration: 0.2, animations: {
+            self.headerHeightConstraint.constant = self.minHeaderHeight
+            //self.updateHeader()
+            self.view.layoutIfNeeded()
+        })
+    }
+    
+    func expandHeader() {
+        self.view.layoutIfNeeded()
+        UIView.animate(withDuration: 0.2, animations: {
+            self.headerHeightConstraint.constant = self.maxHeaderHeight
+            //self.updateHeader()
+            self.view.layoutIfNeeded()
+        })
+    }
+    
+   
 
 }
 
@@ -126,12 +200,19 @@ extension ViewController{
         static let ScaleForImageSizeForLandscape: CGFloat = 0.65
     }
     
+    private func showLogo(_ show: Bool) {
+        UIView.animate(withDuration: 0.2) {
+            self.logoImageView.alpha = show ? 1.0 : 0.0
+        }
+    }
+    
     private func setupNavigationBar(){
         guard let navigationBar = self.navigationController?.navigationBar else { return }
         navigationBar.addSubview(logoImageView)
-        navigationBar.isTranslucent = false
+        //navigationBar.isTranslucent = false
         navigationBar.barTintColor = UIColor.white
         navigationBar.setValue(true, forKey: "hidesShadow")
+        self.edgesForExtendedLayout = [.left, .bottom, .right, .top]
         
         
         logoImageView.translatesAutoresizingMaskIntoConstraints = false
@@ -144,6 +225,9 @@ extension ViewController{
             logoImageView.widthAnchor.constraint(equalToConstant: Const.ImageWidthSizeForSmallState)
             ])
     }
+    
+    //MARK: NavigationBar animation
+    
     
     private func loadDataInTable(in cell: TableViewCell, indexPath: IndexPath){
         let list = eventService.listOfFields[indexPath.row]
@@ -188,11 +272,10 @@ extension ViewController{
             cell.dateLabel.text = startFormatter
         }else if equalsToMonth == true && equalsToDay == false {
             let onlyDay = Calendar.current.component(.day, from: dateStart)
-             cell.dateLabel.text = "\(onlyDay) - \(endFormatter)"
+            cell.dateLabel.text = "\(onlyDay) - \(endFormatter)"
         }else{
             cell.dateLabel.text = "\(startFormatter) - \(endFormatter)"
         }
-       
     }
 }
 

@@ -70,6 +70,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		59C199F8224A2CBE002A3651 /* DetailViewController */ = {
+			isa = PBXGroup;
+			children = (
+				590203092243BC27007EB07D /* DetailTableViewController.swift */,
+				5902030B2243BF68007EB07D /* DetailTVCell.swift */,
+			);
+			path = DetailViewController;
+			sourceTree = "<group>";
+		};
 		59EF02E72245A491006F60FF /* Loader */ = {
 			isa = PBXGroup;
 			children = (
@@ -128,10 +137,9 @@
 			children = (
 				59EF02E72245A491006F60FF /* Loader */,
 				F544FADC2219C60D00A04184 /* AppDelegate.swift */,
-				F5D3FC3322295CAC00E7A119 /* EventViewController */,
 				F544FAE02219C60D00A04184 /* Main.storyboard */,
-				590203092243BC27007EB07D /* DetailTableViewController.swift */,
-				5902030B2243BF68007EB07D /* DetailTVCell.swift */,
+				F5D3FC3322295CAC00E7A119 /* EventViewController */,
+				59C199F8224A2CBE002A3651 /* DetailViewController */,
 				F5D3FC3622295D1500E7A119 /* EventService */,
 				F50D990E221AFB90008ED3A6 /* New Group */,
 				F544FAE32219C60E00A04184 /* Assets.xcassets */,
