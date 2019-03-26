@@ -92,7 +92,7 @@ class EventsService {
             self.listOfDetailsImages.append(ImageSize(picture: picture))
             
         }
-        print(listOfDetailsImages)
+        
     }
     
     private func parseEvents(array: Events ) {

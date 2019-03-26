@@ -9,19 +9,28 @@
 import UIKit
 
 class DetailTableViewController: UITableViewController{
+   
     var textDet: String?
     var textTitle: String?
     var textBody: String?
     var id: Int?
-    let eventServise = EventsService()
+    let eventService = EventsService()
+    let placeHolder = UIImage(named: "placeholder")
     
+    
+    var testImages = [UIImage(named: "EventImageTest"),UIImage(named: "EventImageTest")]
+    
+   
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setTableOptions()
-        eventServise.loadDetailImages(id: id!){
+        eventService.loadDetailImages(id: id!){
+            self.tableView.reloadData()
             
         }
+        
+        
         
 
     }
@@ -30,6 +39,7 @@ class DetailTableViewController: UITableViewController{
         super.viewWillAppear(true)
         createBackButton()
         blurStatusBar()
+        
         
     }
     
@@ -63,6 +73,27 @@ class DetailTableViewController: UITableViewController{
         cell.descLable.text = textDet
         cell.titleLabel.text = textTitle?.uppercased()
         cell.bodyLable.text = textBody
+        
+        //Load scroll view images
+        cell.DetailScrollView.isPagingEnabled = true
+        cell.DetailScrollView.contentSize = CGSize(width: self.view.bounds.width * CGFloat(eventService.listOfDetailsImages.count), height: 260)
+        cell.DetailScrollView.showsHorizontalScrollIndicator = false
+        
+        for element in 0..<eventService.listOfDetailsImages.count{
+            var frame = CGRect(x: 0, y: 0, width: 0, height: 0)
+            frame.origin.x = cell.DetailScrollView.frame.size.width * CGFloat(element)
+            frame.size = cell.DetailScrollView.frame.size
+            let imageURL = eventService.listOfDetailsImages[element].picture
+            let url = URL(string: imageURL)
+            
+            let imgView = UIImageView(frame: frame)
+            imgView.af_setImage(withURL: url!, placeholderImage: placeHolder)
+            imgView.contentMode = .scaleAspectFill
+            imgView.clipsToBounds = true
+            cell.DetailScrollView.addSubview(imgView)
+        }
+        
+        
         
         return cell
     }
