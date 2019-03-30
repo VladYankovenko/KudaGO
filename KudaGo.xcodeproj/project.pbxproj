@@ -10,6 +10,8 @@
 		37795F1DB9A8976463E28B77 /* Pods_KudaGo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A6556EF308911CA187CD8D61 /* Pods_KudaGo.framework */; };
 		5902030A2243BC27007EB07D /* DetailTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 590203092243BC27007EB07D /* DetailTableViewController.swift */; };
 		5902030C2243BF68007EB07D /* DetailTVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5902030B2243BF68007EB07D /* DetailTVCell.swift */; };
+		59170D11224E7D2200EDF97A /* NoInternetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59170D10224E7D2200EDF97A /* NoInternetViewController.swift */; };
+		59170D13224E90CB00EDF97A /* IsConnectionToInternet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59170D12224E90CB00EDF97A /* IsConnectionToInternet.swift */; };
 		592BF8A3223BD95C00DA4C82 /* Place.swift in Sources */ = {isa = PBXBuildFile; fileRef = 592BF8A2223BD95C00DA4C82 /* Place.swift */; };
 		5948C2752240180300A7DE99 /* Dates.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5948C2742240180300A7DE99 /* Dates.swift */; };
 		59BF0CEA223D376A00FA752B /* Images.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59BF0CE9223D376A00FA752B /* Images.swift */; };
@@ -35,6 +37,8 @@
 		2AB5709613753143526F4514 /* Pods-KudaGo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KudaGo.debug.xcconfig"; path = "Target Support Files/Pods-KudaGo/Pods-KudaGo.debug.xcconfig"; sourceTree = "<group>"; };
 		590203092243BC27007EB07D /* DetailTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailTableViewController.swift; sourceTree = "<group>"; };
 		5902030B2243BF68007EB07D /* DetailTVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailTVCell.swift; sourceTree = "<group>"; };
+		59170D10224E7D2200EDF97A /* NoInternetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoInternetViewController.swift; sourceTree = "<group>"; };
+		59170D12224E90CB00EDF97A /* IsConnectionToInternet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IsConnectionToInternet.swift; sourceTree = "<group>"; };
 		592BF8A2223BD95C00DA4C82 /* Place.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Place.swift; sourceTree = "<group>"; };
 		5948C2742240180300A7DE99 /* Dates.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dates.swift; sourceTree = "<group>"; };
 		59BF0CE9223D376A00FA752B /* Images.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Images.swift; sourceTree = "<group>"; };
@@ -140,6 +144,8 @@
 				59EF02E72245A491006F60FF /* Loader */,
 				F544FADC2219C60D00A04184 /* AppDelegate.swift */,
 				F544FAE02219C60D00A04184 /* Main.storyboard */,
+				59170D10224E7D2200EDF97A /* NoInternetViewController.swift */,
+				59170D12224E90CB00EDF97A /* IsConnectionToInternet.swift */,
 				F5D3FC3322295CAC00E7A119 /* EventViewController */,
 				59C199F8224A2CBE002A3651 /* DetailViewController */,
 				F5D3FC3622295D1500E7A119 /* EventService */,
@@ -313,11 +319,13 @@
 				F50D990A221AEFBA008ED3A6 /* DropShadowEffect.swift in Sources */,
 				592BF8A3223BD95C00DA4C82 /* Place.swift in Sources */,
 				F5D3FC3522295D0300E7A119 /* EventsService.swift in Sources */,
+				59170D13224E90CB00EDF97A /* IsConnectionToInternet.swift in Sources */,
 				59BF0CEA223D376A00FA752B /* Images.swift in Sources */,
 				59BF0CEC223D3A1B00FA752B /* ImageSize.swift in Sources */,
 				F59397F3222B2CFE00853B0E /* Events.swift in Sources */,
 				F544FAEF2219C91D00A04184 /* TableViewCell.swift in Sources */,
 				F58B20F9222D9C810032D137 /* ParseType.swift in Sources */,
+				59170D11224E7D2200EDF97A /* NoInternetViewController.swift in Sources */,
 				59C199FA224AB9FC002A3651 /* DetailsImages.swift in Sources */,
 				F544FADF2219C60D00A04184 /* ViewController.swift in Sources */,
 				F544FADD2219C60D00A04184 /* AppDelegate.swift in Sources */,

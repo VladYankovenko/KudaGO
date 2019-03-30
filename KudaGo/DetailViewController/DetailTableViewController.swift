@@ -10,6 +10,9 @@ import UIKit
 
 class DetailTableViewController: UITableViewController{
    
+    var textPrice: String?
+    var textPlace: String?
+    var textDates: String?
     var textDet: String?
     var textTitle: String?
     var textBody: String?
@@ -29,10 +32,6 @@ class DetailTableViewController: UITableViewController{
             self.tableView.reloadData()
             
         }
-        
-        
-        
-
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -73,6 +72,9 @@ class DetailTableViewController: UITableViewController{
         cell.descLable.text = textDet
         cell.titleLabel.text = textTitle?.uppercased()
         cell.bodyLable.text = textBody
+        cell.priceLabel.text = textPrice
+        cell.dateLabel.text = textDates
+        cell.placeLabel.text = textPlace
         
         //Load scroll view images
         cell.DetailScrollView.isPagingEnabled = true

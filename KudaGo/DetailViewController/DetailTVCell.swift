@@ -17,6 +17,9 @@ class DetailTVCell: UITableViewCell {
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var DetailImageView: UIImageView!
     @IBOutlet weak var DetailScrollView: UIScrollView!
+    @IBOutlet weak var placeLabel: UILabel!
+    @IBOutlet weak var dateLabel: UILabel!
+    @IBOutlet weak var priceLabel: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()
