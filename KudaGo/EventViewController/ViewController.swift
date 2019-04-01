@@ -235,10 +235,17 @@ extension ViewController{
     
     @objc private func pullRefresh(){
         
-        eventService.loadEventsAfterPull(currentDate: currentDate){
-            self.tableView?.reloadData()
-            self.refreshControl.endRefreshing()
+        if Connection.isConnectedToInternet(){
+            self.loaderView.goRotate()
+            eventService.loadEventsAfterPull(currentDate: currentDate){
+                self.tableView?.reloadData()
+                self.loaderView.stopRotate()
+                self.tableViewRefreshControl.endRefreshing()
+            }
+        }else{
+            performSegue(withIdentifier: "NoInternet", sender: self)
         }
+        
     }
     
     

@@ -10,11 +10,12 @@ import UIKit
 
 class NoInternetViewController: UIViewController {
     @IBOutlet weak var headerView: UIView!
+    @IBOutlet weak var tryButton: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationController?.navigationBar.isHidden = true
-        
+       // setupTryButton()
         paintHeader()
 
         // Do any additional setup after loading the view.
@@ -23,14 +24,19 @@ class NoInternetViewController: UIViewController {
     self.headerView.backgroundColor = UIColor(displayP3Red: 0.89, green: 0.243, blue: 0.224, alpha: 0.96)
     }
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
+//    func setupTryButton(){
+//        tryButton.backgroundColor = UIColor(displayP3Red: 0.89, green: 0.243, blue: 0.224, alpha: 0.96)
+//        tryButton.layer.cornerRadius = 16
+//        tryButton.tintColor = UIColor.white
+//        tryButton.target(forAction: #selector(goBack), withSender: self)
+//        view.addSubview(tryButton)
+//    }
+//
+//    @objc func goBack(){
+//        if Connection.isConnectedToInternet(){
+//            navigationController?.popViewController(animated: true)
+//        }
+//
+//    }
 
 }

@@ -14,13 +14,17 @@ class Loader: UIView {
     @IBOutlet weak var loaderImage: UIImageView!
     
     func goRotate(){
-        rotate = CABasicAnimation(keyPath: "transform.rotation.z")
-        //   rotate.toValue = NSNumber(value: Double.pi * 2)
-        
-        //        rotate?.duration = 1
-        //        rotate?.isCumulative = true
-        //        rotate?.repeatCount = Float.greatestFiniteMagnitude
-        //        rotate.layer.add(rotation!, forKey: "rotationAnimation")
-        //        rotate.isHidden = false
+        loaderImage.isHidden = false
+        let rotation : CABasicAnimation = CABasicAnimation(keyPath: "transform.rotation.z")
+        rotation.toValue = NSNumber(value: Double.pi * 2)
+        rotation.duration = 1
+        rotation.isCumulative = true
+        rotation.repeatCount = Float.greatestFiniteMagnitude
+        loaderImage.layer.add(rotation, forKey: "rotationAnimation")
+    }
+    
+    func stopRotate() {
+        loaderImage.isHidden = true
+        loaderImage.layer.removeAllAnimations()
     }
 }
