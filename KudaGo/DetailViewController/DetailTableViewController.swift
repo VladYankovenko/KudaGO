@@ -50,18 +50,14 @@ class DetailTableViewController: UITableViewController{
 
     @objc func goBack() {
         navigationController?.popViewController(animated: true)
-        
-        
     }
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
-        
         return 1
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        
         return 1
     }
     
@@ -94,9 +90,6 @@ class DetailTableViewController: UITableViewController{
             imgView.clipsToBounds = true
             cell.DetailScrollView.addSubview(imgView)
         }
-        
-        
-        
         return cell
     }
     
