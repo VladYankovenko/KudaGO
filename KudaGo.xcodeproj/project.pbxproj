@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		37795F1DB9A8976463E28B77 /* Pods_KudaGo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A6556EF308911CA187CD8D61 /* Pods_KudaGo.framework */; };
-		5902030A2243BC27007EB07D /* DetailTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 590203092243BC27007EB07D /* DetailTableViewController.swift */; };
+		5902030A2243BC27007EB07D /* EventDetailTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 590203092243BC27007EB07D /* EventDetailTableViewController.swift */; };
 		5902030C2243BF68007EB07D /* DetailTVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5902030B2243BF68007EB07D /* DetailTVCell.swift */; };
 		59170D11224E7D2200EDF97A /* NoInternetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59170D10224E7D2200EDF97A /* NoInternetViewController.swift */; };
 		59170D13224E90CB00EDF97A /* IsConnectionToInternet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59170D12224E90CB00EDF97A /* IsConnectionToInternet.swift */; };
@@ -22,7 +22,7 @@
 		59EF02E92245A4F2006F60FF /* Loader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59EF02E82245A4F2006F60FF /* Loader.swift */; };
 		F50D990A221AEFBA008ED3A6 /* DropShadowEffect.swift in Sources */ = {isa = PBXBuildFile; fileRef = F50D9909221AEFBA008ED3A6 /* DropShadowEffect.swift */; };
 		F544FADD2219C60D00A04184 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F544FADC2219C60D00A04184 /* AppDelegate.swift */; };
-		F544FADF2219C60D00A04184 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F544FADE2219C60D00A04184 /* ViewController.swift */; };
+		F544FADF2219C60D00A04184 /* EventViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F544FADE2219C60D00A04184 /* EventViewController.swift */; };
 		F544FAE22219C60D00A04184 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F544FAE02219C60D00A04184 /* Main.storyboard */; };
 		F544FAE42219C60E00A04184 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F544FAE32219C60E00A04184 /* Assets.xcassets */; };
 		F544FAE72219C60E00A04184 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F544FAE52219C60E00A04184 /* LaunchScreen.storyboard */; };
@@ -36,7 +36,7 @@
 
 /* Begin PBXFileReference section */
 		2AB5709613753143526F4514 /* Pods-KudaGo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KudaGo.debug.xcconfig"; path = "Target Support Files/Pods-KudaGo/Pods-KudaGo.debug.xcconfig"; sourceTree = "<group>"; };
-		590203092243BC27007EB07D /* DetailTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailTableViewController.swift; sourceTree = "<group>"; };
+		590203092243BC27007EB07D /* EventDetailTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventDetailTableViewController.swift; sourceTree = "<group>"; };
 		5902030B2243BF68007EB07D /* DetailTVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailTVCell.swift; sourceTree = "<group>"; };
 		59170D10224E7D2200EDF97A /* NoInternetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoInternetViewController.swift; sourceTree = "<group>"; };
 		59170D12224E90CB00EDF97A /* IsConnectionToInternet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IsConnectionToInternet.swift; sourceTree = "<group>"; };
@@ -53,7 +53,7 @@
 		F50D9909221AEFBA008ED3A6 /* DropShadowEffect.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DropShadowEffect.swift; sourceTree = "<group>"; };
 		F544FAD92219C60D00A04184 /* KudaGo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KudaGo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F544FADC2219C60D00A04184 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		F544FADE2219C60D00A04184 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		F544FADE2219C60D00A04184 /* EventViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventViewController.swift; sourceTree = "<group>"; };
 		F544FAE12219C60D00A04184 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		F544FAE32219C60E00A04184 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F544FAE62219C60E00A04184 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -81,7 +81,7 @@
 		59C199F8224A2CBE002A3651 /* DetailViewController */ = {
 			isa = PBXGroup;
 			children = (
-				590203092243BC27007EB07D /* DetailTableViewController.swift */,
+				590203092243BC27007EB07D /* EventDetailTableViewController.swift */,
 				5902030B2243BF68007EB07D /* DetailTVCell.swift */,
 			);
 			path = DetailViewController;
@@ -177,7 +177,7 @@
 		F5D3FC3322295CAC00E7A119 /* EventViewController */ = {
 			isa = PBXGroup;
 			children = (
-				F544FADE2219C60D00A04184 /* ViewController.swift */,
+				F544FADE2219C60D00A04184 /* EventViewController.swift */,
 				F544FAEE2219C91D00A04184 /* TableViewCell.swift */,
 			);
 			path = EventViewController;
@@ -318,7 +318,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5902030C2243BF68007EB07D /* DetailTVCell.swift in Sources */,
-				5902030A2243BC27007EB07D /* DetailTableViewController.swift in Sources */,
+				5902030A2243BC27007EB07D /* EventDetailTableViewController.swift in Sources */,
 				5977BA5E224F6C4E0010E01B /* CustomLoader.swift in Sources */,
 				F50D990A221AEFBA008ED3A6 /* DropShadowEffect.swift in Sources */,
 				592BF8A3223BD95C00DA4C82 /* Place.swift in Sources */,
@@ -331,7 +331,7 @@
 				F58B20F9222D9C810032D137 /* ParseType.swift in Sources */,
 				59170D11224E7D2200EDF97A /* NoInternetViewController.swift in Sources */,
 				59C199FA224AB9FC002A3651 /* DetailsImages.swift in Sources */,
-				F544FADF2219C60D00A04184 /* ViewController.swift in Sources */,
+				F544FADF2219C60D00A04184 /* EventViewController.swift in Sources */,
 				F544FADD2219C60D00A04184 /* AppDelegate.swift in Sources */,
 				5948C2752240180300A7DE99 /* Dates.swift in Sources */,
 				F59397F6222D28BE00853B0E /* Result.swift in Sources */,
