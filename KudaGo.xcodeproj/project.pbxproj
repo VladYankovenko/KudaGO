@@ -14,10 +14,10 @@
 		59170D13224E90CB00EDF97A /* IsConnectionToInternet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59170D12224E90CB00EDF97A /* IsConnectionToInternet.swift */; };
 		592BF8A3223BD95C00DA4C82 /* Place.swift in Sources */ = {isa = PBXBuildFile; fileRef = 592BF8A2223BD95C00DA4C82 /* Place.swift */; };
 		5948C2752240180300A7DE99 /* Dates.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5948C2742240180300A7DE99 /* Dates.swift */; };
-		5977BA5E224F6C4E0010E01B /* CustomLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5977BA5D224F6C4E0010E01B /* CustomLoader.swift */; };
 		59BF0CEA223D376A00FA752B /* Images.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59BF0CE9223D376A00FA752B /* Images.swift */; };
 		59BF0CEC223D3A1B00FA752B /* ImageSize.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59BF0CEB223D3A1B00FA752B /* ImageSize.swift */; };
 		59C199FA224AB9FC002A3651 /* DetailsImages.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59C199F9224AB9FC002A3651 /* DetailsImages.swift */; };
+		59DA03EB22523BA400FA2F9E /* CustomLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59DA03EA22523BA400FA2F9E /* CustomLoader.swift */; };
 		59EF02E62245A3EA006F60FF /* Loader.xib in Resources */ = {isa = PBXBuildFile; fileRef = 59EF02E52245A3EA006F60FF /* Loader.xib */; };
 		59EF02E92245A4F2006F60FF /* Loader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59EF02E82245A4F2006F60FF /* Loader.swift */; };
 		F50D990A221AEFBA008ED3A6 /* DropShadowEffect.swift in Sources */ = {isa = PBXBuildFile; fileRef = F50D9909221AEFBA008ED3A6 /* DropShadowEffect.swift */; };
@@ -31,7 +31,6 @@
 		F59397F3222B2CFE00853B0E /* Events.swift in Sources */ = {isa = PBXBuildFile; fileRef = F59397F2222B2CFE00853B0E /* Events.swift */; };
 		F59397F6222D28BE00853B0E /* Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = F59397F5222D28BE00853B0E /* Result.swift */; };
 		F5D3FC3522295D0300E7A119 /* EventsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5D3FC3422295D0300E7A119 /* EventsService.swift */; };
-		F5F7EC5B222DA0A700A5686F /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F5F7EC5A222DA0A700A5686F /* Default-568h@2x.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -42,10 +41,10 @@
 		59170D12224E90CB00EDF97A /* IsConnectionToInternet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IsConnectionToInternet.swift; sourceTree = "<group>"; };
 		592BF8A2223BD95C00DA4C82 /* Place.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Place.swift; sourceTree = "<group>"; };
 		5948C2742240180300A7DE99 /* Dates.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dates.swift; sourceTree = "<group>"; };
-		5977BA5D224F6C4E0010E01B /* CustomLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CustomLoader.swift; path = ../../CustomLoader.swift; sourceTree = "<group>"; };
 		59BF0CE9223D376A00FA752B /* Images.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Images.swift; sourceTree = "<group>"; };
 		59BF0CEB223D3A1B00FA752B /* ImageSize.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageSize.swift; sourceTree = "<group>"; };
 		59C199F9224AB9FC002A3651 /* DetailsImages.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsImages.swift; sourceTree = "<group>"; };
+		59DA03EA22523BA400FA2F9E /* CustomLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomLoader.swift; sourceTree = "<group>"; };
 		59EF02E52245A3EA006F60FF /* Loader.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = Loader.xib; sourceTree = "<group>"; };
 		59EF02E82245A4F2006F60FF /* Loader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Loader.swift; sourceTree = "<group>"; };
 		A6556EF308911CA187CD8D61 /* Pods_KudaGo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_KudaGo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -63,7 +62,6 @@
 		F59397F2222B2CFE00853B0E /* Events.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Events.swift; sourceTree = "<group>"; };
 		F59397F5222D28BE00853B0E /* Result.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Result.swift; sourceTree = "<group>"; };
 		F5D3FC3422295D0300E7A119 /* EventsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventsService.swift; sourceTree = "<group>"; };
-		F5F7EC5A222DA0A700A5686F /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -92,7 +90,7 @@
 			children = (
 				59EF02E52245A3EA006F60FF /* Loader.xib */,
 				59EF02E82245A4F2006F60FF /* Loader.swift */,
-				5977BA5D224F6C4E0010E01B /* CustomLoader.swift */,
+				59DA03EA22523BA400FA2F9E /* CustomLoader.swift */,
 			);
 			path = Loader;
 			sourceTree = "<group>";
@@ -125,7 +123,6 @@
 		F544FAD02219C60D00A04184 = {
 			isa = PBXGroup;
 			children = (
-				F5F7EC5A222DA0A700A5686F /* Default-568h@2x.png */,
 				F544FADB2219C60D00A04184 /* KudaGo */,
 				F544FADA2219C60D00A04184 /* Products */,
 				ACC2B4493F4C7C0EEC11C41E /* Pods */,
@@ -144,11 +141,11 @@
 		F544FADB2219C60D00A04184 /* KudaGo */ = {
 			isa = PBXGroup;
 			children = (
-				59EF02E72245A491006F60FF /* Loader */,
 				F544FADC2219C60D00A04184 /* AppDelegate.swift */,
 				F544FAE02219C60D00A04184 /* Main.storyboard */,
 				59170D10224E7D2200EDF97A /* NoInternetViewController.swift */,
 				59170D12224E90CB00EDF97A /* IsConnectionToInternet.swift */,
+				59EF02E72245A491006F60FF /* Loader */,
 				F5D3FC3322295CAC00E7A119 /* EventViewController */,
 				59C199F8224A2CBE002A3651 /* DetailViewController */,
 				F5D3FC3622295D1500E7A119 /* EventService */,
@@ -255,7 +252,6 @@
 			files = (
 				F544FAE72219C60E00A04184 /* LaunchScreen.storyboard in Resources */,
 				59EF02E62245A3EA006F60FF /* Loader.xib in Resources */,
-				F5F7EC5B222DA0A700A5686F /* Default-568h@2x.png in Resources */,
 				F544FAE42219C60E00A04184 /* Assets.xcassets in Resources */,
 				F544FAE22219C60D00A04184 /* Main.storyboard in Resources */,
 			);
@@ -319,7 +315,7 @@
 			files = (
 				5902030C2243BF68007EB07D /* DetailTVCell.swift in Sources */,
 				5902030A2243BC27007EB07D /* EventDetailTableViewController.swift in Sources */,
-				5977BA5E224F6C4E0010E01B /* CustomLoader.swift in Sources */,
+				59DA03EB22523BA400FA2F9E /* CustomLoader.swift in Sources */,
 				F50D990A221AEFBA008ED3A6 /* DropShadowEffect.swift in Sources */,
 				592BF8A3223BD95C00DA4C82 /* Place.swift in Sources */,
 				F5D3FC3522295D0300E7A119 /* EventsService.swift in Sources */,
