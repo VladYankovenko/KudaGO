@@ -68,6 +68,26 @@ class EventsService {
         }
     }
     
+    func loadEventsAfterPull(currentDate: Double, completion: @escaping() -> ()) {
+        
+        let request = ParseType.events(currentDate: currentDate).request
+        
+        jsonTaskWith(request: request) { (data, request, error) in
+            
+            guard let data = data else { return }
+            do {
+                self.removeAll()
+                let eventJSON = try JSONDecoder().decode(Events.self, from: data)
+                self.parseEvents(array: eventJSON)
+                DispatchQueue.main.async {
+                    completion()
+                }
+            } catch let jsonErr as NSError {
+                print ("error:", jsonErr)
+            }
+        }
+    }
+    
     func loadDetailImages(id: Int, completion: @escaping() -> ()) {
         
         let request = ParseType.detailImages(id: id).request
@@ -86,6 +106,14 @@ class EventsService {
             }
         }
     }
+    private func removeAll(){
+        listOfDetailsImages.removeAll()
+        listOfImages.removeAll()
+        listOfAddres.removeAll()
+        listOfFields.removeAll()
+        listOfDates.removeAll()
+    }
+    
     private func parseImages(array: DetailsImages){
         for eachPic in array.images{
             let picture = eachPic.thumbnails.picture

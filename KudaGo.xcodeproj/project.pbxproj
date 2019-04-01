@@ -14,6 +14,7 @@
 		59170D13224E90CB00EDF97A /* IsConnectionToInternet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59170D12224E90CB00EDF97A /* IsConnectionToInternet.swift */; };
 		592BF8A3223BD95C00DA4C82 /* Place.swift in Sources */ = {isa = PBXBuildFile; fileRef = 592BF8A2223BD95C00DA4C82 /* Place.swift */; };
 		5948C2752240180300A7DE99 /* Dates.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5948C2742240180300A7DE99 /* Dates.swift */; };
+		5977BA5E224F6C4E0010E01B /* CustomLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5977BA5D224F6C4E0010E01B /* CustomLoader.swift */; };
 		59BF0CEA223D376A00FA752B /* Images.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59BF0CE9223D376A00FA752B /* Images.swift */; };
 		59BF0CEC223D3A1B00FA752B /* ImageSize.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59BF0CEB223D3A1B00FA752B /* ImageSize.swift */; };
 		59C199FA224AB9FC002A3651 /* DetailsImages.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59C199F9224AB9FC002A3651 /* DetailsImages.swift */; };
@@ -41,6 +42,7 @@
 		59170D12224E90CB00EDF97A /* IsConnectionToInternet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IsConnectionToInternet.swift; sourceTree = "<group>"; };
 		592BF8A2223BD95C00DA4C82 /* Place.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Place.swift; sourceTree = "<group>"; };
 		5948C2742240180300A7DE99 /* Dates.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dates.swift; sourceTree = "<group>"; };
+		5977BA5D224F6C4E0010E01B /* CustomLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CustomLoader.swift; path = ../../CustomLoader.swift; sourceTree = "<group>"; };
 		59BF0CE9223D376A00FA752B /* Images.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Images.swift; sourceTree = "<group>"; };
 		59BF0CEB223D3A1B00FA752B /* ImageSize.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageSize.swift; sourceTree = "<group>"; };
 		59C199F9224AB9FC002A3651 /* DetailsImages.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsImages.swift; sourceTree = "<group>"; };
@@ -90,6 +92,7 @@
 			children = (
 				59EF02E52245A3EA006F60FF /* Loader.xib */,
 				59EF02E82245A4F2006F60FF /* Loader.swift */,
+				5977BA5D224F6C4E0010E01B /* CustomLoader.swift */,
 			);
 			path = Loader;
 			sourceTree = "<group>";
@@ -111,12 +114,12 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
-		F50D990E221AFB90008ED3A6 /* New Group */ = {
+		F50D990E221AFB90008ED3A6 /* Shadow */ = {
 			isa = PBXGroup;
 			children = (
 				F50D9909221AEFBA008ED3A6 /* DropShadowEffect.swift */,
 			);
-			path = "New Group";
+			path = Shadow;
 			sourceTree = "<group>";
 		};
 		F544FAD02219C60D00A04184 = {
@@ -149,7 +152,7 @@
 				F5D3FC3322295CAC00E7A119 /* EventViewController */,
 				59C199F8224A2CBE002A3651 /* DetailViewController */,
 				F5D3FC3622295D1500E7A119 /* EventService */,
-				F50D990E221AFB90008ED3A6 /* New Group */,
+				F50D990E221AFB90008ED3A6 /* Shadow */,
 				F544FAE32219C60E00A04184 /* Assets.xcassets */,
 				F544FAE52219C60E00A04184 /* LaunchScreen.storyboard */,
 				F544FAE82219C60E00A04184 /* Info.plist */,
@@ -157,7 +160,7 @@
 			path = KudaGo;
 			sourceTree = "<group>";
 		};
-		F59397F4222B2D0B00853B0E /* Decodeble  */ = {
+		F59397F4222B2D0B00853B0E /* Decodable  */ = {
 			isa = PBXGroup;
 			children = (
 				F59397F2222B2CFE00853B0E /* Events.swift */,
@@ -168,7 +171,7 @@
 				59BF0CE9223D376A00FA752B /* Images.swift */,
 				592BF8A2223BD95C00DA4C82 /* Place.swift */,
 			);
-			path = "Decodeble ";
+			path = "Decodable ";
 			sourceTree = "<group>";
 		};
 		F5D3FC3322295CAC00E7A119 /* EventViewController */ = {
@@ -183,7 +186,7 @@
 		F5D3FC3622295D1500E7A119 /* EventService */ = {
 			isa = PBXGroup;
 			children = (
-				F59397F4222B2D0B00853B0E /* Decodeble  */,
+				F59397F4222B2D0B00853B0E /* Decodable  */,
 				F5D3FC3422295D0300E7A119 /* EventsService.swift */,
 				F58B20F8222D9C810032D137 /* ParseType.swift */,
 			);
@@ -316,6 +319,7 @@
 			files = (
 				5902030C2243BF68007EB07D /* DetailTVCell.swift in Sources */,
 				5902030A2243BC27007EB07D /* DetailTableViewController.swift in Sources */,
+				5977BA5E224F6C4E0010E01B /* CustomLoader.swift in Sources */,
 				F50D990A221AEFBA008ED3A6 /* DropShadowEffect.swift in Sources */,
 				592BF8A3223BD95C00DA4C82 /* Place.swift in Sources */,
 				F5D3FC3522295D0300E7A119 /* EventsService.swift in Sources */,

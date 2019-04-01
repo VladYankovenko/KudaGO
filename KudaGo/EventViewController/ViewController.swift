@@ -13,13 +13,12 @@ import AlamofireImage
 
 var results = [Result]()
 var contentOffset: CGFloat?
-var myIndex = 0
+
 
 
 class ViewController: UIViewController, UITableViewDelegate{
 // MARK: IBOutlets
     
-    @IBOutlet weak var tableTopConstraint: NSLayoutConstraint!
     @IBOutlet var mainView: UIView!
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var headerHeightConstraint: NSLayoutConstraint!
@@ -38,10 +37,17 @@ class ViewController: UIViewController, UITableViewDelegate{
     private let logoImageView = UIImageView(image: UIImage(named: "bigLogo"))
     private let maxHeaderHeight: CGFloat = 64;
     private let minHeaderHeight: CGFloat = 0;
-//    private let maxTableHeightConstraint: CGFloat = 64;
-//    private let minTableHeightConstraint: CGFloat = 0;
-    
+    private var refreshControl = UIRefreshControl()
     private var previousScrollOffset: CGFloat = 0;
+    
+    private var loaderView: Loader!
+    private var tableViewRefreshControl: UIRefreshControl = {
+        let refreshControl = UIRefreshControl()
+        refreshControl.backgroundColor = .clear
+        refreshControl.tintColor = .clear
+        refreshControl.addTarget(self, action: #selector(pullRefresh), for: .valueChanged)
+        return refreshControl
+    }()
     
     let imageView = UIImageView(image: UIImage(named: "bigLogo"))
      var navBar: UINavigationBar = UINavigationBar()
@@ -56,13 +62,12 @@ class ViewController: UIViewController, UITableViewDelegate{
         if Connection.isConnectedToInternet(){
             setupNavigationBar()
             tableView.separatorStyle = .none
-            // tableView.refreshControl = UIRefreshControl()
-            //navigationController?.isNavigationBarHidden = true
-            
-            
-            
+            CustomLoader.instance.showLoader()
+            //addRefreshControl()
+            prepareRefreshUI()
             eventService.loadEvents(currentDate: currentDate){
                 self.tableView.reloadData()
+                CustomLoader.instance.hidesLoader()
             }
         }else{
             
@@ -71,19 +76,11 @@ class ViewController: UIViewController, UITableViewDelegate{
         
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-       // addLogoIcon()
-    }
+
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
-        
         navigationController?.setNavigationBarHidden(true, animated: true)
-        
-    }
-    
-    override func viewDidAppear(_ animated: Bool) {
-        self.navigationController?.navigationBar.frame = CGRect(x: 0, y: 0, width: view.bounds.width, height: 150)
     }
     
     
@@ -99,40 +96,23 @@ class ViewController: UIViewController, UITableViewDelegate{
                 detailTVController.textPlace = placeOfLabel
                 detailTVController.textDates = datesOfLabel
                 detailTVController.textPrice = priceOfLabel
-                
-                
             }
         }
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let cell = tableView.cellForRow(at: indexPath) as! TableViewCell
-        myIndex = indexPath.row
         placeOfLabel = cell.placeLabel.text
         priceOfLabel = cell.priceLabel.text
         datesOfLabel = cell.dateLabel.text
-        
         performSegue(withIdentifier: "ShowDetailTable", sender: self)
         
     }
     
-    func addLogoIcon(){
-        //let backButton = UIButton(frame: CGRect(x: 9, y: 27, width: 48, height: 32))
-        
-        imageView.frame = CGRect(x: 16, y: 36, width: 106.7, height: 44)
-        
-        view.addSubview(imageView)
 
-    }
-    
-    func deleteLogo(){
-        view.willRemoveSubview(imageView)
-    }
-    
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
 
         let scrollDiff = scrollView.contentOffset.y - self.previousScrollOffset
-        let tavleVieOffset = tableView.contentOffset.y
         let absoluteTop: CGFloat = 0;
         let absoluteBottom: CGFloat = scrollView.contentSize.height - scrollView.frame.size.height;
 
@@ -146,8 +126,6 @@ class ViewController: UIViewController, UITableViewDelegate{
             newHeightHeader = min(self.maxHeaderHeight, self.headerHeightConstraint.constant + abs(scrollDiff))
         }
 
-
-        print(tavleVieOffset)
         // Header needs to animate
         if newHeightHeader != self.headerHeightConstraint.constant {
             self.headerHeightConstraint.constant = newHeightHeader
@@ -174,7 +152,6 @@ class ViewController: UIViewController, UITableViewDelegate{
     func scrollViewDidStopScrolling() {
         let range = self.maxHeaderHeight - self.minHeaderHeight
         let midPoint = self.minHeaderHeight + (range / 2)
-        
         if self.headerHeightConstraint.constant > midPoint {
             self.expandHeader()
         } else {
@@ -216,7 +193,6 @@ extension ViewController: UITableViewDataSource  {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell =  tableView.dequeueReusableCell(withIdentifier: "cellID", for: indexPath) as? TableViewCell
         loadDataInTable(in: cell!, indexPath: indexPath)
-        
         return cell!
     }
     
@@ -228,52 +204,53 @@ extension ViewController: UITableViewDataSource  {
 
 //MARK: extentions ViewController
 extension ViewController{
-    
-    private struct Const {
-        /// Высота / ширина изображения для состояния Big NavBar
-        static let ImageHeightSizeForBigState: CGFloat = 44
+    private func addRefreshControl(){
         
-        static let ImageWidthSizeForBigState: CGFloat = 106.7
+        if let objOfRefreshView = Bundle.main.loadNibNamed("Loader", owner: self, options: nil)?.first as? Loader {
+            // Initializing the 'refreshView'
+            loaderView = objOfRefreshView
+            // Giving the frame as per 'tableViewRefreshControl'
+            loaderView.frame = tableViewRefreshControl.frame
+            // Adding the 'refreshView' to 'tableViewRefreshControl'
+            tableViewRefreshControl.addSubview(loaderView)
+        }
         
-        static let ImageHeightSizeForSmallState: CGFloat = 32
+//        refreshControl.addTarget(self, action: #selector(pullRefresh), for: .valueChanged)
+//        if #available(iOS 10.0, *){
+//            tableView.refreshControl = refreshControl
+//        }else{
+//            tableView.addSubview(refreshControl)
+//        }
         
-        static let ImageWidthSizeForSmallState: CGFloat = 77.6
-        
-        /// Отступ на право
-        static let ImageLeftMargin: CGFloat = 16
-        
-        
-        
-        /// отступ снизу до нав бара
-        static let ImageTopMarginForBigState: CGFloat = 16
-        
-        /// Margin from bottom anchor of NavBar to bottom anchor of Image for Small NavBar state
-        static let ImageTopMarginForSmallState: CGFloat = 6
-        
-        /// Image height/width for Small NavBar state
-        static let ImageSizeForSmallState: CGFloat = 83.94
-        
-        static let ImageSizeForLargeState: CGFloat = 115.42
-        
-        /// Height of NavBar for Small state. Usually it's just 44
-        static let NavBarHeightSmallState: CGFloat = 44
-        
-        /// Height of NavBar for Large state. Usually it's just 96.5 but if you have a custom font for the title, please make sure to edit this value since it changes the height for Large state of NavBar
-        static let NavBarHeightLargeState: CGFloat = 66
-        
-        /// Image height/width for Landscape state
-        static let ScaleForImageSizeForLandscape: CGFloat = 0.65
     }
     
-    private func showLogo(_ show: Bool) {
-        UIView.animate(withDuration: 0.2) {
-            self.logoImageView.alpha = show ? 1.0 : 0.0
+    
+    func prepareRefreshUI() {
+        // Adding 'tableViewRefreshControl' to tableView
+        tableView.refreshControl = tableViewRefreshControl
+        // Getting the nib from bundle
+       // pullRefresh()
+        addRefreshControl()
+    }
+    
+    @objc private func pullRefresh(){
+        
+        eventService.loadEventsAfterPull(currentDate: currentDate){
+            self.tableView?.reloadData()
+            self.refreshControl.endRefreshing()
         }
     }
     
+    
+    private struct Const {
+        static let ImageHeightSizeForSmallState: CGFloat = 32
+        static let ImageWidthSizeForSmallState: CGFloat = 77.6
+        static let ImageLeftMargin: CGFloat = 16
+        static let ImageTopMarginForSmallState: CGFloat = 6
+    }
+    
+
     private func setupNavigationBar(){
-        
-        
         guard let navigationBar = self.navigationController?.navigationBar else { return }
         let visualEffectView   = UIVisualEffectView(effect: UIBlurEffect(style: .light))
         visualEffectView.frame =  (self.navigationController?.navigationBar.bounds.insetBy(dx: 0, dy: -10).offsetBy(dx: 0, dy: -10))!
@@ -281,12 +258,8 @@ extension ViewController{
         navigationBar.setBackgroundImage(UIImage(), for: .default)
         navigationBar.addSubview(visualEffectView)
         navigationBar.addSubview(logoImageView)
-        //navigationBar.isTranslucent = false
-       // navigationBar.barTintColor = UIColor.white //Цвет на время
         navigationBar.setValue(true, forKey: "hidesShadow")
         self.edgesForExtendedLayout = [.left, .bottom, .right, .top]
-        
-        
         logoImageView.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
             logoImageView.leftAnchor.constraint(equalTo: navigationBar.leftAnchor,
@@ -297,44 +270,6 @@ extension ViewController{
             logoImageView.widthAnchor.constraint(equalToConstant: Const.ImageWidthSizeForSmallState)
             ])
     }
-    
-    private func moveAndResizeImage(for height: CGFloat) {
-        let coeff: CGFloat = {
-            let delta = height - Const.NavBarHeightSmallState
-            let heightDifferenceBetweenStates = (Const.NavBarHeightLargeState - Const.NavBarHeightSmallState)
-            return delta / heightDifferenceBetweenStates
-        }()
-        print(coeff,"coeff")
-        
-        let factor = Const.ImageSizeForSmallState / Const.ImageSizeForLargeState
-        
-         print(factor,"facor")
-        
-        let scale: CGFloat = {
-            let sizeAddendumFactor = coeff * (1.0 - factor)
-            return min(1.0, sizeAddendumFactor + factor)
-        }()
-        
-        print(scale,"scale")
-        
-        // Value of difference between icons for large and small states
-        let sizeDiff = Const.ImageSizeForLargeState * (1.0 - factor) // 8.0
-        
-        print(sizeDiff, "sizeDif")
-        let yTranslation: CGFloat = {
-            /// This value = 14. It equals to difference of 12 and 6 (bottom margin for large and small states). Also it adds 8.0 (size difference when the image gets smaller size)
-            let maxYTranslation = Const.ImageTopMarginForBigState - Const.ImageTopMarginForSmallState + sizeDiff
-            return max(0, min(maxYTranslation, (maxYTranslation - coeff * (Const.ImageTopMarginForSmallState + sizeDiff))))
-        }()
-        
-        let xTranslation = max(0, sizeDiff - coeff * sizeDiff)
-        
-        logoImageView.transform = CGAffineTransform.identity
-            .scaledBy(x: scale, y: scale)
-            .translatedBy(x: xTranslation, y: yTranslation)
-    }
-    
-    //MARK: NavigationBar animation
     
     
     private func loadDataInTable(in cell: TableViewCell, indexPath: IndexPath){
