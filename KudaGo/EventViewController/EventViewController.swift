@@ -215,13 +215,6 @@ extension ViewController{
             tableViewRefreshControl.addSubview(loaderView)
         }
         
-//        refreshControl.addTarget(self, action: #selector(pullRefresh), for: .valueChanged)
-//        if #available(iOS 10.0, *){
-//            tableView.refreshControl = refreshControl
-//        }else{
-//            tableView.addSubview(refreshControl)
-//        }
-        
     }
     
     
@@ -229,7 +222,7 @@ extension ViewController{
         // Adding 'tableViewRefreshControl' to tableView
         tableView.refreshControl = tableViewRefreshControl
         // Getting the nib from bundle
-       // pullRefresh()
+        // pullRefresh()
         addRefreshControl()
     }
     
