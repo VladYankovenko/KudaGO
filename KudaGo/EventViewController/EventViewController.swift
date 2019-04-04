@@ -62,12 +62,12 @@ class ViewController: UIViewController, UITableViewDelegate{
         if Connection.isConnectedToInternet(){
             setupNavigationBar()
             tableView.separatorStyle = .none
-            CustomLoader.instance.showLoader()
+            //CustomLoader.instance.showLoader()
             //addRefreshControl()
             prepareRefreshUI()
             eventService.loadEvents(currentDate: currentDate){
                 self.tableView.reloadData()
-                CustomLoader.instance.hidesLoader()
+                //CustomLoader.instance.hidesLoader()
             }
         }else{
             
