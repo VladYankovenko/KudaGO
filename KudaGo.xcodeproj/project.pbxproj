@@ -31,7 +31,6 @@
 		F59397F3222B2CFE00853B0E /* Events.swift in Sources */ = {isa = PBXBuildFile; fileRef = F59397F2222B2CFE00853B0E /* Events.swift */; };
 		F59397F6222D28BE00853B0E /* Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = F59397F5222D28BE00853B0E /* Result.swift */; };
 		F5D3FC3522295D0300E7A119 /* EventsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5D3FC3422295D0300E7A119 /* EventsService.swift */; };
-		F5F7EC5B222DA0A700A5686F /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F5F7EC5A222DA0A700A5686F /* Default-568h@2x.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -63,7 +62,6 @@
 		F59397F2222B2CFE00853B0E /* Events.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Events.swift; sourceTree = "<group>"; };
 		F59397F5222D28BE00853B0E /* Result.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Result.swift; sourceTree = "<group>"; };
 		F5D3FC3422295D0300E7A119 /* EventsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventsService.swift; sourceTree = "<group>"; };
-		F5F7EC5A222DA0A700A5686F /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -125,7 +123,6 @@
 		F544FAD02219C60D00A04184 = {
 			isa = PBXGroup;
 			children = (
-				F5F7EC5A222DA0A700A5686F /* Default-568h@2x.png */,
 				F544FADB2219C60D00A04184 /* KudaGo */,
 				F544FADA2219C60D00A04184 /* Products */,
 				ACC2B4493F4C7C0EEC11C41E /* Pods */,
@@ -255,7 +252,6 @@
 			files = (
 				F544FAE72219C60E00A04184 /* LaunchScreen.storyboard in Resources */,
 				59EF02E62245A3EA006F60FF /* Loader.xib in Resources */,
-				F5F7EC5B222DA0A700A5686F /* Default-568h@2x.png in Resources */,
 				F544FAE42219C60E00A04184 /* Assets.xcassets in Resources */,
 				F544FAE22219C60D00A04184 /* Main.storyboard in Resources */,
 			);
