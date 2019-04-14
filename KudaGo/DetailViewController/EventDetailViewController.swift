@@ -52,7 +52,7 @@ class EventDetailViewController: UIViewController {
     
     private func loadCurrentEvent(){
         bodyTextLabel.text = event?.bodytext
-        titleLabel.text = event?.title
+        titleLabel.text = event?.title.uppercased()
         descriptionLabel.text = event?.description
         placeLabel.text = place
         datesLabel.text = dates

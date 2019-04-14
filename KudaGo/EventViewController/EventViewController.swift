@@ -11,8 +11,7 @@ import Alamofire
 import AlamofireImage
 
 
-var results = [Result]()
-var contentOffset: CGFloat?
+
 
 
 
@@ -68,28 +67,15 @@ class ViewController: UIViewController, UITableViewDelegate{
             CustomLoader.instance.showLoader()
             //addRefreshControl()
             prepareRefreshUI()
-            //TEST
+            
             jsonParsing.loadEvents(currentDate: currentDate, completion: { events in
                 DispatchQueue.main.async {
                     self.events = events ?? []
                     self.tableView.reloadData()
                     CustomLoader.instance.hidesLoader()
-                    //print(events)
-                    
                 }
             })
-            print(currentDate)
-            //TEST
-            
-            
-//            eventService.loadEvents(currentDate: currentDate){
-//                self.tableView.reloadData()
-//                CustomLoader.instance.hidesLoader()
-//                print(self.eventService.listOfFields.count)
-//
-//            }
         }else{
-            
             self.performSegue(withIdentifier: "NoInternet", sender: self)
         }
         
@@ -145,7 +131,6 @@ class ViewController: UIViewController, UITableViewDelegate{
         // Header needs to animate
         if newHeightHeader != self.headerHeightConstraint.constant {
             self.headerHeightConstraint.constant = newHeightHeader
-            // self.updateHeader()
             self.setScrollPosition(self.previousScrollOffset)
             self.previousScrollOffset = scrollView.contentOffset.y
         }
@@ -181,7 +166,6 @@ class ViewController: UIViewController, UITableViewDelegate{
         self.view.layoutIfNeeded()
         UIView.animate(withDuration: 0.2, animations: {
             self.headerHeightConstraint.constant = self.minHeaderHeight
-            //self.updateHeader()
             self.view.layoutIfNeeded()
         })
     }
@@ -190,7 +174,6 @@ class ViewController: UIViewController, UITableViewDelegate{
         self.view.layoutIfNeeded()
         UIView.animate(withDuration: 0.2, animations: {
             self.headerHeightConstraint.constant = self.maxHeaderHeight
-            //self.updateHeader()
             self.view.layoutIfNeeded()
         })
     }
@@ -204,7 +187,6 @@ extension ViewController: UITableViewDataSource  {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return events.count
-        //return eventService.listOfFields.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -242,11 +224,6 @@ extension ViewController{
         
         if Connection.isConnectedToInternet(){
             self.loaderView.goRotate()
-//            eventService.loadEventsAfterPull(currentDate: currentDate){
-//                self.tableView?.reloadData()
-//                self.loaderView.stopRotate()
-//                self.tableViewRefreshControl.endRefreshing()
-//            }
             jsonParsing.loadEvents(currentDate: currentDate) { events in
                 self.events = events ?? []
                 self.tableView.reloadData()
@@ -291,21 +268,15 @@ extension ViewController{
     
     
     private func loadDataInTable(in cell: TableViewCell, indexPath: IndexPath){
-//        let list = eventService.listOfFields[indexPath.row]
         let event = self.events[indexPath.row]
-        // let list1 = self.events[indexPath.row]
-        
-        
-        //let imagesList = self.imagesArray[0]
         
         //загрузка описания
-        //cell.titleLabel.text = list.title.uppercased()
+        
         cell.titleLabel.text = event.title.uppercased()
-        // cell.descriptionLabel.text = list.description
         cell.descriptionLabel.text = event.description
         
         //загрузка места
-        //if let place = eventService.listOfAddres[indexPath.row].address{
+        
         if let place = event.place?.address{
             //Добавить исчезновение стека
             cell.placeLabel.text = place
@@ -313,10 +284,8 @@ extension ViewController{
             //Добавить исчезновение стека
         }
         //загрузка картинок в ленту
-        //let imageURL = eventService.listOfImages[indexPath.row].picture
         let imageURL = event.images[0].thumbnails.pictureSize
         let url = URL(string: imageURL)
-        
         cell.photoEvent.af_setImage(withURL: url!, placeholderImage: placeHolder)
         
         //загрузка цены
@@ -325,6 +294,7 @@ extension ViewController{
         }else{
             cell.priceLabel.text = event.price.capitalized//первая заглавная
         }
+        
         //загрузка даты
         let dateStart =  Date(timeIntervalSince1970: event.dates[0].start)
         let dateEnd =  Date(timeIntervalSince1970: event.dates[0].end)
