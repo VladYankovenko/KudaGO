@@ -90,6 +90,7 @@
 		59C199F8224A2CBE002A3651 /* DetailViewController */ = {
 			isa = PBXGroup;
 			children = (
+				5908A3B92262043500408510 /* EventDetailViewController.swift */,
 			);
 			path = DetailViewController;
 			sourceTree = "<group>";
@@ -153,7 +154,6 @@
 				59EF02E72245A491006F60FF /* Loader */,
 				F544FADC2219C60D00A04184 /* AppDelegate.swift */,
 				F544FAE02219C60D00A04184 /* Main.storyboard */,
-				5908A3B92262043500408510 /* EventDetailViewController.swift */,
 				59170D10224E7D2200EDF97A /* NoInternetViewController.swift */,
 				59170D12224E90CB00EDF97A /* IsConnectionToInternet.swift */,
 				F5D3FC3322295CAC00E7A119 /* EventViewController */,
