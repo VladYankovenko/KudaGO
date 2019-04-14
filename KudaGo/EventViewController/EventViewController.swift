@@ -26,12 +26,14 @@ class ViewController: UIViewController, UITableViewDelegate{
 // MARK: IBActions
     
 // MARK: Properties
+    var events: [Results] = []
     var placeOfLabel: String?
     var datesOfLabel: String?
     var priceOfLabel: String?
     
     let viewController = UIViewController()
-    private var eventService = EventsService()
+    private var jsonParsing = EventManager()
+   // private var eventService = EventsService()
     private let currentDate = Date().timeIntervalSince1970
     private let placeHolder = UIImage(named: "placeholder")
     private let logoImageView = UIImageView(image: UIImage(named: "bigLogo"))
@@ -62,13 +64,30 @@ class ViewController: UIViewController, UITableViewDelegate{
         if Connection.isConnectedToInternet(){
             setupNavigationBar()
             tableView.separatorStyle = .none
+            
             CustomLoader.instance.showLoader()
             //addRefreshControl()
             prepareRefreshUI()
-            eventService.loadEvents(currentDate: currentDate){
-                self.tableView.reloadData()
-                CustomLoader.instance.hidesLoader()
-            }
+            //TEST
+            jsonParsing.loadEvents(currentDate: currentDate, completion: { events in
+                DispatchQueue.main.async {
+                    self.events = events ?? []
+                    self.tableView.reloadData()
+                    CustomLoader.instance.hidesLoader()
+                    //print(events)
+                    
+                }
+            })
+            print(currentDate)
+            //TEST
+            
+            
+//            eventService.loadEvents(currentDate: currentDate){
+//                self.tableView.reloadData()
+//                CustomLoader.instance.hidesLoader()
+//                print(self.eventService.listOfFields.count)
+//
+//            }
         }else{
             
             self.performSegue(withIdentifier: "NoInternet", sender: self)
@@ -86,16 +105,13 @@ class ViewController: UIViewController, UITableViewDelegate{
     
     
     override func prepare(for segue: UIStoryboardSegue , sender: Any?) {
-        if segue.identifier == "ShowDetailTable"{
+        if segue.identifier == "ShowDetail"{
             if let indexPath  = tableView.indexPathForSelectedRow {
-                let detailTVController = segue.destination as! DetailTableViewController
-                detailTVController.textDet = eventService.listOfFields[indexPath.row].description
-                detailTVController.textTitle = eventService.listOfFields[indexPath.row].title
-                detailTVController.textBody = eventService.listOfFields[indexPath.row].bodyText
-                detailTVController.id = eventService.listOfFields[indexPath.row].id
-                detailTVController.textPlace = placeOfLabel
-                detailTVController.textDates = datesOfLabel
-                detailTVController.textPrice = priceOfLabel
+                let eventDetailViewController = segue.destination as! EventDetailViewController
+                eventDetailViewController.price = priceOfLabel
+                eventDetailViewController.dates = datesOfLabel
+                eventDetailViewController.place = placeOfLabel
+                eventDetailViewController.event = self.events[indexPath.row]
             }
         }
     }
@@ -105,7 +121,7 @@ class ViewController: UIViewController, UITableViewDelegate{
         placeOfLabel = cell.placeLabel.text
         priceOfLabel = cell.priceLabel.text
         datesOfLabel = cell.dateLabel.text
-        performSegue(withIdentifier: "ShowDetailTable", sender: self)
+        performSegue(withIdentifier: "ShowDetail", sender: self)
         
     }
     
@@ -187,7 +203,8 @@ class ViewController: UIViewController, UITableViewDelegate{
 extension ViewController: UITableViewDataSource  {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return eventService.listOfFields.count
+        return events.count
+        //return eventService.listOfFields.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -207,29 +224,17 @@ extension ViewController{
     private func addRefreshControl(){
         
         if let objOfRefreshView = Bundle.main.loadNibNamed("Loader", owner: self, options: nil)?.first as? Loader {
-            // Initializing the 'refreshView'
             loaderView = objOfRefreshView
-            // Giving the frame as per 'tableViewRefreshControl'
+            loaderView.hidesLoader()
             loaderView.frame = tableViewRefreshControl.frame
-            // Adding the 'refreshView' to 'tableViewRefreshControl'
             tableViewRefreshControl.addSubview(loaderView)
         }
-        
-//        refreshControl.addTarget(self, action: #selector(pullRefresh), for: .valueChanged)
-//        if #available(iOS 10.0, *){
-//            tableView.refreshControl = refreshControl
-//        }else{
-//            tableView.addSubview(refreshControl)
-//        }
-        
     }
     
     
     func prepareRefreshUI() {
-        // Adding 'tableViewRefreshControl' to tableView
+        
         tableView.refreshControl = tableViewRefreshControl
-        // Getting the nib from bundle
-       // pullRefresh()
         addRefreshControl()
     }
     
@@ -237,8 +242,14 @@ extension ViewController{
         
         if Connection.isConnectedToInternet(){
             self.loaderView.goRotate()
-            eventService.loadEventsAfterPull(currentDate: currentDate){
-                self.tableView?.reloadData()
+//            eventService.loadEventsAfterPull(currentDate: currentDate){
+//                self.tableView?.reloadData()
+//                self.loaderView.stopRotate()
+//                self.tableViewRefreshControl.endRefreshing()
+//            }
+            jsonParsing.loadEvents(currentDate: currentDate) { events in
+                self.events = events ?? []
+                self.tableView.reloadData()
                 self.loaderView.stopRotate()
                 self.tableViewRefreshControl.endRefreshing()
             }
@@ -260,7 +271,7 @@ extension ViewController{
     private func setupNavigationBar(){
         guard let navigationBar = self.navigationController?.navigationBar else { return }
         let visualEffectView   = UIVisualEffectView(effect: UIBlurEffect(style: .light))
-        visualEffectView.frame =  (self.navigationController?.navigationBar.bounds.insetBy(dx: 0, dy: -10).offsetBy(dx: 0, dy: -10))!
+        visualEffectView.frame =  CGRect(origin: CGPoint(x: navigationBar.bounds.origin.x, y: navigationBar.bounds.origin.y - 100), size: CGSize(width: navigationBar.bounds.width, height: navigationBar.bounds.height + 100))
         navigationBar.isTranslucent = true
         navigationBar.setBackgroundImage(UIImage(), for: .default)
         navigationBar.addSubview(visualEffectView)
@@ -280,34 +291,43 @@ extension ViewController{
     
     
     private func loadDataInTable(in cell: TableViewCell, indexPath: IndexPath){
-        let list = eventService.listOfFields[indexPath.row]
+//        let list = eventService.listOfFields[indexPath.row]
+        let event = self.events[indexPath.row]
+        // let list1 = self.events[indexPath.row]
+        
+        
+        //let imagesList = self.imagesArray[0]
         
         //загрузка описания
-        cell.titleLabel.text = list.title.uppercased()
-        cell.descriptionLabel.text = list.description
+        //cell.titleLabel.text = list.title.uppercased()
+        cell.titleLabel.text = event.title.uppercased()
+        // cell.descriptionLabel.text = list.description
+        cell.descriptionLabel.text = event.description
         
         //загрузка места
-        if let place = eventService.listOfAddres[indexPath.row].address{
+        //if let place = eventService.listOfAddres[indexPath.row].address{
+        if let place = event.place?.address{
             //Добавить исчезновение стека
             cell.placeLabel.text = place
         }else{
             //Добавить исчезновение стека
         }
         //загрузка картинок в ленту
-        let imageURL = eventService.listOfImages[indexPath.row].picture
+        //let imageURL = eventService.listOfImages[indexPath.row].picture
+        let imageURL = event.images[0].thumbnails.pictureSize
         let url = URL(string: imageURL)
         
         cell.photoEvent.af_setImage(withURL: url!, placeholderImage: placeHolder)
         
         //загрузка цены
-        if list.price == ""{
+        if event.price == ""{
             cell.priceLabel.text = "Бесплатно"
         }else{
-            cell.priceLabel.text = list.price.capitalized//первая заглавная
+            cell.priceLabel.text = event.price.capitalized//первая заглавная
         }
         //загрузка даты
-        let dateStart =  Date(timeIntervalSince1970: eventService.listOfDates[indexPath.row].start)
-        let dateEnd =  Date(timeIntervalSince1970: eventService.listOfDates[indexPath.row].end)
+        let dateStart =  Date(timeIntervalSince1970: event.dates[0].start)
+        let dateEnd =  Date(timeIntervalSince1970: event.dates[0].end)
         let dateFormatter = DateFormatter()
         dateFormatter.dateStyle = .medium
         dateFormatter.locale = Locale(identifier: "ru_RU")

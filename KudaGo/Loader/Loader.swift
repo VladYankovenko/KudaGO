@@ -13,6 +13,8 @@ class Loader: UIView {
     var rotate : CAAnimation?
     @IBOutlet weak var loaderImage: UIImageView!
     
+    
+    
     func goRotate(){
         loaderImage.isHidden = false
         let rotation : CABasicAnimation = CABasicAnimation(keyPath: "transform.rotation.z")
@@ -26,5 +28,9 @@ class Loader: UIView {
     func stopRotate() {
         loaderImage.isHidden = true
         loaderImage.layer.removeAllAnimations()
+    }
+    
+    func hidesLoader() {
+        loaderImage.isHidden = true
     }
 }

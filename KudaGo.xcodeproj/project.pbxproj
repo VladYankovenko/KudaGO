@@ -8,9 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		37795F1DB9A8976463E28B77 /* Pods_KudaGo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A6556EF308911CA187CD8D61 /* Pods_KudaGo.framework */; };
-		5902030A2243BC27007EB07D /* EventDetailTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 590203092243BC27007EB07D /* EventDetailTableViewController.swift */; };
-		5902030C2243BF68007EB07D /* DetailTVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5902030B2243BF68007EB07D /* DetailTVCell.swift */; };
 		5904407B225630FE00D3D140 /* CustomLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5904407A225630FE00D3D140 /* CustomLoader.swift */; };
+		5908A3BA2262043500408510 /* EventDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5908A3B92262043500408510 /* EventDetailViewController.swift */; };
+		590A315A2256549C009C3BA0 /* JsonParsing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 590A31592256549C009C3BA0 /* JsonParsing.swift */; };
+		590A315C225657D8009C3BA0 /* EventCodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 590A315B225657D8009C3BA0 /* EventCodable.swift */; };
 		59170D11224E7D2200EDF97A /* NoInternetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59170D10224E7D2200EDF97A /* NoInternetViewController.swift */; };
 		59170D13224E90CB00EDF97A /* IsConnectionToInternet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59170D12224E90CB00EDF97A /* IsConnectionToInternet.swift */; };
 		592BF8A3223BD95C00DA4C82 /* Place.swift in Sources */ = {isa = PBXBuildFile; fileRef = 592BF8A2223BD95C00DA4C82 /* Place.swift */; };
@@ -35,9 +36,10 @@
 
 /* Begin PBXFileReference section */
 		2AB5709613753143526F4514 /* Pods-KudaGo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KudaGo.debug.xcconfig"; path = "Target Support Files/Pods-KudaGo/Pods-KudaGo.debug.xcconfig"; sourceTree = "<group>"; };
-		590203092243BC27007EB07D /* EventDetailTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventDetailTableViewController.swift; sourceTree = "<group>"; };
-		5902030B2243BF68007EB07D /* DetailTVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailTVCell.swift; sourceTree = "<group>"; };
 		5904407A225630FE00D3D140 /* CustomLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomLoader.swift; sourceTree = "<group>"; };
+		5908A3B92262043500408510 /* EventDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventDetailViewController.swift; sourceTree = "<group>"; };
+		590A31592256549C009C3BA0 /* JsonParsing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JsonParsing.swift; sourceTree = "<group>"; };
+		590A315B225657D8009C3BA0 /* EventCodable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventCodable.swift; sourceTree = "<group>"; };
 		59170D10224E7D2200EDF97A /* NoInternetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoInternetViewController.swift; sourceTree = "<group>"; };
 		59170D12224E90CB00EDF97A /* IsConnectionToInternet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IsConnectionToInternet.swift; sourceTree = "<group>"; };
 		592BF8A2223BD95C00DA4C82 /* Place.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Place.swift; sourceTree = "<group>"; };
@@ -76,11 +78,18 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		590A315D225657E3009C3BA0 /* Codable */ = {
+			isa = PBXGroup;
+			children = (
+				590A31592256549C009C3BA0 /* JsonParsing.swift */,
+				590A315B225657D8009C3BA0 /* EventCodable.swift */,
+			);
+			path = Codable;
+			sourceTree = "<group>";
+		};
 		59C199F8224A2CBE002A3651 /* DetailViewController */ = {
 			isa = PBXGroup;
 			children = (
-				590203092243BC27007EB07D /* EventDetailTableViewController.swift */,
-				5902030B2243BF68007EB07D /* DetailTVCell.swift */,
 			);
 			path = DetailViewController;
 			sourceTree = "<group>";
@@ -144,6 +153,7 @@
 				59EF02E72245A491006F60FF /* Loader */,
 				F544FADC2219C60D00A04184 /* AppDelegate.swift */,
 				F544FAE02219C60D00A04184 /* Main.storyboard */,
+				5908A3B92262043500408510 /* EventDetailViewController.swift */,
 				59170D10224E7D2200EDF97A /* NoInternetViewController.swift */,
 				59170D12224E90CB00EDF97A /* IsConnectionToInternet.swift */,
 				F5D3FC3322295CAC00E7A119 /* EventViewController */,
@@ -153,6 +163,7 @@
 				F544FAE32219C60E00A04184 /* Assets.xcassets */,
 				F544FAE52219C60E00A04184 /* LaunchScreen.storyboard */,
 				F544FAE82219C60E00A04184 /* Info.plist */,
+				590A315D225657E3009C3BA0 /* Codable */,
 			);
 			path = KudaGo;
 			sourceTree = "<group>";
@@ -313,12 +324,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5902030C2243BF68007EB07D /* DetailTVCell.swift in Sources */,
-				5902030A2243BC27007EB07D /* EventDetailTableViewController.swift in Sources */,
 				5904407B225630FE00D3D140 /* CustomLoader.swift in Sources */,
+				590A315C225657D8009C3BA0 /* EventCodable.swift in Sources */,
 				F50D990A221AEFBA008ED3A6 /* DropShadowEffect.swift in Sources */,
 				592BF8A3223BD95C00DA4C82 /* Place.swift in Sources */,
 				F5D3FC3522295D0300E7A119 /* EventsService.swift in Sources */,
+				590A315A2256549C009C3BA0 /* JsonParsing.swift in Sources */,
 				59170D13224E90CB00EDF97A /* IsConnectionToInternet.swift in Sources */,
 				59BF0CEA223D376A00FA752B /* Images.swift in Sources */,
 				59BF0CEC223D3A1B00FA752B /* ImageSize.swift in Sources */,
@@ -331,6 +342,7 @@
 				F544FADD2219C60D00A04184 /* AppDelegate.swift in Sources */,
 				5948C2752240180300A7DE99 /* Dates.swift in Sources */,
 				F59397F6222D28BE00853B0E /* Result.swift in Sources */,
+				5908A3BA2262043500408510 /* EventDetailViewController.swift in Sources */,
 				59EF02E92245A4F2006F60FF /* Loader.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
