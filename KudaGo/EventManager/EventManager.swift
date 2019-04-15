@@ -10,7 +10,7 @@ import UIKit
 
 class EventManager {
     
-    func loadEvents(currentDate: Double, completion: @escaping([Results]?) -> Void)  {
+    func loadEvents(currentDate: Double, completion: @escaping([Result]?) -> Void)  {
         let urlString = "https://kudago.com/public-api/v1.4/events/?location=msk&fields=id,title,dates,place,short_title,slug,description,price,images,place,body_text&expand=place,images&actual_since=\(currentDate)&text_format=text&order_by=-publication_date"
         guard let url = URL(string: urlString) else {
             return
@@ -26,8 +26,5 @@ class EventManager {
             }
             
             }.resume()
-        
     }
-    
-    // Отправляем нашу задачу на выполнение
 }

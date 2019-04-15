@@ -25,14 +25,13 @@ class ViewController: UIViewController, UITableViewDelegate{
 // MARK: IBActions
     
 // MARK: Properties
-    var events: [Results] = []
+    var events: [Result] = []
     var placeOfLabel: String?
     var datesOfLabel: String?
     var priceOfLabel: String?
     
-    let viewController = UIViewController()
+
     private var jsonParsing = EventManager()
-   // private var eventService = EventsService()
     private let currentDate = Date().timeIntervalSince1970
     private let placeHolder = UIImage(named: "placeholder")
     private let logoImageView = UIImageView(image: UIImage(named: "bigLogo"))
@@ -40,7 +39,6 @@ class ViewController: UIViewController, UITableViewDelegate{
     private let minHeaderHeight: CGFloat = 0;
     private var refreshControl = UIRefreshControl()
     private var previousScrollOffset: CGFloat = 0;
-    
     private var loaderView: Loader!
     private var tableViewRefreshControl: UIRefreshControl = {
         let refreshControl = UIRefreshControl()
@@ -50,22 +48,17 @@ class ViewController: UIViewController, UITableViewDelegate{
         return refreshControl
     }()
     
-    let imageView = UIImageView(image: UIImage(named: "bigLogo"))
-     var navBar: UINavigationBar = UINavigationBar()
     
     
-
     
+    // MARK: EventViewController
     
-// MARK: EventViewController
     override func viewDidLoad() {
         super.viewDidLoad()
         if Connection.isConnectedToInternet(){
             setupNavigationBar()
             tableView.separatorStyle = .none
-            
             CustomLoader.instance.showLoader()
-            //addRefreshControl()
             prepareRefreshUI()
             
             jsonParsing.loadEvents(currentDate: currentDate, completion: { events in
@@ -244,7 +237,7 @@ extension ViewController{
         static let ImageTopMarginForSmallState: CGFloat = 6
     }
     
-
+    
     private func setupNavigationBar(){
         guard let navigationBar = self.navigationController?.navigationBar else { return }
         let visualEffectView   = UIVisualEffectView(effect: UIBlurEffect(style: .light))
@@ -258,9 +251,9 @@ extension ViewController{
         logoImageView.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
             logoImageView.leftAnchor.constraint(equalTo: navigationBar.leftAnchor,
-                                             constant: Const.ImageLeftMargin),
+                                                constant: Const.ImageLeftMargin),
             logoImageView.topAnchor.constraint(equalTo: navigationBar.topAnchor,
-                                              constant: Const.ImageTopMarginForSmallState),
+                                               constant: Const.ImageTopMarginForSmallState),
             logoImageView.heightAnchor.constraint(equalToConstant: Const.ImageHeightSizeForSmallState),
             logoImageView.widthAnchor.constraint(equalToConstant: Const.ImageWidthSizeForSmallState)
             ])
@@ -270,12 +263,12 @@ extension ViewController{
     private func loadDataInTable(in cell: TableViewCell, indexPath: IndexPath){
         let event = self.events[indexPath.row]
         
-        //загрузка описания
+        //Load text
         
         cell.titleLabel.text = event.title.uppercased()
         cell.descriptionLabel.text = event.description
         
-        //загрузка места
+        //Load place
         
         if let place = event.place?.address{
             //Добавить исчезновение стека
@@ -283,19 +276,19 @@ extension ViewController{
         }else{
             //Добавить исчезновение стека
         }
-        //загрузка картинок в ленту
+        //Load images
         let imageURL = event.images[0].thumbnails.pictureSize
         let url = URL(string: imageURL)
         cell.photoEvent.af_setImage(withURL: url!, placeholderImage: placeHolder)
         
-        //загрузка цены
+        //Load price
         if event.price == ""{
             cell.priceLabel.text = "Бесплатно"
         }else{
-            cell.priceLabel.text = event.price.capitalized//первая заглавная
+            cell.priceLabel.text = event.price.capitalized
         }
         
-        //загрузка даты
+        //Decode and load Date
         let dateStart =  Date(timeIntervalSince1970: event.dates[0].start)
         let dateEnd =  Date(timeIntervalSince1970: event.dates[0].end)
         let dateFormatter = DateFormatter()

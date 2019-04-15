@@ -28,25 +28,34 @@ class EventDetailViewController: UIViewController {
     // MARK: Properties
     
     let placeholder = UIImage(named: "placeholder")
-    var event: Results?
+    var event: Result?
     var place: String?
     var price: String?
     var dates: String?
-    var testImages: [UIImage] = [UIImage(named: "EventImageTest")!, UIImage(named: "EventImageTest")!, UIImage(named: "EventImageTest")!, UIImage(named: "EventImageTest")!]
+    
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        blurStatusBar()
-        createBackButton()
         loadCurrentEvent()
         
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        blurStatusBar()
+        createBackButton()
+    }
+    
+    
+    
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         navigationController?.setNavigationBarHidden(false, animated: true)
     }
+    
+    
+    
     
     //MARK: Private functions
     
@@ -102,13 +111,8 @@ class EventDetailViewController: UIViewController {
         backButton.translatesAutoresizingMaskIntoConstraints = false
         backButton.backgroundColor = .white
         backButton.setImage(UIImage(named: "back"), for: .normal)
-        backButton.layer.cornerRadius = 16
+        DropShadowEffect.setupProperties(view: backButton, cornerRadius: 16, shadowRadius: 16, widthOffset: 0, heightOffset: 0)
         backButton.addTarget(self, action: #selector(goBack), for: UIControl.Event.touchUpInside)
-        backButton.layer.shadowColor = UIColor.black.cgColor
-        backButton.layer.shadowOffset = CGSize(width: 0, height: 0)
-        backButton.layer.masksToBounds = false
-        backButton.layer.shadowRadius = 16
-        backButton.layer.shadowOpacity = 0.3
         view.addSubview(backButton)
         if #available(iOS 11.0, *) {
             backButton.leadingAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.leadingAnchor, constant: 9).isActive = true

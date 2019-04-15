@@ -7,40 +7,14 @@
 
 import UIKit
 
-struct Results: Codable{
+struct Result: Codable{
     let id: Int?
-    struct Dates: Codable {
-        let start: Double
-        let end: Double
-    }
     let dates: [Dates]
     let title: String
-    struct Place: Codable {
-        let address: String?
-        struct Coords: Codable {
-            let lat: Double?
-            let lon: Double?
-        }
-        let coords: Coords?
-    }
     let place: Place?
     let description: String
     let bodytext: String
     let price: String
-    struct Image: Codable {
-        let image: String
-        struct Size: Codable {
-            let pictureSize: String
-            enum CodingKeys: String, CodingKey {
-                case pictureSize = "640x384"
-            }
-        }
-        let thumbnails: Size
-        init(image: String, thumbnails: Size) {
-            self.image = image
-            self.thumbnails = thumbnails
-        }
-    }
     let images: [Image]
     
     enum CodingKeys: String, CodingKey {
@@ -62,5 +36,36 @@ struct Results: Codable{
 
 
 struct Event: Codable {
-    let results: [Results]
+    let results: [Result]
+}
+
+struct Dates: Codable {
+    let start: Double
+    let end: Double
+}
+
+struct Place: Codable {
+    let address: String?
+    let coords: Coords?
+}
+
+struct Coords: Codable {
+    let lat: Double?
+    let lon: Double?
+}
+
+struct Image: Codable {
+    let image: String
+    let thumbnails: Size
+    init(image: String, thumbnails: Size) {
+        self.image = image
+        self.thumbnails = thumbnails
+    }
+}
+
+struct Size: Codable {
+    let pictureSize: String
+    enum CodingKeys: String, CodingKey {
+        case pictureSize = "640x384"
+    }
 }
