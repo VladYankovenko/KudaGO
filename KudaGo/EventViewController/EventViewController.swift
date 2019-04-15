@@ -96,7 +96,7 @@ class ViewController: UIViewController, UITableViewDelegate{
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let cell = tableView.cellForRow(at: indexPath) as! TableViewCell
+        let cell = tableView.cellForRow(at: indexPath) as! EventTableViewCell
         placeOfLabel = cell.placeLabel.text
         priceOfLabel = cell.priceLabel.text
         datesOfLabel = cell.dateLabel.text
@@ -183,7 +183,7 @@ extension ViewController: UITableViewDataSource  {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell =  tableView.dequeueReusableCell(withIdentifier: "cellID", for: indexPath) as? TableViewCell
+        let cell =  tableView.dequeueReusableCell(withIdentifier: "cellID", for: indexPath) as? EventTableViewCell
         loadDataInTable(in: cell!, indexPath: indexPath)
         return cell!
     }
@@ -260,7 +260,7 @@ extension ViewController{
     }
     
     
-    private func loadDataInTable(in cell: TableViewCell, indexPath: IndexPath){
+    private func loadDataInTable(in cell: EventTableViewCell, indexPath: IndexPath){
         let event = self.events[indexPath.row]
         
         //Load text

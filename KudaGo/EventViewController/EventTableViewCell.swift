@@ -8,7 +8,7 @@
 
 import UIKit
 
-class TableViewCell: UITableViewCell {
+class EventTableViewCell: UITableViewCell {
 
     @IBOutlet weak var photoEvent: UIImageView!
     

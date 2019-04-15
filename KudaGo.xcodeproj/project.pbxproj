@@ -22,7 +22,7 @@
 		F544FAE22219C60D00A04184 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F544FAE02219C60D00A04184 /* Main.storyboard */; };
 		F544FAE42219C60E00A04184 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F544FAE32219C60E00A04184 /* Assets.xcassets */; };
 		F544FAE72219C60E00A04184 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F544FAE52219C60E00A04184 /* LaunchScreen.storyboard */; };
-		F544FAEF2219C91D00A04184 /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F544FAEE2219C91D00A04184 /* TableViewCell.swift */; };
+		F544FAEF2219C91D00A04184 /* EventTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F544FAEE2219C91D00A04184 /* EventTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -45,7 +45,7 @@
 		F544FAE32219C60E00A04184 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F544FAE62219C60E00A04184 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F544FAE82219C60E00A04184 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		F544FAEE2219C91D00A04184 /* TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCell.swift; sourceTree = "<group>"; };
+		F544FAEE2219C91D00A04184 /* EventTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -161,7 +161,7 @@
 			isa = PBXGroup;
 			children = (
 				F544FADE2219C60D00A04184 /* EventViewController.swift */,
-				F544FAEE2219C91D00A04184 /* TableViewCell.swift */,
+				F544FAEE2219C91D00A04184 /* EventTableViewCell.swift */,
 			);
 			path = EventViewController;
 			sourceTree = "<group>";
@@ -294,7 +294,7 @@
 				F50D990A221AEFBA008ED3A6 /* DropShadowEffect.swift in Sources */,
 				590A315A2256549C009C3BA0 /* EventManager.swift in Sources */,
 				59170D13224E90CB00EDF97A /* IsConnectionToInternet.swift in Sources */,
-				F544FAEF2219C91D00A04184 /* TableViewCell.swift in Sources */,
+				F544FAEF2219C91D00A04184 /* EventTableViewCell.swift in Sources */,
 				59170D11224E7D2200EDF97A /* NoInternetViewController.swift in Sources */,
 				F544FADF2219C60D00A04184 /* EventViewController.swift in Sources */,
 				F544FADD2219C60D00A04184 /* AppDelegate.swift in Sources */,
