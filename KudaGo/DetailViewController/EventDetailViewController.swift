@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import MapKit
 
 class EventDetailViewController: UIViewController {
 
@@ -21,24 +22,28 @@ class EventDetailViewController: UIViewController {
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var descriptionLabel: UILabel!
     @IBOutlet weak var bodyTextLabel: UILabel!
+    @IBOutlet weak var mapView: MKMapView!
     
     
     
     
     // MARK: Properties
     
-    let placeholder = UIImage(named: "placeholder")
-    var event: Result?
     var place: String?
     var price: String?
     var dates: String?
+    var event: Result?
+    
+    private let placeholder = UIImage(named: "placeholder")
+    private var annotationPin: CustomAnnotationPinMap!
+    
     
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
         loadCurrentEvent()
-        
+        addCustomAnnotation()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -133,4 +138,32 @@ class EventDetailViewController: UIViewController {
         navigationController?.popViewController(animated: true)
     }
     
+}
+
+
+
+extension EventDetailViewController: MKMapViewDelegate{
+    func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
+        let annotationView = MKAnnotationView(annotation: annotationPin, reuseIdentifier: "Pin")
+        annotationView.image = UIImage(named: "pin_map")
+        return annotationView
+    }
+    
+    private func addCustomAnnotation(){
+        mapView.delegate = self
+        
+        if let latitude = event?.place?.coords?.lat, let longitude = event?.place?.coords?.lon{
+            let placeCoordinates = CLLocationCoordinate2D(latitude: latitude, longitude: longitude)
+            let pin = CustomAnnotationPinMap(coordinate: placeCoordinates)
+            let span = MKCoordinateSpan(latitudeDelta: 0.005, longitudeDelta: 0.005)
+            let region = MKCoordinateRegion(center: placeCoordinates, span: span)
+            self.mapView.isScrollEnabled = false
+            self.mapView.isZoomEnabled = false
+            self.mapView.region = region
+            self.mapView.addAnnotation(pin)
+            
+        }else{
+            mapView.isHidden = true
+        }
+    }
 }

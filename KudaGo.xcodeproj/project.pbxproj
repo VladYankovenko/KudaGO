@@ -12,8 +12,10 @@
 		5908A3BA2262043500408510 /* EventDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5908A3B92262043500408510 /* EventDetailViewController.swift */; };
 		590A315A2256549C009C3BA0 /* EventManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 590A31592256549C009C3BA0 /* EventManager.swift */; };
 		590A315C225657D8009C3BA0 /* EventCodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 590A315B225657D8009C3BA0 /* EventCodable.swift */; };
+		5913455122677786002E8807 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5913455022677786002E8807 /* MapKit.framework */; };
 		59170D11224E7D2200EDF97A /* NoInternetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59170D10224E7D2200EDF97A /* NoInternetViewController.swift */; };
 		59170D13224E90CB00EDF97A /* IsConnectionToInternet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59170D12224E90CB00EDF97A /* IsConnectionToInternet.swift */; };
+		59CB0E1C22679AC3007E772D /* CustomAnnotationPinMap.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59CB0E1B22679AC3007E772D /* CustomAnnotationPinMap.swift */; };
 		59EF02E62245A3EA006F60FF /* Loader.xib in Resources */ = {isa = PBXBuildFile; fileRef = 59EF02E52245A3EA006F60FF /* Loader.xib */; };
 		59EF02E92245A4F2006F60FF /* Loader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59EF02E82245A4F2006F60FF /* Loader.swift */; };
 		F50D990A221AEFBA008ED3A6 /* DropShadowEffect.swift in Sources */ = {isa = PBXBuildFile; fileRef = F50D9909221AEFBA008ED3A6 /* DropShadowEffect.swift */; };
@@ -31,8 +33,10 @@
 		5908A3B92262043500408510 /* EventDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventDetailViewController.swift; sourceTree = "<group>"; };
 		590A31592256549C009C3BA0 /* EventManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventManager.swift; sourceTree = "<group>"; };
 		590A315B225657D8009C3BA0 /* EventCodable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventCodable.swift; sourceTree = "<group>"; };
+		5913455022677786002E8807 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		59170D10224E7D2200EDF97A /* NoInternetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoInternetViewController.swift; sourceTree = "<group>"; };
 		59170D12224E90CB00EDF97A /* IsConnectionToInternet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IsConnectionToInternet.swift; sourceTree = "<group>"; };
+		59CB0E1B22679AC3007E772D /* CustomAnnotationPinMap.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomAnnotationPinMap.swift; sourceTree = "<group>"; };
 		59EF02E52245A3EA006F60FF /* Loader.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = Loader.xib; sourceTree = "<group>"; };
 		59EF02E82245A4F2006F60FF /* Loader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Loader.swift; sourceTree = "<group>"; };
 		A6556EF308911CA187CD8D61 /* Pods_KudaGo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_KudaGo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -53,6 +57,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5913455122677786002E8807 /* MapKit.framework in Frameworks */,
 				37795F1DB9A8976463E28B77 /* Pods_KudaGo.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -98,6 +103,7 @@
 		718295869C625BDA21C62A00 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				5913455022677786002E8807 /* MapKit.framework */,
 				A6556EF308911CA187CD8D61 /* Pods_KudaGo.framework */,
 			);
 			name = Frameworks;
@@ -143,6 +149,7 @@
 			children = (
 				F544FADC2219C60D00A04184 /* AppDelegate.swift */,
 				F544FAE02219C60D00A04184 /* Main.storyboard */,
+				59CB0E1B22679AC3007E772D /* CustomAnnotationPinMap.swift */,
 				59170D10224E7D2200EDF97A /* NoInternetViewController.swift */,
 				59170D12224E90CB00EDF97A /* IsConnectionToInternet.swift */,
 				F5D3FC3322295CAC00E7A119 /* EventViewController */,
@@ -200,6 +207,11 @@
 				TargetAttributes = {
 					F544FAD82219C60D00A04184 = {
 						CreatedOnToolsVersion = 10.1;
+						SystemCapabilities = {
+							com.apple.Maps.iOS = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -299,6 +311,7 @@
 				F544FADF2219C60D00A04184 /* EventViewController.swift in Sources */,
 				F544FADD2219C60D00A04184 /* AppDelegate.swift in Sources */,
 				5908A3BA2262043500408510 /* EventDetailViewController.swift in Sources */,
+				59CB0E1C22679AC3007E772D /* CustomAnnotationPinMap.swift in Sources */,
 				59EF02E92245A4F2006F60FF /* Loader.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
