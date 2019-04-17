@@ -9,11 +9,7 @@ import UIKit
 
 class CustomLoader: UIView {
     static let instance = CustomLoader()
-    
-    //let loaderImage = UIImage(named: "loader")
-    
-    
-    
+
     lazy var fullView: UIView = {
         let fullView  = UIView(frame: UIScreen.main.bounds)
         fullView.backgroundColor = UIColor.white

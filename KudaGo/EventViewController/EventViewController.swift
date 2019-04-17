@@ -96,7 +96,7 @@ class ViewController: UIViewController, UITableViewDelegate{
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let cell = tableView.cellForRow(at: indexPath) as! EventTableViewCell
+        let cell = tableView.cellForRow(at: indexPath) as! TableViewCell
         placeOfLabel = cell.placeLabel.text
         priceOfLabel = cell.priceLabel.text
         datesOfLabel = cell.dateLabel.text
@@ -183,7 +183,7 @@ extension ViewController: UITableViewDataSource  {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell =  tableView.dequeueReusableCell(withIdentifier: "cellID", for: indexPath) as? EventTableViewCell
+        let cell =  tableView.dequeueReusableCell(withIdentifier: "cellID", for: indexPath) as? TableViewCell
         loadDataInTable(in: cell!, indexPath: indexPath)
         return cell!
     }
@@ -218,10 +218,13 @@ extension ViewController{
         if Connection.isConnectedToInternet(){
             self.loaderView.goRotate()
             jsonParsing.loadEvents(currentDate: currentDate) { events in
-                self.events = events ?? []
-                self.tableView.reloadData()
-                self.loaderView.stopRotate()
-                self.tableViewRefreshControl.endRefreshing()
+                DispatchQueue.main.async {
+                    self.events = events ?? []
+                    self.tableView.reloadData()
+                    self.loaderView.stopRotate()
+                    self.tableViewRefreshControl.endRefreshing()
+                }
+                
             }
         }else{
             performSegue(withIdentifier: "NoInternet", sender: self)
@@ -260,7 +263,7 @@ extension ViewController{
     }
     
     
-    private func loadDataInTable(in cell: EventTableViewCell, indexPath: IndexPath){
+    private func loadDataInTable(in cell: TableViewCell, indexPath: IndexPath){
         let event = self.events[indexPath.row]
         
         //Load text
