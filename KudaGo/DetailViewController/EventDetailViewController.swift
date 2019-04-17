@@ -155,9 +155,10 @@ extension EventDetailViewController: MKMapViewDelegate{
         if let latitude = event?.place?.coords?.lat, let longitude = event?.place?.coords?.lon{
             let placeCoordinates = CLLocationCoordinate2D(latitude: latitude, longitude: longitude)
             let pin = CustomAnnotationPinMap(coordinate: placeCoordinates)
-            let span = MKCoordinateSpan(latitudeDelta: 0.005, longitudeDelta: 0.005)
+            let span = MKCoordinateSpan(latitudeDelta: 0.009, longitudeDelta: 0.009)
             let region = MKCoordinateRegion(center: placeCoordinates, span: span)
             self.mapView.isScrollEnabled = false
+            self.mapView.isRotateEnabled = false
             self.mapView.isZoomEnabled = false
             self.mapView.region = region
             self.mapView.addAnnotation(pin)
