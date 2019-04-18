@@ -43,7 +43,7 @@ class EventDetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         loadCurrentEvent()
-        addCustomAnnotation()
+        drawingEventMap()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -94,7 +94,7 @@ class EventDetailViewController: UIViewController {
     }
     
     
-    
+    //MARK: Design Elements
     
     private func blurStatusBar(){
         let blurEffect = UIBlurEffect(style: UIBlurEffect.Style.regular)
@@ -140,7 +140,7 @@ class EventDetailViewController: UIViewController {
     
 }
 
-
+//MARK: Work with map
 
 extension EventDetailViewController: MKMapViewDelegate{
     func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
@@ -149,7 +149,7 @@ extension EventDetailViewController: MKMapViewDelegate{
         return annotationView
     }
     
-    private func addCustomAnnotation(){
+    private func drawingEventMap(){
         mapView.delegate = self
         
         if let latitude = event?.place?.coords?.lat, let longitude = event?.place?.coords?.lon{

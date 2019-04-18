@@ -274,17 +274,20 @@ extension ViewController{
         //Load place
         
         if let place = event.place?.address{
-            //Добавить исчезновение стека
+            cell.placeStackView.isHidden = false
             cell.placeLabel.text = place
         }else{
-            //Добавить исчезновение стека
+            cell.placeStackView.isHidden = true
         }
+        
         //Load images
+        
         let imageURL = event.images[0].thumbnails.pictureSize
         let url = URL(string: imageURL)
         cell.photoEvent.af_setImage(withURL: url!, placeholderImage: placeHolder)
         
         //Load price
+        
         if event.price == ""{
             cell.priceLabel.text = "Бесплатно"
         }else{
@@ -292,6 +295,7 @@ extension ViewController{
         }
         
         //Decode and load Date
+        
         let dateStart =  Date(timeIntervalSince1970: event.dates[0].start)
         let dateEnd =  Date(timeIntervalSince1970: event.dates[0].end)
         let dateFormatter = DateFormatter()

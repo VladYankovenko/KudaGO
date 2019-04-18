@@ -12,6 +12,7 @@ class TableViewCell: UITableViewCell {
 
     @IBOutlet weak var photoEvent: UIImageView!
     
+    @IBOutlet weak var placeStackView: UIStackView!
     @IBOutlet weak var viewRounded: UIView!
     @IBOutlet weak var shadowView: UIView!
     @IBOutlet weak var descriptionLabel: UILabel!
@@ -20,7 +21,6 @@ class TableViewCell: UITableViewCell {
     @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var placeLabel: UILabel!
     @IBOutlet weak var placeImage: UIImageView!
-    @IBOutlet weak var placeStack: UIStackView!
     
     
     
