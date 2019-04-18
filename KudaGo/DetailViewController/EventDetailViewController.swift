@@ -9,10 +9,11 @@
 import UIKit
 import MapKit
 
-class EventDetailViewController: UIViewController {
+class EventDetailViewController: UIViewController, UIScrollViewDelegate {
 
     // MARK: IBOutlets
     
+    @IBOutlet weak var pageControl: UIPageControl!
     @IBOutlet weak var priceLabel: UILabel!
     @IBOutlet weak var datesLabel: UILabel!
     @IBOutlet weak var placeLabel: UILabel!
@@ -49,6 +50,7 @@ class EventDetailViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         blurStatusBar()
         createBackButton()
+        createPageControl()
     }
     
     
@@ -73,6 +75,7 @@ class EventDetailViewController: UIViewController {
         priceLabel.text = price
         
         if let imagesArray = event?.images{
+            imageScrollView.delegate = self
             imageScrollView.isPagingEnabled = true
             imageScrollView.contentSize = CGSize(width: self.view.bounds.width * CGFloat(imagesArray.count), height: 260)
             imageScrollView.showsHorizontalScrollIndicator = false
@@ -130,7 +133,17 @@ class EventDetailViewController: UIViewController {
         backButton.heightAnchor.constraint(equalToConstant: 32).isActive = true
     }
     
+    //MARK: UIPageControl
     
+    func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
+        let numberOfCurrentPage = Int(imageScrollView.contentOffset.x / imageScrollView.frame.width)
+        pageControl.currentPage = numberOfCurrentPage
+    }
+    
+    func createPageControl(){
+        pageControl.superview?.bringSubviewToFront(pageControl)
+        pageControl.numberOfPages = (event?.images.count)!
+    }
     
     
     
@@ -168,3 +181,5 @@ extension EventDetailViewController: MKMapViewDelegate{
         }
     }
 }
+
+

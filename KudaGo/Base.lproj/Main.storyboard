@@ -308,17 +308,19 @@
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" contentInsetAdjustmentBehavior="never" translatesAutoresizingMaskIntoConstraints="NO" id="qSe-uC-imQ">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <subviews>
+                                    <pageControl opaque="NO" contentMode="scaleToFill" selected="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" hidesForSinglePage="YES" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="YuN-QY-29b">
+                                        <rect key="frame" x="168" y="217" width="39" height="37"/>
+                                        <color key="pageIndicatorTintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <color key="currentPageIndicatorTintColor" red="1" green="0.1564629077911377" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </pageControl>
                                     <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="NbB-Yt-tM9">
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="260"/>
-                                        <subviews>
-                                            <pageControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="YuN-QY-29b">
-                                                <rect key="frame" x="168" y="215" width="39" height="37"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            </pageControl>
-                                        </subviews>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="260" id="Md6-3T-Bs4"/>
                                         </constraints>
+                                        <connections>
+                                            <outlet property="delegate" destination="3nE-gn-vHa" id="RLW-By-myq"/>
+                                        </connections>
                                     </scrollView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pOo-mV-INf" userLabel="Title Label">
                                         <rect key="frame" x="16" y="284" width="343" height="24"/>
@@ -423,6 +425,7 @@
                                     <constraint firstAttribute="trailing" secondItem="uLV-Bq-zaD" secondAttribute="trailing" id="5qC-rb-nBU"/>
                                     <constraint firstItem="Vxs-lF-Vvo" firstAttribute="top" secondItem="gxw-K3-RG0" secondAttribute="bottom" constant="16" id="DhA-44-Ckz"/>
                                     <constraint firstItem="NbB-Yt-tM9" firstAttribute="top" secondItem="qSe-uC-imQ" secondAttribute="top" id="FoJ-zF-u87"/>
+                                    <constraint firstItem="YuN-QY-29b" firstAttribute="centerX" secondItem="qSe-uC-imQ" secondAttribute="centerX" id="Ltl-e0-SeP"/>
                                     <constraint firstItem="uLV-Bq-zaD" firstAttribute="top" secondItem="Vxs-lF-Vvo" secondAttribute="bottom" id="Rut-6X-tUE"/>
                                     <constraint firstAttribute="bottom" secondItem="uLV-Bq-zaD" secondAttribute="bottom" id="SkW-m3-1PE"/>
                                     <constraint firstItem="Vxs-lF-Vvo" firstAttribute="leading" secondItem="qSe-uC-imQ" secondAttribute="leading" constant="16" id="TtS-tc-Rwq"/>
@@ -430,6 +433,7 @@
                                     <constraint firstAttribute="trailing" secondItem="pOo-mV-INf" secondAttribute="trailing" constant="16" id="V7y-w1-IwU"/>
                                     <constraint firstItem="NbB-Yt-tM9" firstAttribute="leading" secondItem="qSe-uC-imQ" secondAttribute="leading" id="YAg-cU-vsu"/>
                                     <constraint firstAttribute="trailing" secondItem="NbB-Yt-tM9" secondAttribute="trailing" id="bLk-qX-vVZ"/>
+                                    <constraint firstItem="pOo-mV-INf" firstAttribute="top" secondItem="YuN-QY-29b" secondAttribute="bottom" constant="30" id="dyw-Wm-k1j"/>
                                     <constraint firstItem="gxw-K3-RG0" firstAttribute="top" secondItem="pOo-mV-INf" secondAttribute="bottom" constant="16" id="ghg-pJ-CQ7"/>
                                     <constraint firstAttribute="trailing" secondItem="gxw-K3-RG0" secondAttribute="trailing" constant="16" id="jxL-6K-lH4"/>
                                     <constraint firstItem="pOo-mV-INf" firstAttribute="leading" secondItem="qSe-uC-imQ" secondAttribute="leading" constant="16" id="nnQ-zg-XNJ"/>
@@ -454,6 +458,7 @@
                         <outlet property="descriptionLabel" destination="gxw-K3-RG0" id="JZC-Bz-1jI"/>
                         <outlet property="imageScrollView" destination="NbB-Yt-tM9" id="yN5-CZ-siq"/>
                         <outlet property="mapView" destination="A4D-4v-IA1" id="l6x-MG-ls5"/>
+                        <outlet property="pageControl" destination="YuN-QY-29b" id="bNg-Qm-z9q"/>
                         <outlet property="placeLabel" destination="s1F-aV-XBd" id="E6Y-0t-FyP"/>
                         <outlet property="priceLabel" destination="dS1-WR-al5" id="37T-Jc-PA3"/>
                         <outlet property="titleLabel" destination="pOo-mV-INf" id="IlM-Ss-nJa"/>
