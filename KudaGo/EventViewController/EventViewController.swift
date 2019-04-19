@@ -12,10 +12,8 @@ import AlamofireImage
 
 
 
-
-
-
 class ViewController: UIViewController, UITableViewDelegate{
+    
 // MARK: IBOutlets
     
     @IBOutlet var mainView: UIView!
@@ -25,10 +23,12 @@ class ViewController: UIViewController, UITableViewDelegate{
 // MARK: IBActions
     
 // MARK: Properties
+    
     var events: [Result] = []
     var placeOfLabel: String?
     var datesOfLabel: String?
     var priceOfLabel: String?
+    var page = 1
     
 
     private var jsonParsing = EventManager()
@@ -61,7 +61,7 @@ class ViewController: UIViewController, UITableViewDelegate{
             CustomLoader.instance.showLoader()
             prepareRefreshUI()
             
-            jsonParsing.loadEvents(currentDate: currentDate, completion: { events in
+            jsonParsing.loadEvents(currentDate: currentDate, page: page, completion: { events in
                 DispatchQueue.main.async {
                     self.events = events ?? []
                     self.tableView.reloadData()
@@ -101,10 +101,25 @@ class ViewController: UIViewController, UITableViewDelegate{
         priceOfLabel = cell.priceLabel.text
         datesOfLabel = cell.dateLabel.text
         performSegue(withIdentifier: "ShowDetail", sender: self)
-        
     }
     
-
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        if indexPath.row == events.count - 1{
+            page += 1
+            jsonParsing.loadEvents(currentDate: currentDate, page: page, completion: { events in
+                DispatchQueue.main.async {
+                    if let eventsArray = events{
+                        for element in 0..<eventsArray.count{
+                            self.events.append(eventsArray[element])
+                        }
+                    }
+                    self.tableView.reloadData()
+                }
+            })
+        }
+    }
+    
+    
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
 
         let scrollDiff = scrollView.contentOffset.y - self.previousScrollOffset
@@ -217,12 +232,14 @@ extension ViewController{
         
         if Connection.isConnectedToInternet(){
             self.loaderView.goRotate()
-            jsonParsing.loadEvents(currentDate: currentDate) { events in
+            self.page = 1
+            jsonParsing.loadEvents(currentDate: currentDate, page: page) { events in
                 DispatchQueue.main.async {
                     self.events = events ?? []
                     self.tableView.reloadData()
                     self.loaderView.stopRotate()
                     self.tableViewRefreshControl.endRefreshing()
+                    
                 }
                 
             }
