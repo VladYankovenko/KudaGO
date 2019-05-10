@@ -55,23 +55,23 @@ class ViewController: UIViewController, UITableViewDelegate{
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        if Connection.isConnectedToInternet(){
-            setupNavigationBar()
-            tableView.separatorStyle = .none
-            CustomLoader.instance.showLoader()
-            prepareRefreshUI()
-            
-            jsonParsing.loadEvents(currentDate: currentDate, page: page, completion: { events in
-                DispatchQueue.main.async {
-                    self.events = events ?? []
-                    self.tableView.reloadData()
-                    CustomLoader.instance.hidesLoader()
-                }
-            })
-        }else{
-            self.performSegue(withIdentifier: "NoInternet", sender: self)
-        }
+        setupNavigationBar()
+        tableView.separatorStyle = .none
+        CustomLoader.instance.showLoader()
+        prepareRefreshUI()
         
+        jsonParsing.loadEvents(currentDate: currentDate, page: page, completion: { result in
+            DispatchQueue.main.async {
+                switch result{
+                case let .data(eventsFromManager):
+                    self.events = eventsFromManager
+                    self.tableView.reloadData()
+                case .error:
+                    self.performSegue(withIdentifier: "NoInternet", sender: self)
+                }
+                CustomLoader.instance.hidesLoader()
+            }
+        })
     }
     
 
@@ -106,14 +106,19 @@ class ViewController: UIViewController, UITableViewDelegate{
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         if indexPath.row == events.count - 1{
             page += 1
-            jsonParsing.loadEvents(currentDate: currentDate, page: page, completion: { events in
+            jsonParsing.loadEvents(currentDate: currentDate, page: page, completion: { result in
                 DispatchQueue.main.async {
-                    if let eventsArray = events{
+                    switch result{
+                    case let .data(eventsFromManager):
+                        let eventsArray = eventsFromManager
                         for element in 0..<eventsArray.count{
                             self.events.append(eventsArray[element])
                         }
+                        self.tableView.reloadData()
+                    case .error:
+                        self.performSegue(withIdentifier: "NoInternet", sender: self)
                     }
-                    self.tableView.reloadData()
+                    
                 }
             })
         }
@@ -230,23 +235,22 @@ extension ViewController{
     
     @objc private func pullRefresh(){
         
-        if Connection.isConnectedToInternet(){
-            self.loaderView.goRotate()
-            self.page = 1
-            jsonParsing.loadEvents(currentDate: currentDate, page: page) { events in
-                DispatchQueue.main.async {
-                    self.events = events ?? []
+        self.loaderView.goRotate()
+        self.page = 1
+        jsonParsing.loadEvents(currentDate: currentDate, page: page) { result in
+            DispatchQueue.main.async {
+                switch result{
+                case let .data(eventsFromManager):
+                    self.events = eventsFromManager
                     self.tableView.reloadData()
-                    self.loaderView.stopRotate()
-                    self.tableViewRefreshControl.endRefreshing()
                     
+                case .error:
+                    self.performSegue(withIdentifier: "NoInternet", sender: self)
                 }
-                
+                self.loaderView.stopRotate()
+                self.tableViewRefreshControl.endRefreshing()
             }
-        }else{
-            performSegue(withIdentifier: "NoInternet", sender: self)
         }
-        
     }
     
     

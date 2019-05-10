@@ -10,21 +10,23 @@ import UIKit
 
 class EventManager {
     
-    func loadEvents(currentDate: Double, page: Int, completion: @escaping([Event]?) -> Void)  {
+    enum Result<ResultDataType> {
+        case data(ResultDataType)
+        case error
+    }
+    
+    func loadEvents(currentDate: Double, page: Int, completion: @escaping(Result<[Event]>) -> Void)  {
         let urlString = "https://kudago.com/public-api/v1.4/events/?location=msk&fields=id,title,dates,place,short_title,slug,description,price,images,place,body_text&expand=place,images&page=\(page)&actual_since=\(currentDate)&text_format=text&order_by=-publication_date"
         guard let url = URL(string: urlString) else {
             return
         }
         URLSession.shared.dataTask(with: url) { (data, response, error) in
-            guard let data = data else {return}
-            do{
-                let jsonData = try JSONDecoder().decode(getEvent.self, from: data)
-                let events = jsonData.results
-                completion(events)
-            }catch let error{
-                print(error, "error Url Session")
+            guard let data = data,
+                let jsonData = try? JSONDecoder().decode(getEvent.self, from: data) else{
+                    completion(.error)
+                    return
             }
-            
+            completion(.data(jsonData.results))
             }.resume()
     }
 }
