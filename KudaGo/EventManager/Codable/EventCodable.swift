@@ -7,7 +7,7 @@
 
 import UIKit
 
-struct Result: Codable{
+struct Event: Codable{
     let id: Int?
     let dates: [Dates]
     let title: String
@@ -35,8 +35,8 @@ struct Result: Codable{
 }
 
 
-struct Event: Codable {
-    let results: [Result]
+struct getEvent: Codable {
+    let results: [Event]
 }
 
 struct Dates: Codable {

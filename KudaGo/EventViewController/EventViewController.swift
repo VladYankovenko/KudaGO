@@ -24,7 +24,7 @@ class ViewController: UIViewController, UITableViewDelegate{
     
 // MARK: Properties
     
-    var events: [Result] = []
+    var events: [Event] = []
     var placeOfLabel: String?
     var datesOfLabel: String?
     var priceOfLabel: String?

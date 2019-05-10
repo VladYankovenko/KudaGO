@@ -33,13 +33,13 @@ class EventDetailViewController: UIViewController, UIScrollViewDelegate {
     var place: String?
     var price: String?
     var dates: String?
-    var event: Result?
+    var event: Event?
     
     private let placeholder = UIImage(named: "placeholder")
     private var annotationPin: CustomAnnotationPinMap!
     
     
-    
+    // MARK: Override methods
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -77,13 +77,13 @@ class EventDetailViewController: UIViewController, UIScrollViewDelegate {
         if let imagesArray = event?.images{
             imageScrollView.delegate = self
             imageScrollView.isPagingEnabled = true
-            imageScrollView.contentSize = CGSize(width: self.view.bounds.width * CGFloat(imagesArray.count), height: 260)
+            imageScrollView.contentSize = CGSize(width: UIScreen.main.bounds.width * CGFloat(imagesArray.count), height: 260)
             imageScrollView.showsHorizontalScrollIndicator = false
             
             for element in 0..<imagesArray.count{
                 var frame = CGRect(x: 0, y: 0, width: 0, height: 0)
-                frame.origin.x = imageScrollView.frame.size.width * CGFloat(element)
-                frame.size = imageScrollView.frame.size
+                frame.origin.x = UIScreen.main.bounds.width * CGFloat(element)
+                frame.size = CGSize(width: UIScreen.main.bounds.width, height: 260)
                 let imageURL = imagesArray[element].thumbnails.pictureSize
                 let url = URL(string: imageURL)
                 let imgView = UIImageView(frame: frame)
