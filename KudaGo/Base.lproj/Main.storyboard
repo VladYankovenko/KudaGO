@@ -34,9 +34,8 @@
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Куда сходить" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8w5-pF-RdJ">
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Куда сходить" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8w5-pF-RdJ">
                                             <rect key="frame" x="8" y="0.0" width="359" height="44"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" type="boldSystem" pointSize="30"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
@@ -44,6 +43,12 @@
                                         </label>
                                     </subviews>
                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <constraints>
+                                        <constraint firstAttribute="bottom" secondItem="8w5-pF-RdJ" secondAttribute="bottom" id="62R-bt-Ugx"/>
+                                        <constraint firstItem="8w5-pF-RdJ" firstAttribute="leading" secondItem="bjc-Vz-9IT" secondAttribute="leading" constant="8" id="Sw5-Sn-yGc"/>
+                                        <constraint firstItem="8w5-pF-RdJ" firstAttribute="top" secondItem="bjc-Vz-9IT" secondAttribute="top" id="b6t-kU-ZZA"/>
+                                        <constraint firstAttribute="trailing" secondItem="8w5-pF-RdJ" secondAttribute="trailing" constant="8" id="kU6-eD-3aD"/>
+                                    </constraints>
                                 </view>
                                 <prototypes>
                                     <tableViewCell opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="cellID" rowHeight="380" id="PwJ-wI-Ept" customClass="TableViewCell" customModule="KudaGo" customModuleProvider="target">
@@ -269,7 +274,7 @@
                                     <constraint firstAttribute="width" constant="80" id="8tt-pO-iRE"/>
                                 </constraints>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ошибка загрузки данных, проверьте соединение с интернетом" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DWO-ba-Rsa">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ошибка загрузки данных, проверьте соединение с интернетом" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DWO-ba-Rsa">
                                 <rect key="frame" x="24" y="379" width="327" height="38.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                 <nil key="textColor"/>
@@ -416,6 +421,7 @@
                                         </subviews>
                                     </stackView>
                                 </subviews>
+                                <gestureRecognizers/>
                                 <constraints>
                                     <constraint firstItem="pOo-mV-INf" firstAttribute="top" secondItem="NbB-Yt-tM9" secondAttribute="bottom" constant="24" id="1OF-WN-7an"/>
                                     <constraint firstItem="gxw-K3-RG0" firstAttribute="leading" secondItem="qSe-uC-imQ" secondAttribute="leading" constant="16" id="3kb-Gw-PZv"/>
@@ -434,6 +440,9 @@
                                     <constraint firstItem="uLV-Bq-zaD" firstAttribute="leading" secondItem="qSe-uC-imQ" secondAttribute="leading" id="sOL-Ue-Y7u"/>
                                     <constraint firstAttribute="trailing" secondItem="Vxs-lF-Vvo" secondAttribute="trailing" constant="16" id="udw-V4-oSn"/>
                                 </constraints>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="1AC-eY-dri" appends="YES" id="SHS-5k-NHn"/>
+                                </connections>
                             </scrollView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -463,6 +472,12 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="IyB-fB-285" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <screenEdgePanGestureRecognizer delaysTouchesBegan="YES" minimumNumberOfTouches="1" id="1AC-eY-dri">
+                    <rectEdge key="edges" left="YES"/>
+                    <connections>
+                        <action selector="backSwipe:" destination="3nE-gn-vHa" id="sJE-XH-dOT"/>
+                    </connections>
+                </screenEdgePanGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="3444" y="123.68815592203899"/>
         </scene>

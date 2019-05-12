@@ -38,6 +38,11 @@ class EventDetailViewController: UIViewController, UIScrollViewDelegate {
     private let placeholder = UIImage(named: "placeholder")
     private var annotationPin: CustomAnnotationPinMap!
     
+    // MARK: Actions
+    
+    @IBAction func backSwipe(_ sender: Any) {
+        goBack()
+    }
     
     // MARK: Override methods
     

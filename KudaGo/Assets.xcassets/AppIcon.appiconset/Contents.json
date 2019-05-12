@@ -11,9 +11,8 @@
       "scale" : "3x"
     },
     {
-      "size" : "29x29",
       "idiom" : "iphone",
-      "filename" : "Icon-58.png",
+      "size" : "29x29",
       "scale" : "2x"
     },
     {
@@ -32,9 +31,8 @@
       "scale" : "3x"
     },
     {
+      "idiom" : "iphone",
       "size" : "60x60",
-      "idiom" : "iphone",
-      "filename" : "photoeditorsdk-export.png",
       "scale" : "2x"
     },
     {

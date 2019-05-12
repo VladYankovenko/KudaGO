@@ -51,7 +51,7 @@ class ViewController: UIViewController, UITableViewDelegate{
     
     
     
-    // MARK: EventViewController
+// MARK: EventViewController
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -141,7 +141,6 @@ class ViewController: UIViewController, UITableViewDelegate{
             newHeightHeader = min(self.maxHeaderHeight, self.headerHeightConstraint.constant + abs(scrollDiff))
         }
 
-        // Header needs to animate
         if newHeightHeader != self.headerHeightConstraint.constant {
             self.headerHeightConstraint.constant = newHeightHeader
             self.setScrollPosition(self.previousScrollOffset)
