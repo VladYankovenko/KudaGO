@@ -1,6 +1,0 @@
-framework module Pods_KudaGo {
-  umbrella header "Pods-KudaGo-umbrella.h"
-
-  export *
-  module * { export * }
-}
