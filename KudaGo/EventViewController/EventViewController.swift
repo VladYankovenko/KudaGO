@@ -9,6 +9,7 @@
 import UIKit
 import Alamofire
 import AlamofireImage
+import SwiftMessages
 
 
 
@@ -29,6 +30,29 @@ class ViewController: UIViewController, UITableViewDelegate{
     var datesOfLabel: String?
     var priceOfLabel: String?
     var page = 1
+    var noConnectionView : UIView = {
+        let screenSize = UIScreen.main.bounds
+        let backgroundView = UIView(frame: CGRect(x: 0, y: 0, width: screenSize.width, height: screenSize.height))
+        backgroundView.backgroundColor = UIColor.white
+        let noConnectionImage = UIImageView(image: UIImage(named: "Vector"))
+        noConnectionImage.contentMode = .scaleAspectFill
+        noConnectionImage.frame = CGRect(x: 0, y: 254, width: 80, height: 87)
+        noConnectionImage.center.x = backgroundView.center.x
+        
+        let noConnectionLabel = UILabel(frame: CGRect(x: 0, y: 356, width: 300, height: 50))
+        noConnectionLabel.numberOfLines = 2
+        noConnectionLabel.lineBreakMode = .byWordWrapping
+        noConnectionLabel.textAlignment = .center
+        noConnectionLabel.textColor = UIColor.black
+        noConnectionLabel.center.x = backgroundView.center.x
+        
+        noConnectionLabel.text = "Ошибка загрузки данных, проверьте соединение с интернетом"
+        
+        backgroundView.addSubview(noConnectionImage)
+        backgroundView.addSubview(noConnectionLabel)
+        
+        return backgroundView
+    }()
     
 
     private var jsonParsing = EventManager()
@@ -59,6 +83,10 @@ class ViewController: UIViewController, UITableViewDelegate{
         tableView.separatorStyle = .none
         CustomLoader.instance.showLoader()
         prepareRefreshUI()
+        //test
+        self.view.addSubview(noConnectionView)
+        noConnectionView.alpha = 0
+        
         
         jsonParsing.loadEvents(currentDate: currentDate, page: page, completion: { result in
             DispatchQueue.main.async {
@@ -67,7 +95,9 @@ class ViewController: UIViewController, UITableViewDelegate{
                     self.events = eventsFromManager
                     self.tableView.reloadData()
                 case .error:
-                    self.performSegue(withIdentifier: "NoInternet", sender: self)
+                    self.noConnectionView.alpha = 1
+                    self.navigationController?.navigationBar.isHidden = true
+                    self.showNotificationInternetError()
                 }
                 CustomLoader.instance.hidesLoader()
             }
@@ -116,7 +146,9 @@ class ViewController: UIViewController, UITableViewDelegate{
                         }
                         self.tableView.reloadData()
                     case .error:
-                        self.performSegue(withIdentifier: "NoInternet", sender: self)
+                        self.noConnectionView.alpha = 1
+                        self.navigationController?.navigationBar.isHidden = true
+                        self.showNotificationInternetError()
                     }
                     
                 }
@@ -244,7 +276,9 @@ extension ViewController{
                     self.tableView.reloadData()
                     
                 case .error:
-                    self.performSegue(withIdentifier: "NoInternet", sender: self)
+                    self.noConnectionView.alpha = 1
+                    self.navigationController?.navigationBar.isHidden = true
+                    self.showNotificationInternetError()
                 }
                 self.loaderView.stopRotate()
                 self.tableViewRefreshControl.endRefreshing()
@@ -282,6 +316,21 @@ extension ViewController{
             ])
     }
     
+    
+    private func showNotificationInternetError(){
+        let messageView = MessageView.viewFromNib(layout: .messageView)
+        messageView.configureTheme(.error)
+        messageView.configureDropShadow()
+        messageView.iconLabel?.isHidden = true
+        messageView.button?.isHidden = true
+        messageView.configureContent(title: "Ошибка", body: "Проверьте соединение с интернетом")
+        messageView.layoutMarginAdditions = UIEdgeInsets(top: 20, left: 20, bottom: 20, right: 20)
+        
+        var config = SwiftMessages.Config()
+        config.duration = .seconds(seconds: 5)
+        
+        SwiftMessages.show(config: config, view: messageView)
+    }
     
     private func loadDataInTable(in cell: TableViewCell, indexPath: IndexPath){
         let event = self.events[indexPath.row]

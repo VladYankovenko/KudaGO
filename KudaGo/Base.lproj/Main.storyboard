@@ -65,7 +65,7 @@
                                                             <rect key="frame" x="0.0" y="0.0" width="359" height="369.5"/>
                                                             <subviews>
                                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="EventImageTest" translatesAutoresizingMaskIntoConstraints="NO" id="o6R-Zl-4ls">
-                                                                    <rect key="frame" x="0.0" y="0.0" width="359" height="160.00000000000011"/>
+                                                                    <rect key="frame" x="0.0" y="0.0" width="359" height="160"/>
                                                                     <constraints>
                                                                         <constraint firstAttribute="height" constant="160" id="GXf-cK-Izl"/>
                                                                     </constraints>
@@ -232,75 +232,12 @@
                         <outlet property="headerHeightConstraint" destination="xh1-8n-oIY" id="ecc-KZ-PLg"/>
                         <outlet property="mainView" destination="8bC-Xf-vdC" id="feY-NW-V8k"/>
                         <outlet property="tableView" destination="L1J-nZ-2LY" id="qqb-3W-Jtu"/>
-                        <segue destination="kbz-EJ-ypb" kind="show" identifier="NoInternet" id="oxc-82-mxZ"/>
                         <segue destination="3nE-gn-vHa" kind="show" identifier="ShowDetail" id="va1-nW-sEP"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1488.8" y="-261.31934032983509"/>
-        </scene>
-        <!--No Internet View Controller-->
-        <scene sceneID="Zjj-fg-Zae">
-            <objects>
-                <viewController id="kbz-EJ-ypb" customClass="NoInternetViewController" customModule="KudaGo" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="hkx-Vm-AVs">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Nej-S6-pi2" userLabel="HeaderView">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="92"/>
-                                <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Невозможно загрузить данные проверьте соединение с интернетом." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qu4-oX-agE">
-                                        <rect key="frame" x="16" y="36" width="343" height="41"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                </subviews>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="375" id="LEd-oZ-lhK"/>
-                                    <constraint firstAttribute="height" constant="92" id="hXD-tz-ukz"/>
-                                    <constraint firstItem="qu4-oX-agE" firstAttribute="top" secondItem="Nej-S6-pi2" secondAttribute="top" constant="36" id="kxZ-e3-4rC"/>
-                                    <constraint firstAttribute="trailing" secondItem="qu4-oX-agE" secondAttribute="trailing" constant="16" id="pph-ec-xxV"/>
-                                    <constraint firstItem="qu4-oX-agE" firstAttribute="leading" secondItem="Nej-S6-pi2" secondAttribute="leading" constant="16" id="q4j-22-B8w"/>
-                                </constraints>
-                            </view>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Vector" translatesAutoresizingMaskIntoConstraints="NO" id="wvg-Uy-dCR">
-                                <rect key="frame" x="147" y="266" width="80" height="87"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="87" id="74C-iT-X1c"/>
-                                    <constraint firstAttribute="width" constant="80" id="8tt-pO-iRE"/>
-                                </constraints>
-                            </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ошибка загрузки данных, проверьте соединение с интернетом" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DWO-ba-Rsa">
-                                <rect key="frame" x="24" y="379" width="327" height="38.5"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <constraints>
-                            <constraint firstItem="Nej-S6-pi2" firstAttribute="top" secondItem="hkx-Vm-AVs" secondAttribute="top" id="0tX-dW-4Co"/>
-                            <constraint firstItem="Nej-S6-pi2" firstAttribute="leading" secondItem="THq-1f-v7l" secondAttribute="leading" id="5Fg-9e-hfX"/>
-                            <constraint firstItem="DWO-ba-Rsa" firstAttribute="leading" secondItem="THq-1f-v7l" secondAttribute="leading" constant="24" id="7Aj-Mc-uuH"/>
-                            <constraint firstItem="THq-1f-v7l" firstAttribute="trailing" secondItem="DWO-ba-Rsa" secondAttribute="trailing" constant="24" id="KQu-lj-ubm"/>
-                            <constraint firstItem="wvg-Uy-dCR" firstAttribute="top" secondItem="hkx-Vm-AVs" secondAttribute="topMargin" constant="266" id="TVx-vS-TZM"/>
-                            <constraint firstItem="DWO-ba-Rsa" firstAttribute="top" secondItem="wvg-Uy-dCR" secondAttribute="bottom" constant="26" id="nix-C0-vha"/>
-                            <constraint firstItem="wvg-Uy-dCR" firstAttribute="leading" secondItem="THq-1f-v7l" secondAttribute="leading" constant="147" id="pMr-Bq-fC0"/>
-                        </constraints>
-                        <viewLayoutGuide key="safeArea" id="THq-1f-v7l"/>
-                    </view>
-                    <extendedEdge key="edgesForExtendedLayout" bottom="YES"/>
-                    <connections>
-                        <outlet property="headerView" destination="Nej-S6-pi2" id="6ms-Nd-Cmq"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="T6v-El-2RH" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1489" y="756"/>
         </scene>
         <!--Event Detail View Controller-->
         <scene sceneID="jDX-s4-udv">
@@ -502,7 +439,6 @@
     </scenes>
     <resources>
         <image name="EventImageTest" width="700" height="394"/>
-        <image name="Vector" width="80" height="78"/>
         <image name="date_icon" width="24" height="24"/>
         <image name="place_icon" width="36" height="36"/>
         <image name="price_icon" width="24" height="24"/>

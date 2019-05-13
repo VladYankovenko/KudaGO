@@ -10,5 +10,6 @@ target 'KudaGo' do
   # Pods for KudaGo
   #pod 'Alamofire', '~> 5.0.0-beta.3'
   pod 'AlamofireImage', '~> 3.5.0'
+  pod 'SwiftMessages'
 
 end
