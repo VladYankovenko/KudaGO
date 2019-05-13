@@ -8,8 +8,8 @@ target 'KudaGo' do
   use_frameworks!
 
   # Pods for KudaGo
-  #pod 'Alamofire', '~> 5.0.0-beta.3'
-  pod 'AlamofireImage', '~> 3.5.0'
+  pod 'Alamofire', '~> 5.0.0-beta.3'
+  pod 'AlamofireImage', '~> 4.0.0-beta.2'
   pod 'SwiftMessages'
 
 end
